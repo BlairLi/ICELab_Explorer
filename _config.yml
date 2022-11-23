@@ -1,0 +1,5 @@
+theme: jekyll-theme-leap-day
+emoji:
+  src: "https://github.githubassets.com/images/icons/"
+plugins:
+  - jemoji
