@@ -172,7 +172,12 @@ main {
 
 /* DashBoards */
 .stationbar {
-  width: 30%;
-  border: #fc0000;
-  
+  width: 10rem;
+  height: 48rem;
+  border-color: rgb(0, 0, 0);
+  background: #000;
+}
+
+.accordion {
+  background: rgb(242, 0, 0);
 }

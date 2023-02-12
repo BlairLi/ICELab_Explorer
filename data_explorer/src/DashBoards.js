@@ -6,7 +6,7 @@ function DashBoards () {
         <div className="stationbar">
             <div>Station</div>
             <details>
-                <summary>Accordion 1</summary>
+                <summary className="accordion">Accordion 1</summary>
                 <p>…</p>
             </details>
 
