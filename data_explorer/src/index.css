@@ -43,8 +43,13 @@ main {
   background-color: var(--bg-primary);
   transition: width 600ms ease;
   overflow: scroll;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  /* overflow: hidden;  */
+  /* overflow-y: auto;
+  overflow-x: hidden; */
+}
+
+.navbar::-webkit-scrollbar {
+  display: none;
 }
 
 .navbar-nav {
@@ -55,7 +60,7 @@ main {
   flex-direction: column;
   align-items: center;
   height: 100%;
-  width: 100%;
+  width: 110%;
 }
 
 .nav-item {

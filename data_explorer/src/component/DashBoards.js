@@ -7,8 +7,13 @@ function DashBoards () {
         <div className="stationbar">
             <div>Station</div>
             <details>
-                <summary className="accordion">Accordion 1</summary>
-                <p>…</p>
+                <summary>RX3000</summary>
+                <ul>
+                    <li>PAR</li>
+                    <li>Wind Speed</li>
+                    <li>PAR</li>
+                    <li>PAR</li>
+                </ul>
             </details>
 
             <details open>

@@ -1,9 +1,9 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
-}
+} */
 
 html {
   background: #ffffff;
@@ -13,17 +13,17 @@ html {
   text-align: center;
 }
 
-html,
+/* html,
 body {
   height: 100%;
-}
+} */
 
-#root {
+/* #root {
   align-items: center;
   display: flex;
   height: 100%;
   justify-content: center;
-}
+} */
 
 .loginPage {
   width: 100%;

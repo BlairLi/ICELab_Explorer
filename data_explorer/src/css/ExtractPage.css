@@ -4,7 +4,7 @@ h1{
     margin-left: 3%;
 }
 
-p.Cname{
+.Cname{
     font-style: normal;
     font-size: 20px;
     margin-left: 3%;  
@@ -76,92 +76,17 @@ p.Cname{
   }
 
 p.Fileformat{
+    width: 10rem;
     font-style: normal;
     font-size: 20px;
     font-weight: bold;
     margin-left: 3%;
     margin-top: 3%;
+    display: inline-block;
 }
 
 .textBox{
     font-size: 15px; 
-}
-
-.dropdown{
-  position: absolute;
-  width: 300px;
-  height: 60px;
-  margin-left: 18%;
-  top: 21%;
-}
-
-.dropdown::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #333;
-  border-right: 2px solid #333;
-  transform: rotate(135deg);
-  transition: .5s;
-  pointer-events: none;
-}
-
-.dropdown.active::before  {
-  top: 20px;
-  transform: rotate(-45deg);
-}
-
-.dropdown input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 86%;
-  height: 100%;
-  cursor: pointer;
-  padding: 0 20px;
-  background-color: #fff;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-}
-
-.dropdown .option {
-  position: absolute;
-  top: 70px;
-  width: 100%;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  z-index: 1000;
-  display: none;
-}
-
-.dropdown.active .option {
-  display: block;
-  z-index: 1000;
-}
-
-.dropdown .option div {
-  padding: 12px 30px;
-  cursor: pointer;
-}
-
-.dropdown .option div:hover {
-  background: #62baea;
-  color: #fff;
-}
-
-.dropdown .option div i { 
-  position: relative;
-  top: 4px;
-  margin-right: 8px;
-  font-size: 1.2em;
 }
 
 p.From{
@@ -169,13 +94,23 @@ p.From{
   font-size: 20px;
   font-weight: bold;
   margin-left: 3%;
-  margin-top: 4%;
+  margin-top: 3%;
+}
+
+.fileClass{
+  width: 18rem;
+  margin-left: 8rem;
+  display: inline-block;
+}
+
+.Select-input {
+  height: 50rem;
 }
 
 input.startdate{
   background: #ffffff;
   position: absolute;
-  width: 270px;
+  width: 16.5rem;
   top: 35%;
   left: 26.2%;
   padding: 15px;

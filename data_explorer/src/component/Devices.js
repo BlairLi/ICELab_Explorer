@@ -1,5 +1,6 @@
 import "@picocss/pico"
 import '../css/Devices.css';
+import { Route, Routes, Link } from "react-router-dom"
 import React, { Component }  from 'react';
 import { GrOverview } from 'react-icons/gr';
 import { BsGraphUp } from 'react-icons/bs';
@@ -29,10 +30,10 @@ const Devices = () => {
         <div>
             <GrOverview className='icon'/>
             <p className="Text1">Overview</p>
-            <a href="/Graphs">
+            <Link to="/Graphs">
                 <BsGraphUp className='icon1'/>
                 <p className="Text2">Graphs</p>
-            </a>
+            </Link>
             <GrCatalog className='icon2'/>
             <p className="Text3">Logs</p>
         </div>
