@@ -1,6 +1,11 @@
 import "@picocss/pico"
+import { Route, Routes, Link } from "react-router-dom"
 import { useState } from "react";
 import DashBoards from "./DashBoards";
+import Charts from "./component/Chart";
+import ExtractPage from "./ExtractPage";
+import Login from "./Login";
+import Devices from "./Devices";
 
 function App() {
 
@@ -12,11 +17,11 @@ function App() {
 
   return (
     <>
-
+    
     <nav className="navbar">
       <ul className="navbar-nav">
         <li class="logo">
-          <a href="#" class="nav-link">
+          <a href="/" class="nav-link">
             <span class="link-text logo-text">ICELab Queen's</span>
             <svg
               aria-hidden="true"
@@ -44,9 +49,9 @@ function App() {
           </a>
         </li>
 
-        {/* Dash Boards */}
+        {/* DashBoards */}
         <li class="nav-item nav-color" onmouseover={changeColor} >
-          <a href="#" class="nav-link">
+          <a href="/DashBoards" class="nav-link">
             <svg className="fa-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path d="M512 256c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM288
               96c0-17.7-14.3-32-32-32s-32 14.3-32 32s14.3 32 32 32s32-14.3 32-32zM256 416c35.3 0 64-28.7 64
@@ -62,7 +67,7 @@ function App() {
 
         {/* Data */}
         <li class="nav-item nav-color">
-          <a href="#" class="nav-link">
+          <a href="/Data" class="nav-link">
           <svg className="fa-secondary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
             <path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0
              35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9
@@ -75,15 +80,17 @@ function App() {
           </a>
         </li>
 
+        {/* Device */}
         <li class="nav-item nav-color">
-          <a href="#" class="nav-link">
+          <a href="/Devices" class="nav-link">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>
             <span class="link-text">Devices</span>
           </a>
         </li>
 
+        {/* Map */}
         <li class="nav-item nav-color">
-          <a href="#" class="nav-link">
+          <a href="/Map" class="nav-link">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -111,8 +118,9 @@ function App() {
           </a>
         </li>
 
+        {/* History */}
         <li class="nav-item nav-color">
-          <a href="#" class="nav-link">
+          <a href="/History" class="nav-link">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -140,8 +148,9 @@ function App() {
           </a>
         </li>
 
+        {/* Support */}
         <li class="nav-item nav-color">
-          <a href="#" class="nav-link">
+          <a href="/Support" class="nav-link">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -169,8 +178,9 @@ function App() {
           </a>
         </li>
 
+        {/* User */}
         <li class="nav-item nav-color">
-          <a href="#" class="nav-link">
+          <a href="/User" class="nav-link">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -198,8 +208,9 @@ function App() {
           </a>
         </li>
 
+        {/* Login */}
         <li class="nav-item nav-color">
-          <a href="#" class="nav-link">
+          <a href="/Login" class="nav-link">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -223,12 +234,13 @@ function App() {
                 ></path>
               </g>
             </svg>
-            <span class="link-text">Logout</span>
+            <span class="link-text">Login</span>
           </a>
         </li>
 
+        {/* Setting */}
         <li class="nav-item nav-color">
-          <a href="#" class="nav-link">
+          <a href="/Setting" class="nav-link">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -259,7 +271,18 @@ function App() {
     </nav>
 
     <main>
-      <DashBoards></DashBoards>
+      <Routes>
+        <Route path="/DashBoards" element={<DashBoards />} />
+        {/* <Route path="/Charts" element={<Charts />} /> */}
+        <Route path="/Devices" element={<Devices />} />
+        <Route path="/Login" element={<Login />} />
+      </Routes>
+      
+      {/* <Devices></Devices> */}
+      {/* <DashBoards></DashBoards> */}
+      {/* <Charts></Charts> */}
+      {/* <ExtractPage></ExtractPage> */}
+      {/* <Login></Login> */}
     </main>
 
     </>

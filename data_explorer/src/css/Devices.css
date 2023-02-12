@@ -1,0 +1,554 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Public+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Public+Sans:wght@400;500;600&family=Roboto:wght@700&display=swap');
+.grey-block {
+    width: 75%;
+    height: 7%;
+    left: 15%;
+    top: 5%;
+    position: absolute;
+    background: #F7F9FB;
+    border-radius: 16px;
+  }
+
+  .grey-block2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+
+    position: absolute;
+    width: 24%;
+    height: 8%;
+    left: 16%;
+    top: 55%;
+
+    background: #F3F7FB;
+    border-radius: 16px;
+    transform: rotate(-0.03deg);
+  }
+
+  .grey-block3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+
+    position: absolute;
+    width: 24%;
+    height: 8%;
+    left: 16%;
+    top: 66%;
+
+    background: #F3F7FB;
+    border-radius: 16px;
+    transform: rotate(-0.03deg);
+  }
+
+  .grey-block4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+
+    position: absolute;
+    width: 24%;
+    height: 8%;
+    left: 16%;
+    top: 77%;
+
+    background: #F3F7FB;
+    border-radius: 16px;
+    transform: rotate(-0.03deg);
+  }
+
+  .grey-block5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+
+    position: absolute;
+    width: 24%;
+    height: 8%;
+    left: 16%;
+    top: 88%;
+
+    background: #F3F7FB;
+    border-radius: 16px;
+    transform: rotate(-0.03deg);
+  }
+
+  .grey-block6 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+
+    position: absolute;
+    width: 24%;
+    height: 8%;
+    left: 53%;
+    top: 55%;
+
+    background: #F3F7FB;
+    border-radius: 16px;
+    transform: rotate(-0.03deg);
+  }
+
+  .grey-block7 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+
+    position: absolute;
+    width: 24%;
+    height: 8%;
+    left: 53%;
+    top: 66%;
+
+    background: #F3F7FB;
+    border-radius: 16px;
+    transform: rotate(-0.03deg);
+  }
+
+  .Text{
+    position: absolute;
+    width: 60%;
+    height: 12%;
+    left: 17%;
+    top: 7.5%;
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1C1C1C;
+  }
+
+  .Text1{
+    position: absolute;
+    width: 60%;
+    height: 12%;
+    left: 34%;
+    top: 7.5%;
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1C1C1C;
+  }
+
+  .Text2{
+    position: absolute;
+    width: 60%;
+    height: 12%;
+    left: 45%;
+    top: 7.5%;
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1C1C1C;
+  }
+
+  .Text3{
+    position: absolute;
+    width: 60%;
+    height: 12%;
+    left: 55%;
+    top: 7.5%;
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1C1C1C;
+  }
+
+  .Text4{
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    left: 16%;
+    top: 2%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+
+    color: #000000;
+
+  }
+
+  .Text5{
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    left: 16%;
+    top: 30%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+
+    color: #000000;
+  }
+
+  .Communcation{
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    left: 53%;
+    top: 30%;
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+    color: #000000;
+  }
+
+  .Plan_Number{
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    height: 80%;
+    left: 55%;
+    top: 57.5%;
+    color: #1D3A70;
+  }
+
+  .Plan_Start{
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    height: 80%;
+    left: 55%;
+    top: 68.5%;
+    color: #1D3A70;
+  }
+
+  .Status{
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    height: 80%;
+    left: 18%;
+    top: 57.5%;
+    color: #1D3A70;
+  }
+
+  .Memory{
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    height: 80%;
+    left: 18%;
+    top: 68.5%;
+    color: #1D3A70;
+  }
+
+  .NickName{
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    height: 80%;
+    left: 18%;
+    top: 79.5%;
+    color: #1D3A70;
+  }
+
+  .Serial_Number{
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    height: 80%;
+    left: 18%;
+    top: 90.5%;
+    color: #1D3A70;
+  }
+
+ .drop-down{
+    position: absolute;
+    left: 22%;
+    top: 6%;
+    height: 5%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    --border-width: 0px;
+  }
+
+  .icon{
+    position: absolute;
+    width: 20px;
+    height: 5%;
+    left: 32%;
+    top: 6.3%;
+    color: blue;
+  }
+
+  .icon1{
+    position: absolute;
+    width: 20px;
+    height: 5%;
+    left: 43%;
+    top: 6.3%;
+    color: #1273de;
+  }
+
+  .icon2{
+    position: absolute;
+    width: 20px;
+    height: 5%;
+    left: 53%;
+    top: 6.3%;
+    color: #1273de;
+  }
+
+  .TbTemperature{
+    position: absolute;
+    width: 6%;
+    height: 15%;
+    left: 24%;
+    top: 29%;
+    color: #fdfdfd;
+  }
+
+  .SlGraph{
+    position: absolute;
+    width: 6%;
+    height: 15%;
+    left: 41%;
+    top: 29%;
+    color: #fdfdfd;
+  }
+
+  .CgPinBottom{
+    position: absolute;
+    width: 6%;
+    height: 15%;
+    left: 59%;
+    top: 29%;
+    color: #fdfdfd;
+  }
+
+  .FaWind{
+    position: absolute;
+    width: 4%;
+    height: 15%;
+    left: 77%;
+    top: 29%;
+    color: #fdfdfd;
+  }
+
+ .blue-block{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 16%;
+    top: 25%;
+    background:
+    rgba(18, 137, 255, 1);
+    border-radius: 25px;
+ }
+
+ .blue-block2{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 33%;
+    top: 25%;
+    background: rgba(18, 137, 255, 0.69);
+    border-radius: 25px;
+ }
+
+ .blue-block3{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 50%;
+    top: 25%;
+    background: rgba(18, 137, 255, 1);
+    border-radius: 25px;
+ }
+
+ .blue-block4{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 67%;
+    top: 25%;
+    background: rgba(18, 137, 255, 0.69);
+    border-radius: 25px;
+ }
+
+ .TbTemperature_Text{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 17%;
+    top: 16%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+
+    color:white;
+ }
+
+ .TbTemperature_Text2{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 17%;
+    top: 21%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 28px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+
+    color:white;
+ }
+
+ .RH_Text2{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 34%;
+    top: 21%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 28px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+
+    color:white;
+ }
+
+ .RH_Text{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 34%;
+    top: 16%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 28px;
+    line-height: 28px;
+    display: flex;
+    align-items: flex-end;
+
+    color:white;
+ }
+
+ .CgPinBottom_Text{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 51%;
+    top: 27.5%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 28px;
+    line-height: 28px;
+    display: flex;
+    color:white;
+  }
+
+  .CgPinBottom_Text2{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 51%;
+    top: 32.5%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 28px;
+    line-height: 28px;
+    display: flex;
+    color:white;
+  }
+
+  .FaWind_Text{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 68%;
+    top: 27.5%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 28px;
+    line-height: 28px;
+    display: flex;
+    color:white;
+  }
+
+  .FaWind_Text2{
+    position: absolute;
+    width: 14%;
+    height: 15%;
+    left: 68%;
+    top: 32.5%;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 28px;
+    line-height: 28px;
+    display: flex;
+    color:white;
+  }
