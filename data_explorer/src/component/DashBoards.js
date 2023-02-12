@@ -1,4 +1,5 @@
 import "@picocss/pico"
+import '../css/DashBoards.css';
 
 function DashBoards () {
     return (

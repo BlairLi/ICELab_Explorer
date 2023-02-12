@@ -303,6 +303,7 @@
   }
 
  .drop-down{
+    z-index: 1;
     position: absolute;
     left: 22%;
     top: 6%;

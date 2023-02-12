@@ -1,5 +1,5 @@
 import "@picocss/pico"
-import './css/Devices.css';
+import '../css/Devices.css';
 import React, { Component }  from 'react';
 import { GrOverview } from 'react-icons/gr';
 import { BsGraphUp } from 'react-icons/bs';
@@ -14,7 +14,7 @@ const Devices = () => {
     //const size = useWindowSize();
     return (
         <>
-        {/* {size.width > 600}*/}
+        {/* {size.width > 600} */}
         <div className="grey-block"></div>
         <p className="Text">Devices</p>
 
@@ -29,8 +29,10 @@ const Devices = () => {
         <div>
             <GrOverview className='icon'/>
             <p className="Text1">Overview</p>
-            <BsGraphUp className='icon1'/>
-            <p className="Text2">Graphs</p>
+            <a href="/Graphs">
+                <BsGraphUp className='icon1'/>
+                <p className="Text2">Graphs</p>
+            </a>
             <GrCatalog className='icon2'/>
             <p className="Text3">Logs</p>
         </div>

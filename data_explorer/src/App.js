@@ -1,11 +1,12 @@
 import "@picocss/pico"
 import { Route, Routes, Link } from "react-router-dom"
 import { useState } from "react";
-import DashBoards from "./DashBoards";
+import DashBoards from "./component/DashBoards";
 import Charts from "./component/Chart";
-import ExtractPage from "./ExtractPage";
-import Login from "./Login";
-import Devices from "./Devices";
+import ExtractPage from "./component/ExtractPage";
+import Login from "./component/Login";
+import Devices from "./component/Devices";
+import WindRose from "./WindRose";
 
 function App() {
 
@@ -273,16 +274,18 @@ function App() {
     <main>
       <Routes>
         <Route path="/DashBoards" element={<DashBoards />} />
-        {/* <Route path="/Charts" element={<Charts />} /> */}
+        <Route path="/Graphs" element={<Charts />} />
         <Route path="/Devices" element={<Devices />} />
         <Route path="/Login" element={<Login />} />
       </Routes>
       
+
       {/* <Devices></Devices> */}
       {/* <DashBoards></DashBoards> */}
       {/* <Charts></Charts> */}
       {/* <ExtractPage></ExtractPage> */}
       {/* <Login></Login> */}
+      {/* <WindRose></WindRose> */}
     </main>
 
     </>

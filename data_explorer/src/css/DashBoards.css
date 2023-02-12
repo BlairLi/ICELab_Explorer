@@ -1,0 +1,12 @@
+
+.stationbar {
+    width: 10rem;
+    height: 48rem;
+    border-color: rgb(0, 0, 0);
+    background: #F7F9FB;
+    border-radius: 16px;
+  }
+  
+  .accordion {
+    /* background: rgb(242, 0, 0); */
+  }
