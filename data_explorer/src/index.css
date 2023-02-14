@@ -38,8 +38,10 @@ main {
 }
 
 .navbar {
+  z-index: 1000;
   padding-left: 0.5rem; /* self add */
   position: fixed;
+  left: 0;
   background-color: var(--bg-primary);
   transition: width 600ms ease;
   overflow: scroll;

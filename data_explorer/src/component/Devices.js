@@ -16,18 +16,8 @@ const Devices = () => {
     return (
         <>
         {/* {size.width > 600} */}
-        <div className="grey-block"></div>
-        <p className="Text">Devices</p>
-
-        <div className="drop-down">
-            <select>
-                <option value="RA3000">RA3000</option>
-                <option value="RA4000">RA4000</option>
-                <option value="RA5000">RA5000</option>
-            </select> 
-        </div>
-
-        <div>
+        <div className="grey-block">
+            <p className="Text">Devices</p>
             <GrOverview className='icon'/>
             <p className="Text1">Overview</p>
             <Link to="/Graphs">
@@ -37,6 +27,15 @@ const Devices = () => {
             <GrCatalog className='icon2'/>
             <p className="Text3">Logs</p>
         </div>
+
+        <div className="drop-down">
+            <select>
+                <option value="RA3000">RA3000</option>
+                <option value="RA4000">RA4000</option>
+                <option value="RA5000">RA5000</option>
+            </select> 
+        </div>
+        
         <p className="Text4">Smart Sensor</p>
         <div className="blue-block"></div>
         <TbTemperature className='TbTemperature'/>
