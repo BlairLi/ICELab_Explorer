@@ -127,10 +127,10 @@
 
   .Text{
     position: absolute;
-    width: 60%;
-    height: 12%;
-    left: 17%;
-    top: 7.5%;
+    width: 8%;
+    height: 50%;
+    margin-top: 1.5rem;
+    left: 0.5rem;
     font-family: 'Inter';
     font-weight: 800;
     font-size: 14px;
@@ -140,10 +140,10 @@
 
   .Text1{
     position: absolute;
-    width: 60%;
-    height: 12%;
-    left: 34%;
-    top: 7.5%;
+    width: 8%;
+    height: 50%;
+    margin-top: 1.5rem;
+    left: 19.5rem;
     font-family: 'Inter';
     font-weight: 800;
     font-size: 14px;
@@ -153,10 +153,10 @@
 
   .Text2{
     position: absolute;
-    width: 60%;
-    height: 12%;
-    left: 45%;
-    top: 7.5%;
+    width: 8%;
+    height: 50%;
+    margin-top: 1.5rem;
+    left: 28.5rem;
     font-family: 'Inter';
     font-weight: 800;
     font-size: 14px;
@@ -166,10 +166,10 @@
 
   .Text3{
     position: absolute;
-    width: 60%;
-    height: 12%;
-    left: 55%;
-    top: 7.5%;
+    width: 8%;
+    height: 50%;
+    margin-top: 1.5rem;
+    left: 37.5rem;
     font-family: 'Inter';
     font-weight: 800;
     font-size: 14px;
@@ -316,28 +316,28 @@
 
   .icon{
     position: absolute;
-    width: 20px;
-    height: 5%;
-    left: 32%;
-    top: 6.3%;
+    left: 15.5rem;
+    width: 8%;
+    height: 35%;
+    margin-top: 1.5rem;
     color: blue;
   }
 
   .icon1{
     position: absolute;
-    width: 20px;
-    height: 5%;
-    left: 43%;
-    top: 6.3%;
+    left: 24.5rem;
+    width: 8%;
+    height: 35%;
+    margin-top: 1.5rem;
     color: #1273de;
   }
 
   .icon2{
     position: absolute;
-    width: 20px;
-    height: 5%;
-    left: 53%;
-    top: 6.3%;
+    left: 33.5rem;
+    width: 8%;
+    height: 35%;
+    margin-top: 1.5rem;
     color: #1273de;
   }
 

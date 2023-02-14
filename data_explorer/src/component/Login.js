@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import '../css/Login.css';
+import '../css/Login.css';
 
 class Login extends Component {
   handleSubmit = e => {
@@ -33,7 +33,7 @@ class Login extends Component {
   render() {
     return (
       <div className="App">
-        <div className="logo">
+        <div className="logoLogin">
           <label className="bluePart">ICELab </label>
           <label className="blackPart">Queen's</label>
         </div>
