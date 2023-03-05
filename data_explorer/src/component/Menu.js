@@ -32,7 +32,7 @@ function Menu() {
                 <path
                   fill="currentColor"
                   d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
-                  class="fa-secondary"
+                  class="fa-primary"
                 ></path>
                 <path
                   fill="currentColor"
@@ -232,6 +232,36 @@ function Menu() {
             <span class="link-text">Login</span>
           </Link>
         </li>
+
+        {/* ExtractPage */}
+        <li class="nav-item nav-color">
+          <Link to="/ExtractPage" class="nav-link">
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fad"
+              data-icon="alien-monster"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512"
+              class="svg-inline--fa fa-alien-monster fa-w-18 fa-9x"
+            >
+              <g class="fa-group">
+                <path
+                  fill="currentColor"
+                  d="M560,128H528a15.99954,15.99954,0,0,0-16,16v80H480V176a15.99954,15.99954,0,0,0-16-16H416V96h48a16.00079,16.00079,0,0,0,16-16V48a15.99954,15.99954,0,0,0-16-16H432a15.99954,15.99954,0,0,0-16,16V64H368a15.99954,15.99954,0,0,0-16,16v48H224V80a15.99954,15.99954,0,0,0-16-16H160V48a15.99954,15.99954,0,0,0-16-16H112A15.99954,15.99954,0,0,0,96,48V80a16.00079,16.00079,0,0,0,16,16h48v64H112a15.99954,15.99954,0,0,0-16,16v48H64V144a15.99954,15.99954,0,0,0-16-16H16A15.99954,15.99954,0,0,0,0,144V272a16.00079,16.00079,0,0,0,16,16H64v80a16.00079,16.00079,0,0,0,16,16h48v80a16.00079,16.00079,0,0,0,16,16h96a16.00079,16.00079,0,0,0,16-16V432a15.99954,15.99954,0,0,0-16-16H192V384H384v32H336a15.99954,15.99954,0,0,0-16,16v32a16.00079,16.00079,0,0,0,16,16h96a16.00079,16.00079,0,0,0,16-16V384h48a16.00079,16.00079,0,0,0,16-16V288h48a16.00079,16.00079,0,0,0,16-16V144A15.99954,15.99954,0,0,0,560,128ZM224,320H160V224h64Zm192,0H352V224h64Z"
+                  class="fa-secondary"
+                ></path>
+                <path
+                  fill="currentColor"
+                  d="M160,320h64V224H160Zm192-96v96h64V224Z"
+                  class="fa-primary"
+                ></path>
+              </g>
+            </svg>
+            <span class="link-text">ExtractPage</span>
+          </Link>
+        </li> 
 
         {/* Setting */}
         <li class="nav-item nav-color">

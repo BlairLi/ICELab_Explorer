@@ -45,9 +45,6 @@ main {
   background-color: var(--bg-primary);
   transition: width 600ms ease;
   overflow: scroll;
-  /* overflow: hidden;  */
-  /* overflow-y: auto;
-  overflow-x: hidden; */
 }
 
 .navbar::-webkit-scrollbar {

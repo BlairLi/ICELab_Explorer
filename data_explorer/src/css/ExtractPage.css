@@ -1,18 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
-h1{
-    margin-left: 3%;
+.column{
+  position: relative;
+  float: left;
+  left: 10rem;
+  width: 50rem;
+  height: 50rem;
 }
 
-.Cname{
-    font-style: normal;
-    font-size: 20px;
-    margin-left: 3%;  
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.heading1{
+  position: relative;
+  text-align: left;
+}
+
+.cusName{
+  font-style: normal;
+  text-align: left;
+  font-size: 20px;
 }
 
 .custom-field {
-    margin-left: 12%;
     position: relative;
+    left: 10rem;
     font-size: 14px;
     border-top: 20px solid transparent;
     margin-bottom: 5px;
@@ -24,8 +39,8 @@ h1{
     background: #f2f2f2;
     padding: var(--field-padding);
     border-radius: 10px;
-    width: 260px;
-    height: 25px;
+    width: 15.5rem;
+    height: 3rem;
     outline: none;
     font-size: 14px;
 }
@@ -75,44 +90,55 @@ h1{
     width: auto
   }
 
-p.Fileformat{
-    width: 10rem;
-    font-style: normal;
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 3%;
-    margin-top: 3%;
-    display: inline-block;
-}
-
-.textBox{
-    font-size: 15px; 
-}
-
-p.From{
+.fileFormat{
+  text-align: left;
   font-style: normal;
   font-size: 20px;
-  font-weight: bold;
-  margin-left: 3%;
-  margin-top: 3%;
+  font-weight:bold;
+  color: #000000;
+  margin-top: 5rem;
+  float:left;
 }
 
-.fileClass{
-  width: 18rem;
-  margin-left: 8rem;
-  display: inline-block;
+.dropDown{
+  position: relative;
+  width: 15rem;
+  height: 3rem;
+  top: 4.5rem;
+  left: 7rem;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; 
+  border-radius: 8px;
+  --border-width: 0px;
+  float:left;
 }
 
-.Select-input {
-  height: 50rem;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.from{
+  text-align: left;
+  font-style: normal;
+  font-size: 20px;
+  font-weight:bold;
+  color: #000000;
+  margin-top: 12rem;
+  clear: both;
 }
 
 input.startdate{
+  position: relative;
   background: #ffffff;
   position: absolute;
-  width: 16.5rem;
-  top: 35%;
-  left: 26.2%;
+  width: 15rem;
+  left: 22rem;
+  top: 25rem;
   padding: 15px;
   transform: translate(-50%,-50%);
   font-family: monospace;
@@ -131,20 +157,23 @@ input.startdate{
   border-radius: 3px;
 }
 
-p.To{
+.to{
+  text-align: left;
   font-style: normal;
   font-size: 20px;
-  font-weight: bold;
-  margin-left: 3%;
-  margin-top: 4.2%;
+  font-weight:bold;
+  color: #000000;
+  margin-top: 5rem;
+  clear: both;
 }
 
 input.Enddate{
+  position: relative;
   background: #ffffff;
   position: absolute;
-  width: 270px;
-  top: 46%;
-  left: 26.2%;
+  width: 15rem;
+  top: 32rem;
+  left: 22rem;
   padding: 15px;
   transform: translate(-50%,-50%);
   font-family: monospace;
@@ -156,10 +185,26 @@ input.Enddate{
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-p.Deviceset{
+.antdCheck{
+  text-align: left;
+
+}
+
+.device{
+  text-align: left;
   font-style: normal;
-  font-size: 32px;
-  font-weight: bold;
-  margin-left: 3%;
-  margin-top: 10%;
+  font-size: 20px;
+  font-weight:bold;
+  color: #000000;
+  margin-top: 1rem;
+  float:left;
+}
+
+.station{
+  text-align: left;
+  font-style: normal;
+  font-size: 20px;
+  font-weight:bold;
+  color: #000000;
+  margin-top: 5rem;
 }

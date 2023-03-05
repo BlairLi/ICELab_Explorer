@@ -1,14 +1,77 @@
+.DataBoard {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
 
 .stationbar {
-    width: 10rem;
-    height: 48rem;
-    margin-left: 2rem;
-    padding: 2rem;
-    border-color: rgb(0, 0, 0);
-    background: #F7F9FB;
-    border-radius: 16px;
-  }
-  
-  .accordion {
-    /* background: rgb(242, 0, 0); */
-  }
+  width: 10rem;
+  height: 90vh;
+  /* margin: 0; */
+  margin-left: 2rem;
+  padding-top: 2rem;
+  padding-right: 0.5rem;
+  border-color: rgb(0, 0, 0);
+  background: #F7F9FB;
+  border-radius: 16px;
+}
+
+.stationbarheader {
+  font-size: 20px;
+  padding-bottom: 2rem;
+}
+
+.stationbarul {
+  font-size: 18px;
+}
+
+.stationbaraccordian {
+  font-size: 16px;
+  list-style: none;
+  margin-left: 2rem;
+  text-align: left;
+}
+
+.stationbaraccordiantext {
+  list-style: none;
+}
+
+.stationbaraccordian svg {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.stationbaraccordian li {
+  list-style: none;
+}
+
+.DashBoardContent {
+  display: flex;
+  padding: 0 2rem;
+  flex-direction: column;
+  width: 100%;
+  height: 90vh;
+  font-size: 20px;
+
+}
+
+h1{
+  margin: 0;
+}
+
+.CreateMoreButton{
+  background-color: #1289FF;
+  width: 15rem;
+  height: 5vh;
+  margin: 0;
+}
+
+.diagramList{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
