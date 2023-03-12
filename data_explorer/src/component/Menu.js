@@ -173,9 +173,9 @@ function Menu() {
           </Link>
         </li>
 
-        {/* User */}
+        {/* Admin */}
         <li class="nav-item nav-color">
-          <Link to="/User" class="nav-link">
+          <Link to="/Admin" class="nav-link">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -199,7 +199,7 @@ function Menu() {
                 ></path>
               </g>
             </svg>
-            <span class="link-text">User</span>
+            <span class="link-text">Admin</span>
           </Link>
         </li>
 
