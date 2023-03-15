@@ -23,24 +23,19 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Menu />}>
-            <Route path="DashBoards" element={<DashBoards />} />
-            <Route path="Graphs" element={<WindRose />} />
-            <Route path="Station" element={<Station />} />
-            <Route path="ExtractPage" element={<ExtractPage />} />
-            <Route path="unauthorized" element={<Unauthorized />} />
-            <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-              <Route path="Admin" element={<Admin/>}></Route>
-            </Route>
+              <Route path="DashBoards" element={<DashBoards />} />
+              <Route path="Graphs" element={<WindRose />} />
+              <Route path="Station" element={<Station />} />
+              <Route path="ExtractPage" element={<ExtractPage />} />
+              <Route path="unauthorized" element={<Unauthorized />} />
+              {/* we want to protect these routes */}
+              <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+                <Route path="Admin" element={<Admin/>}></Route>
+              </Route>
           </Route>
-
-          {/* we want to protect these routes */}
-
           <Route path="Login" element={<Login />} />
         </Routes>
 
-
-        {/* <Charts></Charts> */}
-        {/* <WindRose></WindRose> */}
       </main>
 
 

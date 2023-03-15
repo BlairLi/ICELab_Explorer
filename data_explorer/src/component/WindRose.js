@@ -1,5 +1,6 @@
 import ReactECharts from 'echarts-for-react';
 import Axios from 'axios';
+import "../css/WindRose.css"
 import { useEffect, useState } from "react";
 
 const url = "http://127.0.0.1:8000/"

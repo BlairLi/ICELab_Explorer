@@ -3,8 +3,9 @@
 .column{
   position: relative;
   float: left;
-  left: 10rem;
-  width: 50rem;
+  top: 5rem;
+  left: 20rem;
+  width: 40rem;
   height: 50rem;
 }
 

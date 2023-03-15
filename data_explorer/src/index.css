@@ -160,11 +160,20 @@ border-radius: 0.25rem;
   color:#4979D1;
 }
 
-.AiTwotoneSetting{
+.AiTwotoneSetting {
   position: absolute;
   width: 1.445rem;
   height: 2.43rem;
   left: 1.0625rem;
   top: 29.31rem;
+  color:#4979D1;
+}
+
+.RiAdminFill {
+  position: absolute;
+  width: 1.445rem;
+  height: 2.43rem;
+  left: 1.0625rem;
+  top: 33rem;
   color:#4979D1;
 }

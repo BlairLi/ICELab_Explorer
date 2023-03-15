@@ -8,6 +8,7 @@ import { FaHistory } from 'react-icons/fa';
 import { MdContactSupport } from 'react-icons/md';
 import { BiLogIn } from 'react-icons/bi';
 import { AiTwotoneSetting } from 'react-icons/ai';
+import { RiAdminFill } from 'react-icons/ri';
 function Menu() {
 
   return (
@@ -58,10 +59,10 @@ function Menu() {
             </Link>
           </li>
 
-          {/* History */}
+          {/* ExtractPage */}
           <li class="nav-item">
             <Link to="/ExtractPage" class="nav-link">
-              <span class="link-text">History</span>
+              <span class="link-text">ExtractPage</span>
               <FaHistory className='FaHistory'/>
             </Link>
           </li>
@@ -94,7 +95,7 @@ function Menu() {
           <li class="nav-item">
             <Link to="/Admin" class="nav-link">
               <span class="link-text">Admin</span>
-              <BiLogIn className='BiLogIn'/>
+              <RiAdminFill className='RiAdminFill'/>
             </Link>
           </li>
           </div>
