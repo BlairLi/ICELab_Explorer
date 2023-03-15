@@ -1,22 +1,49 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 
-h1{
-    margin-left: 3%;
+.column{
+  position: relative;
+  float: left;
+  left: 10rem;
+  width: 50rem;
+  height: 50rem;
 }
 
-.Cname{
-    font-style: normal;
-    font-size: 20px;
-    margin-left: 3%;  
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.heading1{
+  position: relative;
+  text-align: left;
+}
+
+.buttonNav{
+  width: 50rem;
+  height: 8rem;
+  display: flex;
+  /* background-color: #aaa; */
+}
+
+.cusName{
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  font-style: normal;
+  font-size: 20px;
+  font-weight:bold;
+  color: #000000;
 }
 
 .custom-field {
-    margin-left: 12%;
     position: relative;
+    height: 5rem;
+    top:1rem;
+    left: 8rem;
     font-size: 14px;
     border-top: 20px solid transparent;
-    margin-bottom: 5px;
-    display: inline-block;
+    display: flex;
     --field-padding: 12px;
 }
   
@@ -24,8 +51,8 @@ h1{
     background: #f2f2f2;
     padding: var(--field-padding);
     border-radius: 10px;
-    width: 260px;
-    height: 25px;
+    width: 15.5rem;
+    height: 3rem;
     outline: none;
     font-size: 14px;
 }
@@ -75,51 +102,48 @@ h1{
     width: auto
   }
 
-p.Fileformat{
-    width: 10rem;
-    font-style: normal;
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 3%;
-    margin-top: 3%;
-    display: inline-block;
-}
-
-.textBox{
-    font-size: 15px; 
-}
-
-p.From{
+.fileFormat{
+  display: flex;
+  align-items: center;
   font-style: normal;
   font-size: 20px;
-  font-weight: bold;
-  margin-left: 3%;
-  margin-top: 3%;
+  font-weight:bold;
+  color: #000000;
+  margin-right: 7rem;
+  margin-bottom: 0;
 }
 
-.fileClass{
-  width: 18rem;
-  margin-left: 8rem;
-  display: inline-block;
+.dropDown{
+  width: 15rem;
+  height: 3rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; 
+  border-radius: 8px;
+  --border-width: 0px;
+  margin-top: 2.5rem;
 }
 
-.Select-input {
-  height: 50rem;
+.from{
+  display: flex;
+  align-items: center;
+  font-style: normal;
+  font-size: 20px;
+  font-weight:bold;
+  color: #000000;
+  margin-right: 7rem;
+  margin-bottom: 0;
 }
 
 input.startdate{
+  position: relative;
   background: #ffffff;
-  position: absolute;
-  width: 16.5rem;
-  top: 35%;
-  left: 26.2%;
-  padding: 15px;
+  width: 15rem;
+  left: 11.5rem;
+  top: 4rem;
   transform: translate(-50%,-50%);
   font-family: monospace;
   color: #000000;
   font-size: 15px;
   border: none;
-  outline: none;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
@@ -131,35 +155,47 @@ input.startdate{
   border-radius: 3px;
 }
 
-p.To{
+.to{
+  display: flex;
+  align-items: center;
   font-style: normal;
   font-size: 20px;
-  font-weight: bold;
-  margin-left: 3%;
-  margin-top: 4.2%;
+  font-weight:bold;
+  color: #000000;
+  margin-right: 7rem;
+  margin-bottom: 0;
 }
 
 input.Enddate{
+  position: relative;
   background: #ffffff;
-  position: absolute;
-  width: 270px;
-  top: 46%;
-  left: 26.2%;
-  padding: 15px;
+  width: 15rem;
+  left: 13.5rem;
+  top: 4rem;
   transform: translate(-50%,-50%);
   font-family: monospace;
   color: #000000;
   font-size: 15px;
   border: none;
-  outline: none;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-p.Deviceset{
+.device{
+  text-align: left;
   font-style: normal;
-  font-size: 32px;
-  font-weight: bold;
-  margin-left: 3%;
-  margin-top: 10%;
+  font-size: 20px;
+  font-weight:bold;
+  color: #000000;
+  margin-top: 1rem;
+  float:left;
+}
+
+.station{
+  text-align: left;
+  font-style: normal;
+  font-size: 20px;
+  font-weight:bold;
+  color: #000000;
+  margin-top: 5rem;
 }

@@ -1,12 +1,17 @@
 from flask import Flask, jsonify, request
 import pymongo
+from flask_cors import CORS
 
 application = Flask(__name__)
+CORS(application, resources=r'/*')
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/Sample_Data"
 # application.config["MONGO_URI"] = "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/Sample_data"
 # mongo = pymongo(application)
-application.MongoClient = pymongo.mongo_client.MongoClient("mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
-#application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
+
+
+# application.MongoClient = pymongo.mongo_client.MongoClient(
+#     "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
+application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
 
 
 # @application.route('/record/<rec>', methods=['GET']) XXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -26,7 +31,7 @@ application.MongoClient = pymongo.mongo_client.MongoClient("mongodb+srv://wadezh
 
 @application.route('/', methods=['GET'])
 def homepage():
-    return "Hello World!!"
+    return jsonify({"res": "we are the world"})
 
 
 @application.route('/data/<Device_id>', methods=['GET'])
@@ -88,7 +93,7 @@ def get_one(device_id, rec):
         'RH_Avg': i['RH_Avg'],
         'RECORD': i['RECORD']
     })
-    return jsonify({'result': output})
+    return jsonify({'result': output, "mes": "WhATTTTTTTT THHEEEEE FFFFUUUUCCCCCCKKKKKK"})
 
 
 @application.route('/insert/<device_id>', methods=['POST'])
@@ -278,12 +283,174 @@ def lastest(device_id):
     })
     return jsonify({'result': res})
 
+# line chart数据
+@application.route('/dashboard_dg/<device_id>', methods=['POST'])
+def dashboarddg_fetch(device_id):
+    db = application.MongoClient["Device_Data"]
+    col = db[device_id]
+    From_time = request.json['TIMESTAMP_F']
+    To_time = request.json['TIMESTAMP_T']
+    Var = request.json['Varible']
+    for i in range(10):
+        if col.find_one({"TIMESTAMP": int(From_time) - i * 100}) is not None:
+            F_t = From_time - i * 100
+            break
+        if i == 4:
+            return jsonify({"result": "From time not found"}), 404
+    for n in range(10):
+        if col.find_one({"TIMESTAMP": int(To_time) + n * 100}) is not None:
+            T_t = To_time + n * 100
+            break
+        if n == 4:
+            return jsonify({"result": "To time not found"}), 404
+    f = col.find({'TIMESTAMP': {
+        '$gte': F_t,  # 大于等于
+        "$lte": T_t}  # 小于等于
+    }, {})
+    result = []
+    for m in f:
+        result.append(m[Var])
+    return jsonify({Var: result})
 
-# @application.route('/lastest-status/', methods=['GET'])
-# def lastest(device_id):
-#     db = application.MongoClient["Device_Data"]
-#     col = db[device_id]
+# windrose 用数据
+@application.route('/dashboard_wr/<device_id>', methods=['POST'])
+def dashboardwr_fetch(device_id):
+    db = application.MongoClient["Device_Data"]
+    col = db[device_id]
+    From_time = request.json['TIMESTAMP_F']
+    To_time = request.json['TIMESTAMP_T']
+    for i in range(5):
+        if col.find_one({"TIMESTAMP": int(From_time) - i * 100}) is not None:
+            F_t = int(From_time) + i * 100
+            break
+        if i == 4:
+            return jsonify({"result": "From time not found"}), 404
+    for n in range(5):
+        if col.find_one({"TIMESTAMP": int(To_time) + n * 100}) is not None:
+            T_t = int(To_time) - n * 100
+            break
+        if n == 4:
+            return jsonify({"result": "To time not found"}), 404
+    f = col.find({'TIMESTAMP': {
+        '$gte': F_t,  # 大于等于
+        "$lte": T_t}  # 小于等于
+    }, {})
+    dir_w = []
+    spd = []
+    for m in f:
+        dir_w.append(m['WindDir_resultmean'])
+        spd.append(m['WindSpd_vector_ms'])
+    res = [[0 for j in range(16)] for i in range(8)]
+    # for i in range(len(dir_w)):
+    # return jsonify({"dir": dir_w, "spd": value_w})
+    for i in range(len(dir_w)):
+        wind_level = 0
+        wind_dir_t = 0
+        if spd[i] <= 0.2:
+            wind_level = 0
+        elif spd[i] <= 1.5:
+            wind_level = 1
+        elif spd[i] <= 3.3:
+            wind_level = 2
+        elif spd[i] <= 5.4:
+            wind_level = 3
+        elif spd[i] <= 7.9:
+            wind_level = 4
+        elif spd[i] <= 10.7:
+            wind_level = 5
+        elif spd[i] <= 13.8:
+            wind_level = 6
+        elif spd[i] < 100:
+            wind_level = 7
+
+        if dir_w[i] <= 11.25:
+            wind_dir_t = 0
+        elif dir_w[i] <= 33.75:
+            wind_dir_t = 1
+        elif dir_w[i] <= 56.25:
+            wind_dir_t = 2
+        elif dir_w[i] <= 78.75:
+            wind_dir_t = 3
+        elif dir_w[i] <= 101.25:
+            wind_dir_t = 4
+        elif dir_w[i] <= 123.75:
+            wind_dir_t = 5
+        elif dir_w[i] <= 146.25:
+            wind_dir_t = 6
+        elif dir_w[i] <= 168.75:
+            wind_dir_t = 7
+        elif dir_w[i] <= 191.25:
+            wind_dir_t = 8
+        elif dir_w[i] <= 213.75:
+            wind_dir_t = 9
+        elif dir_w[i] <= 236.25:
+            wind_dir_t = 10
+        elif dir_w[i] <= 258.75:
+            wind_dir_t = 11
+        elif dir_w[i] <= 281.25:
+            wind_dir_t = 12
+        elif dir_w[i] <= 303.75:
+            wind_dir_t = 13
+        elif dir_w[i] <= 326.25:
+            wind_dir_t = 14
+        elif dir_w[i] <= 348.75:
+            wind_dir_t = 15
+        else:
+            wind_dir_t = 0
+        res[wind_level][wind_dir_t] += 1
+    return jsonify({"res": res})
+
+
+# line chart数据
+@application.route('/dashboard_line_xy/<device_id>', methods=['POST'])
+def dashboardline_xy(device_id):
+    db = application.MongoClient["Device_Data"]
+    col = db[device_id]
+    From_time = request.json['TIMESTAMP_F']
+    To_time = request.json['TIMESTAMP_T']
+    Var = request.json['Varible']
+    for i in range(10):
+        if col.find_one({"TIMESTAMP": int(From_time) - i * 100}) is not None:
+            F_t = From_time - i * 100
+            break
+        if i == 4:
+            return jsonify({"result": "From time not found"}), 404
+    for n in range(10):
+        if col.find_one({"TIMESTAMP": int(To_time) + n * 100}) is not None:
+            T_t = To_time + n * 100
+            break
+        if n == 4:
+            return jsonify({"result": "To time not found"}), 404
+    f = col.find({'TIMESTAMP': {
+        '$gte': F_t,  # 大于等于
+        "$lte": T_t}  # 小于等于
+    }, {})
+    result_T = []
+    result_v = []
+    for m in f:
+        result_v.append(m[Var])
+        result_T.append(m["TIMESTAMP"])
+    return jsonify({"x": result_T, "y": result_v})
+
+
+# 测试
+@application.route('/da', methods=['GET'])
+def da():
+    #db = application.MongoClient["Device_Data"]
+    # col = db[device_id]
+    #From_time = request.json['TI']
+    res = [
+        [17, 2, 18, 4, 2, 3, 4, 6, 1, 6, 3, 4, 2, 3, 4, 6],
+        [7, 12, 13, 2, 2, 3, 4, 6, 1, 2, 3, 2, 2, 3, 4, 6],
+        [10, 12, 13, 4, 2, 13, 14, 26, 11, 12, 23, 34, 12, 33, 34, 32],
+        [10, 2, 13, 2, 2, 3, 4, 6, 1, 2, 3, 2, 2, 3, 4, 6],
+        [10, 2, 13, 4, 2, 3, 4, 6, 1, 2, 3, 4, 1, 2, 3, 1],
+        [10, 2, 13, 2, 2, 3, 4, 6, 1, 2, 3, 2, 1, 2, 3, 1],
+        [10, 2, 13, 4, 2, 3, 4, 6, 1, 2, 3, 4, 2, 3, 4, 2],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ] 
+    return jsonify({"res": "HIIIIIIIIII"})
 
 
 if __name__ == "__main__":
-    application.run(debug=True)
+    application.run(debug=True, port=8000)
