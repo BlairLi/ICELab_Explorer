@@ -1,7 +1,6 @@
 import "@picocss/pico"
 import '../css/Devices.css';
 import { Route, Routes, Link } from "react-router-dom"
-import React, { Component }  from 'react';
 import { GrOverview } from 'react-icons/gr';
 import { BsGraphUp } from 'react-icons/bs';
 import { GrCatalog } from 'react-icons/gr';
@@ -11,7 +10,7 @@ import { CgPinBottom } from 'react-icons/cg';
 import { FaWind } from 'react-icons/fa';
 
 //import useWindowSize from './windowsize.js'
-const Devices = () => {
+const Station = () => {
     //const size = useWindowSize();
     return (
         <>
@@ -77,4 +76,4 @@ const Devices = () => {
     );
 }
 
-export default Devices;
+export default Station;

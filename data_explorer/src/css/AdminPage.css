@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  background: #ffffff;
+  min-height: 720px;
+  min-width: 320px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* #root {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+} */
+
+.bgUserProfile{
+  background-size: 100% 25rem;
+  height: 25rem;
+  width: 1920px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+.logoUserProfile {
+  position: absolute;
+  left: 24rem;
+  top: 6rem;
+}
+
+.titleUserProfile {
+  display: inline;
+  font-size: x-large;
+  font-weight: 1000;
+}
+
+.itemBox {
+  height: 30rem;
+  width: 60rem;
+  position: absolute;
+  left: 24rem;
+  top: 13rem;
+  display: flex;
+  background-color: #F3F7FB;
+  border-radius: 16px;
+}
+
+.mainUserProfile {
+  border-radius: 4px;
+  max-width: 50rem;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%,-50%);
+}
+/* .mainUserProfileLeft > .form {
+  margin-bottom: 98px;
+} */
+
+.infoBox {
+  margin-bottom: 1rem;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 400px;
+}
+.infoBox:nth-last-child(-n + 2) {
+  margin-bottom: 0.5rem;
+}
+.infoBox > label,
+.infoBox > input {
+  font-family: 'Roboto', sans-serif;
+  display: inline-block;
+  max-width: 380px;
+  text-align: left;
+  width: 100%;
+}
+.infoBox > label {
+  color: #000000;
+  margin-bottom: 5px;
+}
+.infoBox > input {
+  background: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+  color: #616161;
+  font-size: 16px;
+  height: 40px;
+  outline: 0;
+  padding: 0 15px;
+  transition: all 0.3s;
+}
+.infoBox > input:focus {
+  background: #fff;
+  border-color: #c4c4c4;
+}
+.infoBox > input::placeholder {
+  color: #c4c4c4;
+  font-size: 16px;
+}
+
+.back {
+  height: 1rem;
+  width: 23.5rem;
+  position: absolute;
+  left: 26rem;
+  top: 46rem;
+  margin-bottom: 5px;
+}
+.back:nth-last-child(-n + 2) {
+  margin-bottom: 10px;
+}
+
+button.secondaryBack,
+button.secondaryAdmin {
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  max-width: 420px;
+  outline: 0;
+  padding: 10px 0;
+  transition: background 0.3s;
+  width: 5rem;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #878787;
+  border-radius: 25px;
+  border-color: #878787;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 15px;
+  width: 100%;
+}
+button.secondaryBack:hover,
+button.secondaryAdmin:hover {
+  background: #1289FF;
+  color: #ffffff;
+  border-radius: 25px;
+  border-color: #ffffff;
+}
+button.secondaryAdmin:hover {
+  background: #8578AA;
+}
+
+.adminTableTitle {
+  color: #1D3A98;
+}
+
+.adminTable {
+  color: #000000;
+}

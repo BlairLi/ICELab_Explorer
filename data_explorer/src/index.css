@@ -138,6 +138,8 @@ main {
 
 .logo-text
 {
+  margin-left: 1rem;
+  color: #ffffff;
   display: inline;
   position: absolute;
   left: -999px;

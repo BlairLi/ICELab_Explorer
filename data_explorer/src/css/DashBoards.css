@@ -53,8 +53,6 @@
   display: flex;
   padding: 0 2rem;
   flex-direction: column;
-  width: 100%;
-  height: 90vh;
   font-size: 20px;
 
 }
@@ -70,8 +68,45 @@ h1{
   margin: 0;
 }
 
+.SaveButtonDad{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.SaveButton {
+  background-color: #1289FF;
+  width: 15rem;
+  height: 5vh;
+  margin: 0;
+  
+}
+
+.card {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  margin: 4rem;
+  padding: 2rem;
+  width: 35rem;
+  height: 50vh;
+}
+
+.cardBin {
+  
+}
+
+.actions {
+  text-align: center;
+}
+
 .diagramList{
+  width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  /* align-items: center; */
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 2rem;
+  /* border-style: solid;
+  border-color: coral; */
 }
