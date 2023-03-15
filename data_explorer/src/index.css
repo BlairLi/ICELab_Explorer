@@ -1,4 +1,7 @@
-/* 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Kantumruy:wght@700&family=Public+Sans:wght@800;900&family=Roboto:wght@700&display=swap');
+
+
+/*
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,165 +19,152 @@ code {
 :root {
   font-size: 16px;
   font-family: 'Open Sans';
-  --text-primary: #23232e;
-  --text-secondary: #141418;
-  --bg-primary: #ececec;
-  --bg-secondary: #1289FF;
-  --transition-speed: 600ms;
-  --nav-width: 6rem;
+
 }
 
-body {
-  color: black;
-  background-color: white;
-  margin: 0rem;
-  padding: 0rem;
-}
-
-
-main {
-  margin-left: var(--nav-width); 
-  padding: 1rem;
-}
-
-.navbar {
-  z-index: 1000;
-  padding-left: 0.5rem; /* self add */
-  position: fixed;
-  left: 0;
-  background-color: var(--bg-primary);
-  transition: width 600ms ease;
-  overflow: scroll;
-  /* overflow: hidden;  */
-  /* overflow-y: auto;
-  overflow-x: hidden; */
-}
-
-.navbar::-webkit-scrollbar {
-  display: none;
-}
-
-.navbar-nav {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 110%;
-}
-
-.nav-item {
-  width: 100%;
-}
-
-.nav-item:last-child {
-  margin-top: auto;
-}
-
-.nav-link {
-  display: flex;
-  align-items: center;
-  height: 6rem; /*nav icon size */
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: var(--transition-speed);
-}
-
-.nav-link:hover {
-  background: var(--bg-secondary);
-  color: var(--text-secondary);
-}
-
-.link-text {
-  display: none;
-  margin-left: 1rem;
-  color: #000000;
-}
-
-/* change color of text when hover */
-.nav-color:hover .link-text {
-  color: #ffffff;
-}
-
-/* change color of icon when hover */
-.nav-color:hover .fa-secondary {
-  color: #ffffff;
-}
-
-.nav-link svg {
-  width: 2rem;
-  min-width: 2rem;
-  margin: 0 1.5rem;
-}
-
-.fa-primary {
-  color: #ffffff;
-}
-
-.fa-secondary {
-  color: #1289FF;
-}
-
-.fa-primary,
-.fa-secondary {
-  transition: var(--transition-speed);
-}
-
-.logo {
-  font-weight: bold;
-  /* text-transform: uppercase; */
-  margin-bottom: 1rem;
-  text-align: center;
-  color: var(--bg-primary);
-  background: var(--bg-secondary);
-  font-size: 1.2rem;
-  letter-spacing: 0.2ch;
-  width: 100%;
-}
-
-.logo svg {
-  transform: rotate(0deg);
-  transition: var(--transition-speed);
-}
-
-.logo-text
-{
+.blackPart2 {
   display: inline;
+  font-size: x-large;
+  font-weight: bold;
+  opacity: 73%;
+  color: #141418;
+}
+
+.bluePart2 {
+  display: inline;
+  font-size: x-large;
+  font-weight: bold;
+  color: rgba(0, 120, 240, 1);
+  opacity: 57%;
+}
+
+.menu{
   position: absolute;
-  left: -999px;
-  transition: var(--transition-speed);
+  top: 5rem;
+  left: 2rem;
+  left:1rem;
 }
 
-.navbar:hover .logo svg {
-  transform: rotate(-180deg);
+.menu > ul li {
+  list-style-type: none;
 }
 
-/* Large screens */
-@media only screen and (min-width: 600px) {
-  .navbar {
-    top: 0;
-    width: var(--nav-width);
-    height: 100vh;
-  }
+.link-text{
+  color:#878787;
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1.5625px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin-bottom: 2rem;
 
-  .navbar:hover {
-    width: 16rem;
-  }
-
-  .navbar:hover .link-text {
-    display: inline;
-  }
-
-  .navbar:hover .logo svg
-  {
-    margin-left: 11rem;
-  }
-
-  .navbar:hover .logo-text
-  {
-    left: 0px;
-  }
 }
 
+.logo{
+  margin-bottom: 1.3rem;
+  font-family: 'Kantumruy';
+  font-style: normal;
+}
+
+.greyline{
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 15.4rem;
+  height: 61.375rem;
+  left: 0px;
+  top: 1.69rem;
+
+  background: #FFFFFF;
+  border-right: 0.0625rem solid #D1D1D1;
+}
+
+.nav-item{
+  margin-bottom: calc(var(--typography-spacing-vertical) * 1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.625rem 3.4375rem;
+  gap: 0.5rem;
+  height: 2.1875rem;
+  left: 1rem;
+  top: 12.06rem;
+
+background: #FFFFFF;
+border-radius: 0.25rem;
+}
+
+.RiDashboard2Line{
+  position: absolute;
+  width: 1.625rem;
+  height: 2.4375rem;
+  left: 1.0625rem;
+  top: 3.4375rem;
+  color:#4979D1;
+}
+
+.AiFillDatabase{
+  position: absolute;
+  width: 1.57rem;
+  height: 2.437rem;
+  left: 1.0625rem;
+  top: 7rem;
+  color:#4979D1;
+}
+
+.RiBaseStationFill{
+  position: absolute;
+  width: 1.57rem;
+  height: 2.43rem;
+  left: 1.0625rem;
+  top: 10.8rem;
+  color:#4979D1;
+}
+
+.FaMapMarkedAlt{
+  position: absolute;
+  width: 1.57rem;
+  height: 2.43rem;
+  left: 1.0625rem;
+  top: 14.375rem;
+  color:#4979D1;
+}
+
+.FaHistory{
+  position: absolute;
+  width: 1.445rem;
+  height: 2.43rem;
+  left: 1.18rem;
+  top: 18.125rem;
+  color:#4979D1;
+}
+
+.MdContactSupport{
+  position: absolute;
+  width: 1.445rem;
+  height: 2.43rem;
+  left: 1.18rem;
+  top: 21.875rem;
+  color:#4979D1;
+}
+
+.BiLogIn{
+  position: absolute;
+  width: 1.445rem;
+  height: 2.43rem;
+  left: 0.9375rem;
+  top: 25.56rem;
+  color:#4979D1;
+}
+
+.AiTwotoneSetting{
+  position: absolute;
+  width: 1.445rem;
+  height: 2.43rem;
+  left: 1.0625rem;
+  top: 29.31rem;
+  color:#4979D1;
+}

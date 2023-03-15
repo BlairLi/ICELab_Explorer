@@ -1,0 +1,21 @@
+.Select_Data{
+    position: absolute;
+    width: 531px;
+    height: 58px;
+    left: 526px;
+    top: 88px;
+
+    font-family: 'Kantumruy';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 58px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: #000000;
+
+}
+

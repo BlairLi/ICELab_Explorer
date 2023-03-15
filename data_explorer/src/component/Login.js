@@ -35,7 +35,7 @@ class Login extends Component {
       <div className="App">
         <div className="logoLogin">
           <label className="bluePart">ICELab </label>
-          <label className="blackPart">Queen's</label>
+          <label className="blackPart2">Queen's</label>
         </div>
         <div className="main">
           <label className="login">LOGIN</label>

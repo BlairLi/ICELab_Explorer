@@ -1,14 +1,73 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Kantumruy+Pro:wght@500&family=Kantumruy:wght@700&family=Public+Sans:wght@800;900&family=Roboto:wght@500;700&display=swap');
 .stationbar {
-    width: 10rem;
-    height: 48rem;
-    margin-left: 2rem;
+  position: relative;
+    width: 178px;
+    height: 855px;
+    top: 70px;
+    margin-left: 18rem;
     padding: 2rem;
     border-color: rgb(0, 0, 0);
     background: #F7F9FB;
     border-radius: 16px;
   }
-  
-  .accordion {
-    /* background: rgb(242, 0, 0); */
-  }
+
+  .Select_Data{
+    position: absolute;
+    width: 531px;
+    height: 58px;
+    left: 526px;
+    top: 88px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 58px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: #000000;
+
+}
+
+.BB1{
+  position: absolute;
+  width: 183px;
+  height: 171px;
+  left: 522px;
+  top: 170px;
+
+  background: #1289FF;
+  border-radius: 25px;
+}
+
+.AiOutlineLineChart{
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  left: 549px;
+  top: 205px;
+  color: white;
+}
+
+.LineChart_Text{
+  position: absolute;
+  width: 130px;
+  height: 26px;
+  left: 580px;
+  top: 303px;
+
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 26px;
+  /* identical to box height, or 162% */
+
+  letter-spacing: 0.46px;
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+}

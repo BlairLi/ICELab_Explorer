@@ -1,14 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Public+Sans:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Public+Sans:wght@400;500;600&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Public+Sans:wght@900&family=Roboto:wght@700&display=swap');
+
+div.Scrollbar{
+  overflow: auto;
+  white-space: nowrap;
+  overscroll-behavior-inline: contain;
+  width: 60px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .grey-block {
-    width: 75%;
-    height: 7%;
-    left: 15%;
-    top: 5%;
-    position: absolute;
+  width: 1120px;
+    height: 65px;
+    left: 293px;
+    top: 65px;
+    position:absolute;
     background: #F7F9FB;
-    border-radius: 16px;
+    border-radius: 1rem;
   }
 
   .grey-block2 {
@@ -16,17 +27,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    gap: 16px;
+    padding: 1rem;
+    gap: 1rem;
 
     position: absolute;
-    width: 24%;
-    height: 8%;
-    left: 16%;
-    top: 55%;
+    width: 20.5rem;
+    height: 4rem;
+    left: 293px;
+    top: 27rem;
 
     background: #F3F7FB;
-    border-radius: 16px;
+    border-radius: 1rem;
     transform: rotate(-0.03deg);
   }
 
@@ -35,17 +46,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    gap: 16px;
+    padding: 1rem;
+    gap: 1rem;
 
     position: absolute;
-    width: 24%;
-    height: 8%;
-    left: 16%;
-    top: 66%;
+    width: 20.5rem;
+    height: 4rem;
+    left: 293px;
+    top: 32.5rem;
 
     background: #F3F7FB;
-    border-radius: 16px;
+    border-radius: 1rem;
     transform: rotate(-0.03deg);
   }
 
@@ -54,17 +65,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    gap: 16px;
+    padding: 1rem;
+    gap: 1rem;
 
     position: absolute;
-    width: 24%;
-    height: 8%;
-    left: 16%;
-    top: 77%;
+    width: 20.5rem;
+    height: 4rem;
+    left: 293px;
+    top: 38rem;
 
     background: #F3F7FB;
-    border-radius: 16px;
+    border-radius: 1rem;
     transform: rotate(-0.03deg);
   }
 
@@ -73,17 +84,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    gap: 16px;
+    padding: 1rem;
+    gap: 1rem;
 
     position: absolute;
-    width: 24%;
-    height: 8%;
-    left: 16%;
-    top: 88%;
+    width: 20.5rem;
+    height: 4rem;
+    left: 293px;
+    top: 43.5rem;
 
     background: #F3F7FB;
-    border-radius: 16px;
+    border-radius: 1rem;
     transform: rotate(-0.03deg);
   }
 
@@ -92,17 +103,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    gap: 16px;
+    padding: 1rem;
+    gap: 1rem;
 
     position: absolute;
-    width: 24%;
-    height: 8%;
-    left: 53%;
-    top: 55%;
+    width: 20.5rem;
+    height: 4rem;
+    left: 47.5rem;
+    top: 27rem;
 
     background: #F3F7FB;
-    border-radius: 16px;
+    border-radius: 1rem;
     transform: rotate(-0.03deg);
   }
 
@@ -111,120 +122,100 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
-    gap: 16px;
+    padding: 1rem;
+    gap: 1rem;
 
     position: absolute;
-    width: 24%;
-    height: 8%;
-    left: 53%;
-    top: 66%;
+    width: 20.5rem;
+    height: 4rem;
+    left: 47.5rem;
+    top: 32.5rem;
 
     background: #F3F7FB;
-    border-radius: 16px;
+    border-radius: 1rem;
     transform: rotate(-0.03deg);
   }
 
-  .Text{
+  .Device-device{
     position: absolute;
-    width: 8%;
-    height: 50%;
-    margin-top: 1.5rem;
-    left: 0.5rem;
+    left: 2rem;
+    top: 1.4rem;
     font-family: 'Inter';
     font-weight: 800;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     color: #1C1C1C;
   }
 
-  .Text1{
+  .Device-Overview{
     position: absolute;
-    width: 8%;
-    height: 50%;
-    margin-top: 1.5rem;
-    left: 19.5rem;
+    left: 21rem;
+    top: 1.4rem;
     font-family: 'Inter';
     font-weight: 800;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #1C1C1C;
+    margin:0px;
+  }
+
+  .Device-Graphs{
+    position: absolute;
+    left: 30.3rem;
+    top: 1.4rem;
+    font-family: 'Inter';
+    font-weight: 800;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     color: #1C1C1C;
   }
 
-  .Text2{
+  .Device-Logs{
     position: absolute;
-    width: 8%;
-    height: 50%;
-    margin-top: 1.5rem;
-    left: 28.5rem;
+    left: 38.3rem;
+    top: 1.5rem;
     font-family: 'Inter';
     font-weight: 800;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     color: #1C1C1C;
   }
 
-  .Text3{
+  .Device-SS{
     position: absolute;
-    width: 8%;
-    height: 50%;
-    margin-top: 1.5rem;
-    left: 37.5rem;
-    font-family: 'Inter';
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 20px;
-    color: #1C1C1C;
-  }
-
-  .Text4{
-    position: absolute;
-    width: 20%;
-    height: 20%;
-    left: 16%;
-    top: 2%;
-
+    left: 293px;
+    top: 9rem;
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 800;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.2rem;
     display: flex;
     align-items: flex-end;
-
     color: #000000;
 
   }
 
-  .Text5{
+  .Device-Info{
     position: absolute;
-    width: 20%;
-    height: 20%;
-    left: 16%;
-    top: 30%;
-
+    left: 293px;
+    top: 24rem;
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 900;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 1.2rem;
     display: flex;
     align-items: flex-end;
-
     color: #000000;
   }
 
   .Communcation{
     position: absolute;
-    width: 20%;
-    height: 20%;
-    left: 53%;
-    top: 30%;
+    left: 48rem;
+    top: 24rem;
     font-family: 'Public Sans';
     font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: 1000;
+    font-size: 1.2rem;
     display: flex;
     align-items: flex-end;
     color: #000000;
@@ -235,10 +226,9 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
-    height: 80%;
-    left: 55%;
-    top: 57.5%;
+    font-size: 1.0rem;
+    left: 49.5rem;
+    top: 28.3rem;
     color: #1D3A70;
   }
 
@@ -247,10 +237,9 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
-    height: 80%;
-    left: 55%;
-    top: 68.5%;
+    font-size: 1rem;
+    left: 49.5rem;
+    top: 33.7rem;
     color: #1D3A70;
   }
 
@@ -259,10 +248,9 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
-    height: 80%;
-    left: 18%;
-    top: 57.5%;
+    font-size: 1rem;
+    left: 333px;
+    top: 28.3rem;
     color: #1D3A70;
   }
 
@@ -271,10 +259,9 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
-    height: 80%;
-    left: 18%;
-    top: 68.5%;
+    font-size: 1rem;
+    left: 333px;
+    top: 33.7rem;
     color: #1D3A70;
   }
 
@@ -283,10 +270,9 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
-    height: 80%;
-    left: 18%;
-    top: 79.5%;
+    font-size: 1rem;
+    left: 333px;
+    top: 39.3rem;
     color: #1D3A70;
   }
 
@@ -295,94 +281,105 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 17px;
-    height: 80%;
-    left: 18%;
-    top: 90.5%;
+    font-size: 1rem;
+    left: 333px;
+    top: 44.7rem;
     color: #1D3A70;
   }
 
  .drop-down{
     z-index: 1;
     position: absolute;
-    left: 22%;
-    top: 6%;
-    height: 5%;
+    left: 25.5rem;
+    top:4.7rem;
+    height: 2.5rem;
+    align-items: center;
     background: #FFFFFF;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    --border-width: 0px;
+    border-radius: 0.8rem;
+    --border-width: 0rem;
+    margin-bottom: 0px;
+
   }
 
-  .icon{
+  .CiViewBoard{
     position: absolute;
-    left: 15.5rem;
-    width: 8%;
-    height: 35%;
-    margin-top: 1.5rem;
-    color: blue;
-  }
-
-  .icon1{
-    position: absolute;
-    left: 24.5rem;
-    width: 8%;
-    height: 35%;
-    margin-top: 1.5rem;
+    width: 1.5rem;
+    height: 3.6rem;
+    left: 19rem;
+    top: 0.3rem;
     color: #1273de;
   }
 
-  .icon2{
+  .iconBsGraphUp{
     position: absolute;
-    left: 33.5rem;
-    width: 8%;
-    height: 35%;
-    margin-top: 1.5rem;
+    width: 1.25rem;
+    height: 3.6rem;
+    left: 28rem;
+    top: 0.3rem;
+    color: #1273de;
+  }
+
+  .iconGrCatalog{
+    position: absolute;
+    width: 1.25rem;
+    height: 3.5rem;
+    left: 36rem;
+    top: 0.4rem;
     color: #1273de;
   }
 
   .TbTemperature{
     position: absolute;
-    width: 6%;
-    height: 15%;
-    left: 24%;
-    top: 29%;
-    color: #fdfdfd;
+    width: 88px;
+    height: 81px;
+    left: 390px;
+    top: 260px;
+    color: white;
   }
 
   .SlGraph{
     position: absolute;
-    width: 6%;
-    height: 15%;
-    left: 41%;
-    top: 29%;
+    width: 88px;
+    height: 89px;
+    left: 620px;
+    top: 260px;
     color: #fdfdfd;
   }
 
   .CgPinBottom{
     position: absolute;
-    width: 6%;
-    height: 15%;
-    left: 59%;
-    top: 29%;
+    width: 88px;
+    height: 81px;
+    left: 860px;
+    top: 275px;
     color: #fdfdfd;
   }
 
   .FaWind{
     position: absolute;
-    width: 4%;
-    height: 15%;
-    left: 77%;
-    top: 29%;
+    width: 60px;
+    height: 81px;
+    left: 1110px;
+    top: 265px;
+    color: #fdfdfd;
+  }
+
+  .FaDirections{
+    position: absolute;
+    width: 60px;
+    height: 81px;
+    left: 1345px;
+    top: 265px;
     color: #fdfdfd;
   }
 
  .blue-block{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 16%;
-    top: 25%;
+    width: 177px;
+    height: 130px;
+    left: 293px;
+    top: 200px;
     background:
     rgba(18, 137, 255, 1);
     border-radius: 25px;
@@ -390,45 +387,57 @@
 
  .blue-block2{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 33%;
-    top: 25%;
+    width: 177px;
+    height: 130px;
+    left: 522px;
+    top: 200px;
     background: rgba(18, 137, 255, 0.69);
     border-radius: 25px;
  }
 
  .blue-block3{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 50%;
-    top: 25%;
+    width: 177px;
+    height: 130px;
+    left: 760px;
+    top: 200px;
     background: rgba(18, 137, 255, 1);
     border-radius: 25px;
  }
 
  .blue-block4{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 67%;
-    top: 25%;
+    width: 177px;
+    height: 130px;
+    left: 996px;
+    top: 200px;
     background: rgba(18, 137, 255, 0.69);
     border-radius: 25px;
  }
 
+ .blue-block5{
+  position: absolute;
+  width: 177px;
+    height: 130px;
+    left: 1231px;
+    top: 200px;
+  background: rgba(18, 137, 255, 1);
+  border-radius: 25px;
+  overflow-x: scroll;
+  overflow-x: hidden;
+ }
+
  .TbTemperature_Text{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 17%;
-    top: 16%;
+    width: 174px;
+    height: 41px;
+    left: 310px;
+    top: 205px;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 800;
-    font-size: 24px;
+    font-size: 1.3rem;
     line-height: 28px;
     display: flex;
     align-items: flex-end;
@@ -438,15 +447,15 @@
 
  .TbTemperature_Text2{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 17%;
-    top: 21%;
+    width: 112px;
+    height: 41px;
+    left: 307px;
+    top: 242px;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 28px;
+    font-size: 1.7rem;
     line-height: 28px;
     display: flex;
     align-items: flex-end;
@@ -456,15 +465,15 @@
 
  .RH_Text2{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 34%;
-    top: 21%;
+    width: 112px;
+    height: 41px;
+    left: 540px;
+    top: 242px;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 28px;
+    font-size: 1.7rem;
     line-height: 28px;
     display: flex;
     align-items: flex-end;
@@ -474,15 +483,15 @@
 
  .RH_Text{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 34%;
-    top: 16%;
+    width: 112px;
+    height: 41px;
+    left: 540px;
+    top: 205px;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 28px;
+    font-size: 1.3rem;
     line-height: 28px;
     display: flex;
     align-items: flex-end;
@@ -492,15 +501,15 @@
 
  .CgPinBottom_Text{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 51%;
-    top: 27.5%;
+    width: 112px;
+    height: 41px;
+    left: 780px;
+    top: 220px;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 28px;
+    font-size: 1.5rem;
     line-height: 28px;
     display: flex;
     color:white;
@@ -508,15 +517,15 @@
 
   .CgPinBottom_Text2{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 51%;
-    top: 32.5%;
+    width: 112px;
+    height: 41px;
+    left: 780px;
+    top: 255px;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 28px;
+    font-size: 1.5rem;
     line-height: 28px;
     display: flex;
     color:white;
@@ -524,15 +533,15 @@
 
   .FaWind_Text{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 68%;
-    top: 27.5%;
+    width: 112px;
+    height: 41px;
+    left: 1010px;
+    top: 220px;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 28px;
+    font-size: 1.3rem;
     line-height: 28px;
     display: flex;
     color:white;
@@ -540,16 +549,58 @@
 
   .FaWind_Text2{
     position: absolute;
-    width: 14%;
-    height: 15%;
-    left: 68%;
-    top: 32.5%;
+    width: 112px;
+    height: 41px;
+    left: 1010px;
+    top: 255px;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 28px;
+    font-size: 1.6rem;
     line-height: 28px;
     display: flex;
     color:white;
+  }
+
+  .FaDirections_Text{
+    position: absolute;
+    width: 112px;
+    height: 41px;
+    left: 1242px;
+    top: 220px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    line-height: 28px;
+    display: flex;
+    color:white;
+  }
+
+  .FaDirections_Text2{
+    position: absolute;
+    width: 112px;
+    height: 41px;
+    left: 1242px;
+    top: 255px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.5rem;
+    line-height: 28px;
+    display: flex;
+    color:white;
+  }
+
+.hover{
+    z-index: 1;
+    height: 10%;
+}
+  .Text1:hover{
+    background: #1289FF;
+    border-radius: 25px;
+    width: 6rem;
   }
