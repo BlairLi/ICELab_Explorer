@@ -1,0 +1,138 @@
+.menu {
+    left: 0;
+}
+
+.greyline{
+    height: 95%;
+    min-height: 55rem;
+}
+
+.navbar-nav {
+    margin-bottom: 3.5rem;
+}
+
+.nav-link,
+.nav-item {
+    width: 15.25rem;
+    height: 2.5rem;
+    margin-bottom: 1.1875rem;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-item {
+    padding: 0 0 0 0;
+}
+
+.nav-link:hover {
+    background-color: #1289FF;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.nav-link:hover .link-text,
+.nav-link:hover .AiFillDatabase,
+.nav-link:hover .RiDashboard2Line,
+.nav-link:hover .RiBaseStationFill,
+.nav-link:hover .FaMapMarkedAlt,
+.nav-link:hover .FaHistory,
+.nav-link:hover .MdContactSupport,
+.nav-link:hover .BiLogIn,
+.nav-link:hover .AiTwotoneSetting,
+.nav-link:hover .RiAdminFill
+{
+    color: #FFF;
+}
+
+.link-text {
+    float: left;
+    padding-left: 5.5rem;
+    margin-bottom: 0;
+    width: 15.25rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: left;
+}
+
+.AiFillDatabase{
+    position: absolute;
+    width: 1.625rem;
+    height: 2.4375rem;
+    left: 1.0625rem;
+    top: 1.2rem;
+    color:#4979D1;
+  }
+  
+  .RiDashboard2Line{
+    position: absolute;
+    width: 1.57rem;
+    height: 2.437rem;
+    left: 1.0625rem;
+    top: 5.2rem;
+    color:#4979D1;
+  }
+  
+  .RiBaseStationFill{
+    position: absolute;
+    width: 1.57rem;
+    height: 2.43rem;
+    left: 1.0625rem;
+    top: 8.9625rem;
+    color:#4979D1;
+  }
+  
+  .FaMapMarkedAlt{
+    position: absolute;
+    width: 1.57rem;
+    height: 2.43rem;
+    left: 1.0625rem;
+    top: 12.5375rem;
+    color:#4979D1;
+  }
+  
+  .FaHistory{
+    position: absolute;
+    width: 1.445rem;
+    height: 2.43rem;
+    left: 1.18rem;
+    top: 16.2875rem;
+    color:#4979D1;
+  }
+  
+  .MdContactSupport{
+    position: absolute;
+    width: 1.445rem;
+    height: 2.43rem;
+    left: 1.18rem;
+    top: 20.0375rem;
+    color:#4979D1;
+  }
+  
+  .BiLogIn{
+    position: absolute;
+    width: 1.445rem;
+    height: 2.43rem;
+    left: 0.9375rem;
+    top: 23.7225rem;
+    color:#4979D1;
+  }
+  
+  .AiTwotoneSetting{
+    position: absolute;
+    width: 1.445rem;
+    height: 2.43rem;
+    left: 1.0625rem;
+    top: 27.3725rem;
+    color:#4979D1;
+  }
+  
+  .RiAdminFill {
+    position: absolute;
+    width: 1.445rem;
+    height: 2.43rem;
+    left: 1.0625rem;
+    top: 31.1625rem;
+    color:#4979D1;
+  }

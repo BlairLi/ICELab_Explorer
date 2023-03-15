@@ -9,6 +9,7 @@ import { MdContactSupport } from 'react-icons/md';
 import { BiLogIn } from 'react-icons/bi';
 import { AiTwotoneSetting } from 'react-icons/ai';
 import { RiAdminFill } from 'react-icons/ri';
+import "../css/Menu.css"
 function Menu() {
 
   return (
@@ -17,7 +18,7 @@ function Menu() {
       <div className="menu">
         <ul className="navbar-nav">
           <li class="logo">
-            <Link to="/" class="nav-link">
+            <Link to="/" class="nav-link-logo">
               <label className="bluePart2">ICELab </label>
               <label className="blackPart2">Queen's</label>
             </Link>

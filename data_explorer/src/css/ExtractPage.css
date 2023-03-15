@@ -215,6 +215,8 @@ input.Enddate{
 }
 
 .ExportButton{
+  position: relative;
+  z-index: 1000;
   background: #1289FF;
 }
 
