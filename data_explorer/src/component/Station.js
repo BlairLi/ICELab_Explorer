@@ -33,9 +33,12 @@ const Station = () => {
 
         <div className="drop-down">
             <select>
-                <option value="RA3000">RA3000</option>
-                <option value="RA4000">RA4000</option>
-                <option value="RA5000">RA5000</option>
+                    <option value="Choose1">White Glacier Nunatak</option>
+                    <option value="Choose2">White Glacier Melt Zone</option>
+                    <option value="Choose3">White Glacier Moraine</option>
+                    <option value="Choose4">Colour Lake</option>
+                    <option value="Choose5">Crusoe Glacier</option>
+                    <option value="Choose6">Erratics Island</option>
             </select>
         </div>
 
@@ -43,7 +46,7 @@ const Station = () => {
             <p className="Device-SS">Climate Variable</p >
             <div className="blue-block"></div>
             <TbTemperature className='TbTemperature'/>
-            <p className="TbTemperature_Text">AirTC</p >
+            <p className="TbTemperature_Text">Temperature</p >
             <p className="TbTemperature_Text2">-8.7°C</p >
 
             <div className="blue-block2"></div>

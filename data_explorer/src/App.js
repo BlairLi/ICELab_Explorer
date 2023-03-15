@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Menu from "./component/Menu";
 import DashBoards from "./component/DashBoards";
+import DashBoard2 from "./component/DashBoard2";
 import Charts from "./component/Chart";
 import ExtractPage from "./component/ExtractPage";
 import Login from "./component/Login";
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Menu />}>
               <Route path="DashBoards" element={<DashBoards />} />
+              <Route path="DashBoard2" element={<DashBoard2 />} />
               <Route path="Graphs" element={<WindRose />} />
               <Route path="Station" element={<Station />} />
               <Route path="ExtractPage" element={<ExtractPage />} />

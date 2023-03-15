@@ -4,7 +4,7 @@ import { RiDashboard2Line } from 'react-icons/ri';
 import { AiFillDatabase } from 'react-icons/ai';
 import { RiBaseStationFill } from 'react-icons/ri';
 import { FaMapMarkedAlt } from 'react-icons/fa';
-import { FaHistory } from 'react-icons/fa';
+import { TbFileExport } from 'react-icons/tb';
 import { MdContactSupport } from 'react-icons/md';
 import { BiLogIn } from 'react-icons/bi';
 import { AiTwotoneSetting } from 'react-icons/ai';
@@ -23,17 +23,6 @@ function Menu() {
             </Link>
           </li>
         </ul>
-
-
-
-          {/* Data */}
-          <li class="nav-item">
-            <Link to="/Data" class="nav-link">
-              <span class="link-text">Data</span>
-              <AiFillDatabase className='AiFillDatabase'/>
-
-            </Link>
-          </li>
 
           {/* DashBoards */}
           <li className="nav-item">
@@ -63,7 +52,7 @@ function Menu() {
           <li class="nav-item">
             <Link to="/ExtractPage" class="nav-link">
               <span class="link-text">ExtractPage</span>
-              <FaHistory className='FaHistory'/>
+              <TbFileExport className='FaHistory'/>
             </Link>
           </li>
 

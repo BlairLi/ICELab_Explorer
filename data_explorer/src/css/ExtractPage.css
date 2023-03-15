@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
-
+*{
+  font-family: 'Public Sans';
+}
 .column{
   position: relative;
   float: left;
@@ -35,6 +37,7 @@
   font-size: 20px;
   font-weight:bold;
   color: #000000;
+  font-family: 'Public Sans';
 }
 
 .custom-field {
@@ -47,7 +50,7 @@
     display: flex;
     --field-padding: 12px;
 }
-  
+
 .custom-field input {
     background: #f2f2f2;
     padding: var(--field-padding);
@@ -57,42 +60,43 @@
     outline: none;
     font-size: 14px;
 }
-  
+
 .custom-field .placeholder {
     position: absolute;
     left: var(--field-padding);
     width: calc(100% - (var(--field-padding) * 2));
     overflow: hidden;
     white-space: nowrap;
+    font-family: 'Public Sans';
     text-overflow: ellipsis;
     top: 26px;
     line-height: 100%;
     transform: translateY(-50%);
     color: #aaa;
-    transition: 
+    transition:
       top 0.3s ease,
       color 0.3s ease,
       font-size 0.3s ease;
 }
-  
+
 .custom-field.one input {
     background: none;
     border: 2px solid #ddd;
     transition: border-color 0.3s ease;
 }
-  
+
 .custom-field.one input + .placeholder {
     left: 8px;
     padding: 2px;
 }
-  
+
 .custom-field.one input.dirty,
 .custom-field.one input:not(:placeholder-shown),
 .custom-field.one input:focus {
     border-color: #222;
     transition-delay: 0.1s
 }
-  
+
 .custom-field.one input.dirty + .placeholder,
 .custom-field.one input:not(:placeholder-shown) + .placeholder,
 .custom-field.one input:focus + .placeholder {
@@ -112,12 +116,13 @@
   color: #000000;
   margin-right: 7rem;
   margin-bottom: 0;
+  font-family: 'Public Sans';
 }
 
 .dropDown{
   width: 15rem;
   height: 3rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; 
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 8px;
   --border-width: 0px;
   margin-top: 2.5rem;
@@ -132,6 +137,7 @@
   color: #000000;
   margin-right: 7rem;
   margin-bottom: 0;
+  font-family: 'Public Sans';
 }
 
 input.startdate{
@@ -141,7 +147,7 @@ input.startdate{
   left: 11.5rem;
   top: 4rem;
   transform: translate(-50%,-50%);
-  font-family: monospace;
+  font-family: 'Public Sans';
   color: #000000;
   font-size: 15px;
   border: none;
@@ -165,6 +171,7 @@ input.startdate{
   color: #000000;
   margin-right: 7rem;
   margin-bottom: 0;
+  font-family: 'Public Sans';
 }
 
 input.Enddate{
@@ -174,7 +181,7 @@ input.Enddate{
   left: 13.5rem;
   top: 4rem;
   transform: translate(-50%,-50%);
-  font-family: monospace;
+  font-family: 'Public Sans';
   color: #000000;
   font-size: 15px;
   border: none;
@@ -199,4 +206,15 @@ input.Enddate{
   font-weight:bold;
   color: #000000;
   margin-top: 5rem;
+  font-family: 'Public Sans';
 }
+
+.ExportAll{
+  font-size: 16px;
+
+}
+
+.ExportButton{
+  background: #1289FF;
+}
+
