@@ -1,0 +1,116 @@
+
+.DataBoard {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    left:300px;
+    top:100px;
+    align-items: center;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+  }
+
+  .stationbar {
+    width: 10rem;
+    height: 90vh;
+    /* margin: 0; */
+    margin-left: 2rem;
+    padding-top: 2rem;
+    padding-right: 0.5rem;
+    border-color: rgb(0, 0, 0);
+    background: #F7F9FB;
+    border-radius: 16px;
+  }
+
+  .stationbarheader {
+    font-size: 20px;
+    padding-bottom: 2rem;
+  }
+
+  .stationbarul {
+    font-size: 18px;
+  }
+
+  .stationbaraccordian {
+    font-size: 16px;
+    list-style: none;
+    margin-left: 2rem;
+    text-align: left;
+  }
+
+  .stationbaraccordiantext {
+    list-style: none;
+  }
+
+  .stationbaraccordian svg {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
+
+  .stationbaraccordian li {
+    list-style: none;
+  }
+
+  .DashBoardContent {
+    display: flex;
+    padding: 0 2rem;
+    flex-direction: column;
+    font-size: 20px;
+
+  }
+
+  h1{
+    margin: 0;
+  }
+
+  .CreateMoreButton{
+    background-color: #1289FF;
+    width: 15rem;
+    height: 5vh;
+    margin: 0;
+  }
+
+  .SaveButtonDad{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .SaveButton {
+    background-color: #1289FF;
+    width: 15rem;
+    height: 5vh;
+    margin: 0;
+
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    margin: 4rem;
+    padding: 2rem;
+    width: 35rem;
+    height: 50vh;
+  }
+
+  .cardBin {
+
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  .diagramList{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 2rem;
+    /* border-style: solid;
+    border-color: coral; */
+  }

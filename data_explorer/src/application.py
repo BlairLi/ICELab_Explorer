@@ -194,6 +194,25 @@ def export(device_id):
 
     return jsonify({'result': res_l})
 
+@application.route('/dashboard/<device_id>', methods=['POST'])
+def dashboard(device_id):
+    db = application.MongoClient["Device_Data"]
+    col = db[device_id]
+    From_time = request.json['TIMESTAMP_F']
+    To_time = request.json['TIMESTAMP_T']
+    List_V = request.json['List_V']
+    f = col.find({'TIMESTAMP': {
+        '$gte': From_time,  # 大于等于
+        "$lte": To_time}  # 小于等于
+    }, {})
+    res_l = []
+    for m in f:
+        dict_t = {}
+        for n in List_V:
+            dict_t[n] = m[n]
+        res_l.append(dict_t)
+
+    return jsonify({'result': res_l})
 
 @application.route('/export-csv/<device_id>', methods=['POST'])
 def csv_export(device_id):
@@ -449,7 +468,7 @@ def da():
         [10, 2, 13, 2, 2, 3, 4, 6, 1, 2, 3, 2, 1, 2, 3, 1],
         [10, 2, 13, 4, 2, 3, 4, 6, 1, 2, 3, 4, 2, 3, 4, 2],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    ] 
+    ]
     return jsonify({"res": "HIIIIIIIIII"})
 
 

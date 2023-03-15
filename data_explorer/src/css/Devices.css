@@ -149,7 +149,7 @@ div.Scrollbar{
 
   .Device-Overview{
     position: absolute;
-    left: 21rem;
+    left: 28rem;
     top: 1.4rem;
     font-family: 'Inter';
     font-weight: 800;
@@ -161,7 +161,7 @@ div.Scrollbar{
 
   .Device-Graphs{
     position: absolute;
-    left: 30.3rem;
+    left: 37.3rem;
     top: 1.4rem;
     font-family: 'Inter';
     font-weight: 800;
@@ -306,7 +306,7 @@ div.Scrollbar{
     position: absolute;
     width: 1.5rem;
     height: 3.6rem;
-    left: 19rem;
+    left: 26rem;
     top: 0.3rem;
     color: #1273de;
   }
@@ -315,7 +315,7 @@ div.Scrollbar{
     position: absolute;
     width: 1.25rem;
     height: 3.6rem;
-    left: 28rem;
+    left: 35rem;
     top: 0.3rem;
     color: #1273de;
   }

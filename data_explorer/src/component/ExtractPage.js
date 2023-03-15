@@ -252,7 +252,7 @@ const Export = () => {
       downloadFile(res.data.result, `${name || defaultName}.${formatValue}`, formatValue);
     });
   };
-  
+
   const downloadFile = (csv, filename, formatValue) => {
     let blob, extension;
 
@@ -263,12 +263,12 @@ const Export = () => {
       blob = new Blob([csv], { type: "text/csv" });
       extension = ".csv";
     }
-  
+
     // Remove extension from filename
     const name = filename.replace(/\.[^/.]+$/, "");
-  
+
     const fullFilename = `${name}${extension}`;
-  
+
     if (window.navigator.msSaveOrOpenBlob) {
       // IE11
       window.navigator.msSaveBlob(blob, fullFilename);
@@ -302,7 +302,7 @@ const Export = () => {
     console.log(value);
     setCascaderValue(value);
   };
-  
+
 
   const handleStartDateChange = (e) => {
     setStartDate(e.target.value);
@@ -344,12 +344,12 @@ const Export = () => {
       alert("Please select a file format.");
       return;
     }
-    
+
     if (cascaderValue.length === 0) {
       alert("Please select at least one option from the cascader.");
       return;
     }
-  
+
     fetchExcuse(formatValue,fromValue, toValue);
   };
 
@@ -404,9 +404,9 @@ const Export = () => {
                   onChange={handleEndDateChange}
                 />
               </div>
-            <Checkbox onChange={handleCheckboxChange}>Export All</Checkbox>
+            <Checkbox onChange={handleCheckboxChange} className="ExportAll">Export All</Checkbox>
           </div>
-  
+
           <div class="column">
             <h1 className="heading1">Device Setting</h1>
             <p class="station">Station and variable Setting</p>
@@ -423,7 +423,7 @@ const Export = () => {
           </div>
         </div>
         <center>
-          <button type="submit">Click to Export</button>
+          <button type="submit" className="ExportButton">Click to Export</button>
         </center>
       </form>
     </>
