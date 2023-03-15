@@ -27,8 +27,8 @@ const Station = () => {
                 <BsGraphUp className='iconBsGraphUp'/>
                 <p className="Device-Graphs">Graphs</p >
             </Link>
-            <BsFillJournalBookmarkFill className='iconGrCatalog'/>
-            <p className="Device-Logs">Logs</p >
+            {/* <BsFillJournalBookmarkFill className='iconGrCatalog'/> */}
+            {/* <p className="Device-Logs">Logs</p > */}
         </div>
 
         <div className="drop-down">
@@ -40,7 +40,7 @@ const Station = () => {
         </div>
 
         <div className="Scrollbar">
-            <p className="Device-SS">Smart Sensor</p >
+            <p className="Device-SS">Climate Variable</p >
             <div className="blue-block"></div>
             <TbTemperature className='TbTemperature'/>
             <p className="TbTemperature_Text">AirTC</p >

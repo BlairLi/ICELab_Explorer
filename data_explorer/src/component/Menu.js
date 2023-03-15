@@ -25,13 +25,6 @@ function Menu() {
         </ul>
 
 
-          {/* DashBoards */}
-          <li className="nav-item">
-          <Link to="/DashBoards" class="nav-link">
-            <span class="link-text">DashBoards</span>
-            <RiDashboard2Line className='RiDashboard2Line'/>
-          </Link>
-          </li>
 
           {/* Data */}
           <li class="nav-item">
@@ -42,6 +35,13 @@ function Menu() {
             </Link>
           </li>
 
+          {/* DashBoards */}
+          <li className="nav-item">
+          <Link to="/DashBoards" class="nav-link">
+            <span class="link-text">DashBoards</span>
+            <RiDashboard2Line className='RiDashboard2Line'/>
+          </Link>
+          </li>
 
           {/* Device*/}
           <li class="nav-item">
