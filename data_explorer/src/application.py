@@ -3,15 +3,16 @@ import pymongo
 from flask_cors import CORS
 
 application = Flask(__name__)
-CORS(application, resources=r'/*')
+# CORS(application, resources=r'/*')
+CORS(application)
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/Sample_Data"
 # application.config["MONGO_URI"] = "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/Sample_data"
 # mongo = pymongo(application)
 
 
-# application.MongoClient = pymongo.mongo_client.MongoClient(
-#     "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
-application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
+application.MongoClient = pymongo.mongo_client.MongoClient(
+    "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
+# application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
 
 
 # @application.route('/record/<rec>', methods=['GET']) XXXXXXXXXXXXXXXXXXXXXXXXXX

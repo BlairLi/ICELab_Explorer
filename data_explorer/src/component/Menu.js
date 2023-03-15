@@ -44,8 +44,8 @@ function Menu() {
 
           {/* Device*/}
           <li class="nav-item">
-            <Link to="/Devices" class="nav-link">
-              <span class="link-text">Devices</span>
+            <Link to="/Station" class="nav-link">
+              <span class="link-text">Station</span>
               <RiBaseStationFill className='RiBaseStationFill'/>
             </Link>
           </li>
@@ -60,7 +60,7 @@ function Menu() {
 
           {/* History */}
           <li class="nav-item">
-            <Link to="/History" class="nav-link">
+            <Link to="/ExtractPage" class="nav-link">
               <span class="link-text">History</span>
               <FaHistory className='FaHistory'/>
             </Link>
