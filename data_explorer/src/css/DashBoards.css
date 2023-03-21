@@ -32,6 +32,61 @@
 
 }
 
+/* .LineChart {
+  position: absolute;
+  width: 183px;
+  height: 171px;
+  left: 350px;
+  border-radius: 25px;
+  background: #1289FF;
+  top: 504px;
+} */
+
+.transparent-button1 {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+
+  position: absolute;
+  width: 183px;
+  height: 171px;
+  left: 350px;
+  top: 504px;
+
+  border-radius: 25px;
+}
+
+.transparent-button2 {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+
+  position: absolute;
+  width: 183px;
+  height: 171px;
+  left: 680px;
+  top: 504px;
+
+  border-radius: 25px;
+}
+
+.transparent-button3 {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+
+  position: absolute;
+  width: 183px;
+  height: 171px;
+  left: 1010px;
+  top: 504px;
+
+  border-radius: 25px;
+}
+
 .BB1{
   position: absolute;
   width: 183px;
@@ -371,10 +426,8 @@ input.NameInput{
   border-radius: 10px;
 }
 
-.LineChart,.WindRose{
+.LineChart,.WindRose,.HISTOGRAM{
   cursor: pointer;
-}
-
-.HISTOGRAM{
-  cursor: pointer;
+  /* opacity:0.5; */
+  /* z-index: 1; */
 }

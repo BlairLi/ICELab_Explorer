@@ -17,8 +17,8 @@ function Menu() {
     <div className="greyline">
       <div className="menu">
         <ul className="navbar-nav">
-          <li class="logo">
-            <Link to="/" class="nav-link-logo">
+          <li className="logo">
+            <Link to="/" className="nav-link-logo">
               <label className="bluePart2">ICELab </label>
               <label className="blackPart2">Queen's</label>
             </Link>
@@ -27,16 +27,16 @@ function Menu() {
 
           {/* DashBoards */}
           <li className="nav-item">
-          <Link to="/DashBoards" class="nav-link">
-            <span class="link-text">DashBoards</span>
+          <Link to="/DashBoards" className="nav-link">
+            <span className="link-text">DashBoards</span>
             <RiDashboard2Line className='RiDashboard2Line'/>
           </Link>
           </li>
 
           {/* Device*/}
-          <li class="nav-item">
-            <Link to="/Station" class="nav-link">
-              <span class="link-text">Station</span>
+          <li className="nav-item">
+            <Link to="/Station" className="nav-link">
+              <span className="link-text">Station</span>
               <RiBaseStationFill className='RiBaseStationFill'/>
             </Link>
           </li>
@@ -50,41 +50,41 @@ function Menu() {
           </li>
 
           {/* ExtractPage */}
-          <li class="nav-item">
-            <Link to="/ExtractPage" class="nav-link">
-              <span class="link-text">ExtractPage</span>
+          <li className="nav-item">
+            <Link to="/ExtractPage" className="nav-link">
+              <span className="link-text">ExtractPage</span>
               <TbFileExport className='FaHistory'/>
             </Link>
           </li>
 
           {/* Support */}
-          <li class="nav-item">
-            <Link to="/Support" class="nav-link">
-              <span class="link-text">Support</span>
+          <li className="nav-item">
+            <Link to="/Support" className="nav-link">
+              <span className="link-text">Support</span>
               <MdContactSupport className='MdContactSupport'/>
             </Link>
           </li>
 
           {/* Login */}
-          <li class="nav-item">
-            <Link to="/Login" class="nav-link">
-              <span class="link-text">Login</span>
+          <li className="nav-item">
+            <Link to="/Login" className="nav-link">
+              <span className="link-text">Login</span>
               <BiLogIn className='BiLogIn'/>
             </Link>
           </li>
 
           {/* Setting */}
-          <li class="nav-item">
+          {/* <li class="nav-item">
             <Link to="/Setting" class="nav-link">
               <span class="link-text">Setting</span>
               <AiTwotoneSetting className='AiTwotoneSetting'/>
             </Link>
-          </li>
+          </li> */}
 
           {/* Admin */}
-          <li class="nav-item">
-            <Link to="/Admin" class="nav-link">
-              <span class="link-text">Admin</span>
+          <li className="nav-item">
+            <Link to="/Admin" className="nav-link">
+              <span className="link-text">Admin</span>
               <RiAdminFill className='RiAdminFill'/>
             </Link>
           </li>
