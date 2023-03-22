@@ -28,6 +28,7 @@ export default function DashBoardCharts({openChart,onCancel,children}) {
             <div style={OVERLAY_STYLES} onClick={onCancel}/>
             <div style={MODAL_STYLES}>
                 {children}
+                {children?.plotType}
                 <button onClick={onCancel} className="SaveButton">Back</button>
             </div>
         </>

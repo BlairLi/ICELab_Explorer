@@ -23,7 +23,7 @@ const Users = () => {
                 isMounted && setUsers(response.data);
             } catch (err) {
                 console.error(err);
-                console.log("11111111111");
+                // console.log("11111111111");
                 // send ppl directly to where they were
                 navigate('/login', { state: { from: location }, replace: true });
             }
