@@ -1,5 +1,3 @@
-import React from "react"
-
 const MODAL_STYLES = {
     position: 'fixed',
     top: '50%',
@@ -21,14 +19,14 @@ const MODAL_STYLES = {
   }
 
 
-export default function Modal({open, children, onClose, onCancel}) {
+export default function Modal({open, children, onClose, onCancel, action}) {
   if (!open) return null
     return (
         <>
             <div style={OVERLAY_STYLES} onClick={onCancel}/>
             <div style={MODAL_STYLES}>
                 {children}
-                <button onClick={onClose} className="SaveButton">Delete</button>
+                <button onClick={onClose} className="SaveButton">{action}</button>
             </div>
         </>
   )

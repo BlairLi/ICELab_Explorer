@@ -1,0 +1,42 @@
+  .background-image {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../img/map.png');
+    background-size: 85rem;
+    background-position: 23rem 5rem;
+    background-repeat: no-repeat;
+  }
+
+  .hover-area {
+    width: 25px;
+    height: 25px;
+    background-color: rgba(173, 216, 230, 0);
+    position: absolute;
+  }
+  
+  .hover-text {
+    position: absolute;
+    top: -65%;
+    left: -1000%;
+    width: 15rem;
+    background-color: white;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    margin-top: 8px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateX(-20%);
+    transition-delay: 0s;
+  }
+  
+  .hover-area:hover .hover-text {
+    opacity: 1;
+    transform: translateX(0);
+    transition-duration: 0.5s;
+  }
+
+  .hover-area:not(:hover) .hover-text {
+    transition-delay: 0.1s;
+    transition-duration: 0.5s;
+  }

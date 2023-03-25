@@ -1,51 +1,115 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../css/DashBoard2.css';
 import '../dist/accordion.min.css';
 import { ImBin } from 'react-icons/im';
 import Modal from "./Modal";
-import { BsReverseLayoutSidebarInsetReverse } from "react-icons/bs";
 import DashBoards from "./DashBoards";
 import DashBoardCharts from "./DashBoardCharts";
- 
+import { graph_line_DashBoard, graph_wr, data1, data2 } from "./WindRose";
+import Axios from 'axios';
+import { AiFillAlert } from "react-icons/ai";
+
  
 function DashBoards2(props) {
     const [val, setVal] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenChart, setIsOpenChart] = useState(false);
-    var index = 0;
     const [isOpenDash2, setIsOpenDash2] = useState(true);
     const [showJsondata,setshowJsondata] = useState({});
     const [curIndex,setCurIndex] = useState(null)
- 
+    const [Linexy, setLinexy] = useState(data1); // line chart data
+    const [generatedExcuse, setGeneratedExcuse] = useState(data2); // wind rose data
+    var index = 0;
+
     const handleAdd = () => {
         props.create(true);
         // const abc = [...val, []]
         // console.log(abc);
         // setVal(abc)
     }
+
     const handleChange = (onChangeValue, i) => {
         const inputdata = [...val]
         inputdata[i] = onChangeValue.target.value;
         setVal(inputdata)
     }
-    const handleDelete = (i) => {
-        const deletVal = [...val]
-        console.log("deletVal is: " + deletVal)
-        console.log("val is: " + val)
-        console.log("i is: " + i)
-        deletVal.splice(i, 1)
-        setVal(deletVal)
-    }
  
-    const handleDeletePlus = (i) => {
-        // handleDelete(i);
+    const handleDelete = () => {
         props.datelete(curIndex)
         setIsOpen(false);
     }
- 
-    const handleCloseDash2 = (i) => {
-        setIsOpenDash2(false);
+
+    const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
+    
+    const convertList = {
+        "ColourLake": "000001",
+        "Moraine": "000002",
+        "Nunatak": "000003",
+        "WHEM": "000004"
     }
+
+    // fetch value for linechart
+    const fetchLinechart = (dev_id, ftime, var_t) => {
+        var dat_t = {
+        "TIMESTAMP_F": ftime,//202204230746,
+        "TIMESTAMP_T": 202207280645,
+        "Varible": var_t//"RH_Avg"
+        }
+        alert(JSON.stringify(dat_t))
+        Axios.post(`${url}dashboard_line_xy/${dev_id}`, dat_t).then(
+            (resp) => {
+                setLinexy(resp.data);
+                alert(JSON.stringify(resp.data))
+            }
+    )
+    };
+    // fetch value for windrose
+    const fetchExcuse = (excuse, ftime) => {
+        var dat_t = {
+          "TIMESTAMP_F": ftime,
+          "TIMESTAMP_T": 202207280645
+        }
+        Axios.post(`${url}dashboard_wr/${excuse}`, dat_t).then(
+          (resp) => {
+            setGeneratedExcuse(resp.data.res);
+          }
+        );
+    };
+    useEffect(() => {
+        setshowJsondata(JSON.stringify(props.dict[0]))
+    }, []);
+
+    // 点击两次才能抓取variable的问题
+    async function handleVariables(data) {
+        setshowJsondata(JSON.stringify(data))
+        // alert("showJsondata: "+showJsondata)
+        const alldata = showJsondata
+        const alldataObj = JSON.parse(alldata)
+        const plotType = alldataObj.plotType
+        const fromValue = parseInt(alldataObj.fromTime.replace("T", "").replace(/[-:]/g, ""));
+        const toValue = parseInt(alldataObj.toTime.replace("T", "").replace(/[-:]/g, ""));
+        const station = alldataObj.station
+        const variable = alldataObj.variable
+        if (plotType=="LineChart") {
+            // fetchLinechart(parseInt(inputData.station),20220423074600,inputData.variable)
+            fetchLinechart(station,fromValue,variable)
+            graph_line_DashBoard(Linexy)
+            console.log("running success2")
+        }
+        else if (plotType=="Histogram") {
+            console.log("TBD")
+        } 
+        else if (plotType=="WindRose") {
+            fetchExcuse()
+            graph_wr()
+        }
+        else console.log("GraphType select ERROR")
+
+    }
+
+    // inputData.fromTime
+    // console.log("Inputdata: "+inputData)
+    // const fromValue = parseInt(inputData.fromTime.replace("T", "").replace(/[-:]/g, "") + "00");
  
     if (!isOpenDash2) return <DashBoards />
     return (
@@ -53,7 +117,7 @@ function DashBoards2(props) {
             <div className='DataBoard'>
                 <div className='DashBoardContent'>
                     <div>
-                        <h1>DashBoards #1</h1>
+                        <h1>DashBoards</h1>
                         {/* <button className="CreateMoreButton" onClick={()=>handleCloseDash2()}>RETURN</button> */}
                         <button className="CreateMoreButton" onClick={() => handleAdd()}>RETURN</button>
                     </div>
@@ -65,20 +129,18 @@ function DashBoards2(props) {
                                     <>
                                         <div key={index} className='card'>
                                             <div className='actions'>
-                                                {index}
+                                                {data.boardName}
                                                 {/* <input value={data} onChange={e=>handleChange(e,i)} /> */}
-                                                <button onClick={() => { setshowJsondata(data);setIsOpenChart(true) }}>Open Created Charts</button>
+                                                <button onClick={() => { handleVariables(data); setIsOpenChart(true) }}>Open Created Charts</button>
                                             </div>
-                                            {/* directly deleted */}
-                                            {/* <button className='cardBin' onClick={()=>handleDelete(i)}><ImBin/></button> */}
-                                            <button className='cardBin' onClick={(i) => { setIsOpen(true); setCurIndex(index) }}><ImBin /></button>
+                                            <button className='cardBin' onClick={() => { setIsOpen(true); setCurIndex(index) }}><ImBin /></button>
                                         </div>
                                     </>
  
                                 )
                             })}
-                            <DashBoardCharts openChart={isOpenChart} onCancel={() => { setIsOpenChart(false) }}>{JSON.stringify(showJsondata)}</DashBoardCharts>
-                            <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDeletePlus(index) }}>Are you sure to Delete?</Modal>
+                            <DashBoardCharts openChart={isOpenChart} onCancel={() => { setIsOpenChart(false) }}>{showJsondata}{graph_line_DashBoard(Linexy)}</DashBoardCharts>
+                            <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDelete() }} action="Delete">Are you sure to Delete?</Modal>
                         </div>
                         <div className="SaveButtonDad">
                             <button className="SaveButton">SAVE</button>

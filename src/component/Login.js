@@ -64,11 +64,11 @@ const Login = () => {
     }
 }
 
-  const handleClick = e => {
-    e.preventDefault();
+  // const handleClick = e => {
+  //   e.preventDefault();
 
-    alert("Goes to registration page");
-  };
+  //   alert("Goes to registration page");
+  // };
 
   return (
     <>
@@ -106,15 +106,17 @@ const Login = () => {
                           required
                           placeholder="Password"
                       />
-            <label className="forgot">Forgot your <a href="https://www.google.com/" class="findPassword">password</a>?</label>
+            {/* <label className="forgot">Forgot your <a href="https://www.google.com/" class="findPassword">password</a>?</label> */}
           </div>
           <button className="primary">ENTER</button>
         </form>
         <div className="register">
           <label htmlFor="noAccount">Don't have an account?</label>
-          <button className="secondary" onClick={handleClick}>
-            REGISTER
-          </button>
+          <Link to="/Register" className='registerPage'>
+            <button className="secondary">
+              REGISTER
+            </button>
+          </Link>
         </div>
       </div>
       <div className="moreInfo">

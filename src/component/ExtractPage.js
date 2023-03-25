@@ -1,9 +1,10 @@
 import React from "react";
 /* import ReactDOM from 'react-dom' */
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import "../css/ExtractPage.css"
-import { Cascader, Checkbox } from 'antd';
+import { Checkbox } from 'antd';
 import Axios from "axios";
+import * as XLSX from 'xlsx';
 /* import * as XLSX from 'xlsx'; */
 /* import { Form } from 'antd'; */
 /* import { Select, MenuItem, FormControl, InputLabel, OutlinedInput, ListItemText, Checkbox } from '@mui/material'; */
@@ -15,77 +16,69 @@ const climate = [
     children: [
       {
         label: 'Temperature (°C)',
-        value: 'temperature (°C)',
+        value: 'Temp_2m_C',
       },
       {
         label: 'Relative humidity (%)',
-        value: 'relative humidity (%)',
+        value: 'RH_2m_perc',
       },
       {
         label: 'Wind speed (m/s)',
-        value: 'wind speed (m/s)',
+        value: 'WS_3m_ms',
       },
       {
         label: 'Wind direction (°)',
-        value: 'wind direction (°)',
+        value: ['WD_3m_deg','WD_3m_stdev'],
       },
       {
         label: 'Incoming/downward shortwave radiation (W/m^2)',
-        value: 'incoming/downward shortwave radiation (W/m^2)',
+        value: 'SW_in_wm2',
       },
       {
         label: 'Snowdepth (m)',
-        value: 'snowdepth (m)',
-      },
-      {
-        label: 'Battery power (V)',
-        value: 'battery power (V)',
+        value: ['Depth_snow_m_avg','Depth_snow_m_smp'],
       },
     ],
   },
   {
-    label: 'White Glacier Melt Zone ',
-    value: 'white Glacier Melt Zone ',
+    label: 'White Glacier Melt Zone',
+    value: 'white Glacier Melt Zone',
     children: [
       {
         label: 'Temperature (°C)',
-        value: 'temperature (°C)',
+        value: 'Temp_2m_C',
       },
       {
         label: 'Relative humidity (%)',
-        value: 'relative humidity (%)',
+        value: 'RH_2m_perc',
       },
       {
         label: 'Wind speed (m/s)',
-        value: 'wind speed (m/s)',
+        value: 'WS_3m_m',
       },
       {
         label: 'Wind direction (°)',
-        value: 'wind direction (°)',
+        value: 'WD_3m_deg',
       },
       {
         label: 'Incoming/downward shortwave radiation (W/m^2)',
-        value: 'incoming/downward shortwave radiation (W/m^2)',
+        value: 'SW_in_wm2',
       },
       {
         label: 'Outgoing/upward shortwave radiation (W/m^2)',
-        value: 'outgoing/upward shortwave radiation (W/m^2)',
+        value: 'SW_out_wm2',
       },
       {
         label: 'Incoming/downward longwave radiation (W/m^2)',
-        value: 'incoming/downward longwave radiation (W/m^2)',
+        value: 'LW_in_wm2',
       },
       {
         label: 'Outgoing/upward longwave radiation (W/m^2)',
-        value: 'outgoing/upward longwave radiation (W/m^2)',
+        value: 'LW_out_wm2',
       },
       {
         label: 'Distance to ice (m)',
-        value: 'distance to ice (m)',
-      },
-      {
-        label: 'Battery power (V)',
-        value: 'battery power (V)',
+        value: 'Dist_2_Ice_m',
       },
     ],
   },
@@ -95,138 +88,61 @@ const climate = [
     children: [
       {
         label: 'Temperature (°C)',
-        value: 'temperature (°C)',
+        value: 'Temp_2m_C',
       },
       {
         label: 'Relative humidity (%)',
-        value: 'relative humidity (%)',
+        value: 'RH_2m_perc',
       },
       {
         label: 'Wind speed (m/s)',
-        value: 'wind speed (m/s)',
+        value: 'WS_3m_ms',
       },
       {
         label: 'Wind direction (°)',
-        value: 'wind direction (°)',
+        value: ['WD_3m_deg','WD_3m_stdev'],
       },
       {
         label: 'Incoming/downward shortwave radiation (W/m^2)',
-        value: 'incoming/downward shortwave radiation (W/m^2)',
+        value: 'SW_in_wm2',
       },
       {
         label: 'Snowdepth (m)',
-        value: 'snowdepth (m)',
-      },
-      {
-        label: 'Battery power (V)',
-        value: 'battery power (V)',
+        value: ['Depth_snow_m_avg','Depth_snow_m_smp'],
       },
     ],
   },
   {
-    label: 'Colour Lake ',
-    value: 'colour Lake ',
+    label: 'Colour Lake',
+    value: 'colour Lake',
     children: [
       {
         label: 'Temperature (°C)',
-        value: 'temperature (°C)',
+        value: 'Temp_2m_C',
       },
       {
         label: 'Relative humidity (%)',
-        value: 'relative humidity (%)',
+        value: 'RH_2m_perc',
       },
       {
         label: 'Wind speed (m/s)',
-        value: 'wind speed (m/s)',
+        value: 'WS_3m_ms',
       },
       {
         label: 'Wind direction (°)',
-        value: 'wind direction (°)',
+        value: 'WD_3m_deg',
       },
       {
         label: 'Incoming/downward shortwave radiation (W/m^2)',
-        value: 'incoming/downward shortwave radiation (W/m^2)',
+        value: 'SW_in_wm2',
       },
       {
         label: 'Snowdepth (m)',
-        value: 'snowdepth (m)',
-      },
-      {
-        label: 'Battery power (V)',
-        value: 'battery power (V)',
-      },
-    ],
-  },
-  {
-    label: 'Crusoe Glacier',
-    value: 'crusoe Glacier',
-    children: [
-      {
-        label: 'Temperature (°C)',
-        value: 'temperature (°C)',
-      },
-      {
-        label: 'Relative humidity (%)',
-        value: 'relative humidity (%)',
-      },
-      {
-        label: 'Wind speed (m/s)',
-        value: 'wind speed (m/s)',
-      },
-      {
-        label: 'Wind direction (°)',
-        value: 'wind direction (°)',
-      },
-      {
-        label: 'Incoming/downward shortwave radiation (W/m^2)',
-        value: 'incoming/downward shortwave radiation (W/m^2)',
-      },
-      {
-        label: 'Snowdepth (m)',
-        value: 'snowdepth (m)',
-      },
-      {
-        label: 'Battery power (V)',
-        value: 'battery power (V)',
-      },
-    ],
-  },
-  {
-    label: 'Erratics Island ',
-    value: 'erratics Island ',
-    children: [
-      {
-        label: 'Temperature (°C)',
-        value: 'temperature (°C)',
-      },
-      {
-        label: 'Relative humidity (%)',
-        value: 'relative humidity (%)',
-      },
-      {
-        label: 'Wind speed (m/s)',
-        value: 'wind speed (m/s)',
-      },
-      {
-        label: 'Wind direction (°)',
-        value: 'wind direction (°)',
-      },
-      {
-        label: 'Incoming/downward shortwave radiation (W/m^2)',
-        value: 'incoming/downward shortwave radiation (W/m^2)',
-      },
-      {
-        label: 'Snowdepth (m)',
-        value: 'snowdepth (m)',
-      },
-      {
-        label: 'Battery power (V)',
-        value: 'battery power (V)',
+        value: 'Depth_snow_m',
       },
     ],
   },
 ];
-
 
 const Export = () => {
   const [defaultName, setDefaultName] = useState("Data");
@@ -237,17 +153,30 @@ const Export = () => {
   const hours = now.getHours().toString().padStart(2, '0');
   const minutes = now.getMinutes().toString().padStart(2, '0');
   const [endDate, setEndDate] = useState(`${now.toISOString().slice(0, 11)}${hours}:${minutes}`);
-  const [cascaderValue, setCascaderValue] = useState([]);
+  const [selectedParent, setSelectedParent] = useState(null);
+  const [selectedChildren, setSelectedChildren] = useState([]);
   const [generatedExcuse, setGeneratedExcuse] = useState("");
 
-  const fetchExcuse = (formatValue,fromValue, toValue) => {
-    //const numr = 20220423041500
+  useEffect(() => {
+    if (isChecked) {
+      setStartDate("1970-01-01T00:00");
+      setEndDate(`${now.toISOString().slice(0, 11)}${hours}:${minutes}`);
+    }
+  // eslint-disable-next-line
+  }, [isChecked]);
+
+  const fetchExcuse = (dev_id, formatValue, fromValue, toValue, listValue) => {
+    const url = "http://127.0.0.1:5000/export-csv";
+    const flattenedListValue = listValue.flat();
     const dat_t = {
       "TIMESTAMP_F" : fromValue,
       "TIMESTAMP_T" : toValue,
-      "List_V" : ["SWTop_Avg","RH_Avg","WindSpd_horiz_ms","TIMESTAMP"]
+      "List_V" : flattenedListValue
     }
-    Axios.post("http://127.0.0.1:8000/export-csv/000000", dat_t).then((res) => {
+    //alert(fromValue);
+    //alert(JSON.stringify(flattenedListValue));
+    //alert(JSON.stringify(dat_t));
+    Axios.post(`${url}/${dev_id}`, dat_t).then((res) => {  
       setGeneratedExcuse(res.data.result);
       downloadFile(res.data.result, `${name || defaultName}.${formatValue}`, formatValue);
     });
@@ -255,20 +184,42 @@ const Export = () => {
 
   const downloadFile = (csv, filename, formatValue) => {
     let blob, extension;
-
+  
     if (formatValue === "EXCEL") {
-      blob = new Blob([csv], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+      // Convert CSV to a 2D array
+      const csvArray = csv.split('\n').map(row => row.split(','));
+  
+      // Create a new workbook
+      const workbook = XLSX.utils.book_new();
+  
+      // Create a new worksheet from the 2D array
+      const worksheet = XLSX.utils.aoa_to_sheet(csvArray);
+  
+      // Add the worksheet to the workbook
+      XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+  
+      // Write the workbook to a binary string
+      const binaryString = XLSX.write(workbook, { type: "binary", bookType: "xlsx" });
+  
+      // Convert the binary string to an ArrayBuffer
+      const buffer = new ArrayBuffer(binaryString.length);
+      const view = new Uint8Array(buffer);
+      for (let i = 0; i < binaryString.length; i++) {
+        view[i] = binaryString.charCodeAt(i) & 0xFF;
+      }
+  
+      blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
       extension = ".xlsx";
     } else {
       blob = new Blob([csv], { type: "text/csv" });
       extension = ".csv";
     }
-
+  
     // Remove extension from filename
     const name = filename.replace(/\.[^/.]+$/, "");
-
+  
     const fullFilename = `${name}${extension}`;
-
+  
     if (window.navigator.msSaveOrOpenBlob) {
       // IE11
       window.navigator.msSaveBlob(blob, fullFilename);
@@ -298,11 +249,15 @@ const Export = () => {
     setIsChecked(e.target.checked);
   };
 
-  const handleCascaderChange = (value) => {
-    console.log(value);
-    setCascaderValue(value);
+  const handleParentChange = (value) => {
+    setSelectedParent(value);
+    setSelectedChildren([]);
   };
 
+  const handleChildrenChange = (value) => {
+    setSelectedChildren(value);
+  };
+  
 
   const handleStartDateChange = (e) => {
     setStartDate(e.target.value);
@@ -320,37 +275,54 @@ const Export = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (cascaderValue.length === 0) {
-      alert("Please select at least one option from the cascader.");
+    if (!selectedParent || selectedChildren.length === 0) {
+      alert("Please select a parent category and at least one child category from the cascader.");
       return;
     }
     const nameValue = name || defaultName;
     const formatValue = e.target.querySelector("select").value;
-    const fromValue = parseInt(startDate.replace("T", "").replace(/[-:]/g, "") + "00");
-    const toValue = parseInt(endDate.replace("T", "").replace(/[-:]/g, "") + "00");
+    const fromValue = parseInt(startDate.replace("T", "").replace(/[-:]/g, "") );
+    const toValue = parseInt(endDate.replace("T", "").replace(/[-:]/g, ""));
+    //const listValue = [...selectedChildren, "E_actual_kPa", "Press_hPa"]; 
+    let listValue = selectedChildren;
+    let dev_id = null;
+    if (selectedParent === "white Glacier Nunatak") {
+      listValue = [...selectedChildren, "E_actual_kPa", "Press_hPa"];
+      dev_id = "000003"
+    } else if (selectedParent === "white Glacier Moraine") {
+      listValue = [...selectedChildren, "E_actual_kPa", "Press_hPa"];
+      dev_id = "000002"
+    } else if (selectedParent === "white Glacier Melt Zone") {
+      listValue = [...selectedChildren, "Net_SW_wm2", "Net_LW_wm2", "Albedo"];
+      dev_id = "000004"
+    } else if (selectedParent === "colour Lake") {
+      listValue = [...selectedChildren, "Press_hPa"];
+      dev_id = "000001"
+    }
+
     console.log(
       "Form submitted:",
       nameValue,
       formatValue,
       fromValue,
       toValue,
-      cascaderValue,
+      selectedParent,
+      selectedChildren,
+      listValue,
       generatedExcuse
     );
 
-    const message = `Form submitted:\nName: ${nameValue}\nFile Format: ${formatValue}\nFrom: ${fromValue}\nTo: ${toValue}\nSelected Options: ${cascaderValue.join(", ")}\n${generatedExcuse}`;
+    const message = `Form submitted:\nName: ${nameValue}\nFile Format: ${formatValue}\nFrom: ${fromValue}\nTo: ${toValue}\nSelected Options: ${selectedParent}${
+      selectedChildren.length > 0 ? ` > ${selectedChildren.join(", ")}` : ""
+    }\nList of Values: ${listValue}`;
     alert(message);
+    
     if (!formatValue) {
       alert("Please select a file format.");
       return;
     }
 
-    if (cascaderValue.length === 0) {
-      alert("Please select at least one option from the cascader.");
-      return;
-    }
-
-    fetchExcuse(formatValue,fromValue, toValue);
+    fetchExcuse(dev_id, formatValue,fromValue, toValue, listValue);
   };
 
 
@@ -407,19 +379,53 @@ const Export = () => {
             <Checkbox onChange={handleCheckboxChange} className="ExportAll">Export All</Checkbox>
           </div>
 
-          <div class="column">
+          <div className="column">
             <h1 className="heading1">Device Setting</h1>
-            <p class="station">Station and variable Setting</p>
-            <Cascader
-              style={{
-                width: "100%",
-              }}
-              options={climate}
-              onChange={handleCascaderChange}
-              value={cascaderValue}
-              multiple
-              maxTagCount="responsive"
-            />
+            <p className="station">Station and variable Setting</p>
+            <div className="cascader-container">
+              <div className="cascader-parent">
+                {climate.map((item) => (
+                  <div key={item.value} className="cascader-item">
+                    <input
+                      type="radio"
+                      id={item.value}
+                      name="parent"
+                      value={item.value}
+                      checked={selectedParent === item.value}
+                      onChange={() => handleParentChange(item.value)}
+                    />
+                    <label htmlFor={item.value}>{item.label}</label>
+                  </div>
+                ))}
+              </div>
+              {selectedParent && (
+                <div className="cascader-children">
+                  {climate
+                    .find((item) => item.value === selectedParent)
+                    .children.map((child) => (
+                      <div key={child.value} className="cascader-item">
+                        <input
+                          type="checkbox"
+                          id={child.value}
+                          name="children"
+                          value={child.value}
+                          checked={selectedChildren.includes(child.value)}
+                          onChange={(e) =>
+                            handleChildrenChange(
+                              e.target.checked
+                                ? [...selectedChildren, child.value]
+                                : selectedChildren.filter(
+                                    (val) => val !== child.value
+                                  )
+                            )
+                          }
+                        />
+                        <label htmlFor={child.value}>{child.label}</label>
+                      </div>
+                    ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <center>

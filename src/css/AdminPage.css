@@ -47,9 +47,10 @@ body {
   font-weight: 1000;
 }
 
-.itemBox {
-  height: 30rem;
-  width: 60rem;
+.itemBox,
+.itemBoxEdit {
+  height: 35rem;
+  width: 85rem;
   position: absolute;
   left: 24rem;
   top: 13rem;
@@ -57,8 +58,28 @@ body {
   background-color: #F3F7FB;
   border-radius: 16px;
 }
+.itemBoxEdit {
+  width: 58rem;
+}
 
-.mainUserProfile {
+.titleItemBox,
+.titleItemBoxEdit {
+  position: absolute;
+  left: 3.5rem;
+  top: 2.5rem;
+  display: inline;
+  font-size: x-large;
+  font-weight: 800;
+}
+
+.errmsgAdmin {
+  position: absolute;
+  left: 4rem;
+  top: 20rem;
+}
+
+.mainUserProfile,
+.mainUserProfileEdit {
   border-radius: 4px;
   max-width: 50rem;
   display: flex;
@@ -66,15 +87,55 @@ body {
   text-align: center;
   width: 100%;
   position: absolute;
+  left: 5rem;
+  top: 5.5rem;
+}
+
+.mainUserProfile {
+  max-height: 23rem;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+}
+
+.mainUserProfileEdit {
   left: 50%;
-  top: 35%;
+  top: 40%;
   transform: translate(-50%,-50%);
 }
 /* .mainUserProfileLeft > .form {
   margin-bottom: 98px;
 } */
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0rem;
+}
+
+.adminTable,
+.adminTableTitle {
+  padding: 8px;
+  text-align: left;
+}
+.adminTableTitle {
+  background-color: #f2f2f2;
+  color: #1D3A98;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  -webkit-position: sticky;
+  -webkit-sticky: top;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+.adminTable {
+  border: 1px solid #ccc;
+  border-left: none;
+  border-bottom: none;
+  color: #000000;
+}
+
 .infoBox {
+  margin-left: 1rem;
   margin-bottom: 1rem;
   padding-left: 30px;
   padding-right: 30px;
@@ -115,21 +176,66 @@ body {
   font-size: 16px;
 }
 
-.back {
+.usernameAdmin {
+  position: absolute;
+  left: 27rem;
+  top: 52rem;
+}
+
+.backAdmin,
+.editAdmin,
+.downloadAdmin,
+.uploadAdmin,
+.deleteAdmin,
+.permitAdmin {
   height: 1rem;
   width: 23.5rem;
   position: absolute;
-  left: 26rem;
-  top: 46rem;
+  left: 27rem;
+  top: 52rem;
   margin-bottom: 5px;
 }
-.back:nth-last-child(-n + 2) {
+.backAdmin:nth-last-child(-n + 2),
+.editAdmin:nth-last-child(-n + 2),
+.downloadAdmin:nth-last-child(-n + 2),
+.uploadAdmin:nth-last-child(-n + 2),
+.deleteAdmin:nth-last-child(-n + 2),
+.permitAdmin:nth-last-child(-n + 2)  {
   margin-bottom: 10px;
 }
 
-button.secondaryBack,
-button.secondaryAdmin {
-  border-radius: 5px;
+.editAdmin {
+  left: 3.25rem;
+  top: 30.25rem;
+}
+
+.downloadAdmin {
+  left: 31.25rem;
+  top: 30.25rem;
+}
+
+.uploadAdmin {
+  left: 59.25rem;
+  top: 30.25rem;
+}
+
+.permitAdmin {
+  left: -0.75rem;
+  top: 18.5rem;
+}
+
+.deleteAdmin {
+  left: 27.25rem;
+  top: 18.5rem;
+}
+
+button.secondaryBackAdmin,
+button.secondaryEditAdmin,
+button.secondaryDownloadAdmin,
+button.secondaryUploadAdmin,
+button.secondaryDeleteAdmin,
+button.secondaryPermitAdmin {
+  border-radius: 10px;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -144,29 +250,61 @@ button.secondaryAdmin {
   width: 5rem;
   margin: 0 auto;
   background: #ffffff;
-  color: #878787;
-  border-radius: 25px;
-  border-color: #878787;
+  color: #ffffff;
+  border-color: #87878700;
   border-width: 1px;
   border-style: solid;
   font-size: 15px;
   width: 100%;
 }
-button.secondaryBack:hover,
-button.secondaryAdmin:hover {
+
+button.secondaryBackAdmin {
   background: #1289FF;
-  color: #ffffff;
-  border-radius: 25px;
-  border-color: #ffffff;
 }
-button.secondaryAdmin:hover {
+button.secondaryEditAdmin {
   background: #8578AA;
 }
-
-.adminTableTitle {
-  color: #1D3A98;
+button.secondaryDownloadAdmin {
+  background: #14a04e;
+}
+button.secondaryUploadAdmin {
+  background: #386bda;
+}
+button.secondaryDeleteAdmin {
+  background: #f13333;
+}
+button.secondaryPermitAdmin {
+  background: #14a04e;
 }
 
-.adminTable {
-  color: #000000;
+button.secondaryBackAdmin:hover,
+button.secondaryEditAdmin:hover,
+button.secondaryDownloadAdmin:hover,
+button.secondaryUploadAdmin:hover,
+button.secondaryDeleteAdmin:hover,
+button.secondaryPermitAdmin:hover  {
+  background: #0f65bb;
+  color: #ffffff;
+  border-color: #ffffff00;
+  
+}
+
+button.secondaryEditAdmin:hover {
+  background: #554d6d;
+}
+button.secondaryDownloadAdmin:hover {
+  background: #0e6934;
+}
+button.secondaryUploadAdmin:hover {
+  background: #203d7c;
+}
+button.secondaryDeleteAdmin:hover {
+  background: #a12323;
+}
+button.secondaryPermitAdmin:hover {
+  background: #0e6934;
+}
+
+.editAdminPage {
+  text-decoration: none;
 }

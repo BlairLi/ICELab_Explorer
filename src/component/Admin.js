@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '../css/AdminPage.css';
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "../api/axios";
 import useAuth from "../hooks/useAuth";
 
@@ -20,15 +20,15 @@ const Admin = () => {
     }
 
     useEffect(() => {
-        getUserInfo();
+        getUserInfo()
     }, []);
 
-    const getUserInfo = () => {
+    const getUserInfo = async () => {
         axios.get('/users', config)
             .then((response) => {
                 const data = response.data;
                 setPosts(data);
-                console.log('Data has been received!');
+                console.log('Data has been received!', data);
             })
             .catch(() => {
                 alert('Error retrieving data!');
@@ -41,7 +41,7 @@ const Admin = () => {
             <tr key={index}>
                 <td className="adminTable">{index + 1}</td>
                 <td className="adminTable">{post.username}</td>
-                <td className="adminTable">{post?.roles?.Admin ? 'Admin' : 'User'}</td>
+                <td className="adminTable">{post?.roles?.Admin ? 'User, Admin' : 'User'}</td>
             </tr>
         ));
     }
@@ -49,22 +49,44 @@ const Admin = () => {
     return (
         <>
             <div className="logoUserProfile">
-                <label className="titleUserProfile">Check Users Details</label>
+                <label className="titleUserProfile">Administrator Page</label>
             </div>
             <div className="itemBox">
+                <label className="titleItemBox">User List</label>
                 <div className="mainUserProfile">
-                    <table>
-                        <tr>
-                            <th className="adminTableTitle">ID</th>
-                            <th className="adminTableTitle">Username</th>
-                            <th className="adminTableTitle">Permission</th>
-                        </tr>
-                        {displayUserPost(posts)}
+                    <table className="adminWholeTable">
+                        <thead>
+                            <tr>
+                                <th className="adminTableTitle">ID</th>
+                                <th className="adminTableTitle">Username</th>
+                                <th className="adminTableTitle">Permission</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {displayUserPost(posts)}
+                        </tbody>
                     </table>
                 </div>
+                <div className="editAdmin">
+                    <Link to="/EditAdmin" className="editAdminPage">
+                        <button className="secondaryEditAdmin">
+                            Edit User Database
+                        </button>
+                    </Link>
+                </div>
+                <div className="downloadAdmin">
+                    <button className="secondaryDownloadAdmin" onClick={goBack}>
+                        User Download Log
+                    </button>
+                </div>
+                <div className="uploadAdmin">
+                    <button className="secondaryUploadAdmin" onClick={goBack}>
+                        Upload Climate Data
+                    </button>
+                </div>
             </div>
-            <div className="back">
-                <button className="secondaryBack" onClick={goBack}>
+            <div className="backAdmin">
+                <button className="secondaryBackAdmin" onClick={goBack}>
                     Go Back
                 </button>
             </div>

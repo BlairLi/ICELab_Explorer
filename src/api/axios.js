@@ -1,6 +1,8 @@
 import axios from 'axios';
-const BASE_URL = 'http://Cisc498-env.eba-r9edeqnn.us-east-1.elasticbeanstalk.com';
-// const BASE_URL = 'http://localhost:3500';
+// const BASE_URL = 'http://Cisc498-env.eba-r9edeqnn.us-east-1.elasticbeanstalk.com';
+const BASE_URL = 'http://localhost:3500';
+// const BASE_URL = 'http://52.91.184.60';
+
 
 
 export default axios.create({

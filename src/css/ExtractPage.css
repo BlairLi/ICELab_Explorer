@@ -220,3 +220,77 @@ input.Enddate{
   background: #1289FF;
 }
 
+.cascader-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cascader-parent {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.cascader-children {
+  display: flex;
+  flex-direction: column;
+}
+
+.cascader-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  white-space: nowrap; /* prevent label from breaking to new line */
+}
+
+.cascader-item label {
+  margin-left: 5px;
+  overflow: hidden; /* hide overflow text */
+  text-overflow: ellipsis; /* add ellipsis when text is too long */
+  max-width: 30rem; /* set maximum width of label */
+}
+
+.cascader-item input[type="radio"],
+.cascader-item input[type="checkbox"] {
+  margin: 0;
+  margin-right: 5px;
+  cursor: pointer;
+} 
+
+.ExportButton:hover {
+  background-color: #40a9ff;
+}
+
+.ExportButton:active {
+  background-color: #096dd9;
+}
+
+/* Custom styling for antd Checkbox component */
+.ant-checkbox-wrapper {
+  margin-right: 10px;
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner {
+  border-color: #1890ff;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #1890ff;
+  border-color: #1890ff;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner::after {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
+
+.ant-checkbox-disabled .ant-checkbox-inner {
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.ant-checkbox-disabled .ant-checkbox-inner::after {
+  border-color: #bfbfbf;
+}
+

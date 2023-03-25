@@ -7,10 +7,24 @@ import { FaMapMarkedAlt } from 'react-icons/fa';
 import { TbFileExport } from 'react-icons/tb';
 import { MdContactSupport } from 'react-icons/md';
 import { BiLogIn } from 'react-icons/bi';
-import { AiTwotoneSetting } from 'react-icons/ai';
+import { RiLogoutBoxRFill } from 'react-icons/ri';
 import { RiAdminFill } from 'react-icons/ri';
+import Modal from "./Modal";
 import "../css/Menu.css"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useLogout from "../hooks/useLogout";
+
 function Menu() {
+  const navigate = useNavigate();
+  const logout = useLogout();
+  const signOut = async () => {
+    await logout();
+    navigate('/');
+    setIsOpen(false)
+}
+
+const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -24,6 +38,19 @@ function Menu() {
             </Link>
           </li>
         </ul>
+
+          {/* Home */}
+          {/* <div className="HomeTopic">Research focus
+            <div>Under enhanced Arctic warming the glaciers of the Canadian Arctic have become 
+              a significant contributor to global sea-level rise. The ICELab research program 
+              aims to improve our understanding of glacier-climate processes and ice dynamics 
+              in the high Arctic as a means to enhance our capacity to detect and project 
+              future glacier response.
+
+              The ICELab team uses a combination of remote sensing and modelling approaches   
+              that are enhanced by field-based measurements on Canadian Arctic glaciers.</div>
+          </div>
+          <div>Background</div> */}
 
           {/* DashBoards */}
           <li className="nav-item">
@@ -42,17 +69,17 @@ function Menu() {
           </li>
 
           {/* Map */}
-          <li class="nav-item">
-            <Link to="/Map" class="nav-link">
-              <span class="link-text">Map</span>
+          <li className="nav-item">
+            <Link to="/Map" className="nav-link">
+              <span className="link-text">Map</span>
               <FaMapMarkedAlt className='FaMapMarkedAlt'/>
             </Link>
           </li>
 
-          {/* ExtractPage */}
+          {/* Download Page */}
           <li className="nav-item">
             <Link to="/ExtractPage" className="nav-link">
-              <span className="link-text">ExtractPage</span>
+              <span className="link-text">Download Page</span>
               <TbFileExport className='FaHistory'/>
             </Link>
           </li>
@@ -73,13 +100,6 @@ function Menu() {
             </Link>
           </li>
 
-          {/* Setting */}
-          {/* <li class="nav-item">
-            <Link to="/Setting" class="nav-link">
-              <span class="link-text">Setting</span>
-              <AiTwotoneSetting className='AiTwotoneSetting'/>
-            </Link>
-          </li> */}
 
           {/* Admin */}
           <li className="nav-item">
@@ -88,6 +108,17 @@ function Menu() {
               <RiAdminFill className='RiAdminFill'/>
             </Link>
           </li>
+
+          {/* LogOut */}
+          <li className="nav-item LogOut" onClick={()=>setIsOpen(true)}>
+            {/* <Link to="/LogOut" class="nav-link"> */}
+            <div className="nav-link">
+              <span className="link-text">LogOut</span>
+              <RiLogoutBoxRFill className='RiLogoutBoxRFill'/>
+            </div>
+            {/* </Link> */}
+          </li>
+          <Modal open={isOpen} onCancel={() => {setIsOpen(false)}} onClose={signOut} action="Yes">Are you sure to Logout?</Modal>
           </div>
       </div>
       <Outlet/>

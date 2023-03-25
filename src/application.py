@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 import pymongo
 from flask_cors import CORS
 from datetime import datetime
+import statistics
 
 application = Flask(__name__)
 CORS(application)  # , resources=r'/*'
@@ -213,19 +214,6 @@ def dashboarddg_fetch(device_id):
         Var = request.json['Varible']
     except KeyError as e:
         return jsonify({'error': "The key should be: " + str(e)}), 400
-
-    # for i in range(10):
-    #     if col.find_one({"TIMESTAMP": int(From_time) - i * 100}) is not None:
-    #         F_t = From_time - i * 100
-    #         break
-    #     if i == 4:
-    #         return jsonify({"result": "From time not found"}), 404
-    # for n in range(10):
-    #     if col.find_one({"TIMESTAMP": int(To_time) + n * 100}) is not None:
-    #         T_t = To_time + n * 100
-    #         break
-    #     if n == 4:
-    #         return jsonify({"result": "To time not found"}), 404
     f = col.find({'TIMESTAMP': {
         '$gte': From_time,  # 大于等于
         "$lte": To_time}  # 小于等于
@@ -349,15 +337,22 @@ def dashboardline_xy(device_id):
     result_v = []
     for m in f:
         result_v.append(m[Var])
-        date_str = str(m["TIMESTAMP"])        
+        date_str = str(m["TIMESTAMP"])
         date_obj = datetime.strptime(date_str, "%Y%m%d%H%M%S")
         date_formatted = date_obj.strftime("%Y-%m-%d %H:%M:%S")
         result_T.append(date_formatted)
     u = get_device_info(device_id)
     d = dict(u.json['result'])
-    #print(d)
+    # print(d)
     unit = d[Var]
-    return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit})
+    try:
+        Min_v = min(result_v)
+        Max_v = max(result_v)
+        Avg_v = statistics.mean(result_v)
+        std_dev = statistics.stdev(result_v)
+    except ValueError as e:
+        return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit}), 200
+    return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit, "average": Avg_v, "min": Min_v, "max": Max_v, "standard devision": std_dev})
 
 
 @application.route('/log_insert', methods=['POST'])

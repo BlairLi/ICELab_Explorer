@@ -425,9 +425,3 @@ input.NameInput{
   background: #1289FF;
   border-radius: 10px;
 }
-
-.LineChart,.WindRose,.HISTOGRAM{
-  cursor: pointer;
-  /* opacity:0.5; */
-  /* z-index: 1; */
-}

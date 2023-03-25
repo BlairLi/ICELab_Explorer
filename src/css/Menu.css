@@ -40,7 +40,7 @@
 .nav-link:hover .FaHistory,
 .nav-link:hover .MdContactSupport,
 .nav-link:hover .BiLogIn,
-.nav-link:hover .AiTwotoneSetting,
+.nav-link:hover .RiLogoutBoxRFill,
 .nav-link:hover .RiAdminFill
 {
     color: #FFF;
@@ -119,12 +119,12 @@
     color:#4979D1;
   }
   
-  .AiTwotoneSetting{
+  .RiLogoutBoxRFill{
     position: absolute;
     width: 1.445rem;
     height: 2.43rem;
     left: 1.0625rem;
-    top: 27.3725rem;
+    top: 31.05rem;
     color:#4979D1;
   }
   
@@ -136,4 +136,8 @@
     /* top: 31.1625rem; */
     top: 27.3725rem;
     color:#4979D1;
+  }
+
+  .LogOut{
+    cursor: pointer;
   }

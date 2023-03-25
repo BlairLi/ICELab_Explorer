@@ -10,10 +10,63 @@ import { SlGraph } from 'react-icons/sl';
 import { CgPinBottom } from 'react-icons/cg';
 import { FaWind } from 'react-icons/fa';
 import { FaDirections } from 'react-icons/fa';
-
+import {useState} from "react";
+import Axios from "axios";
 //import useWindowSize from './windowsize.js'
 const Station = () => {
     //const size = useWindowSize();
+    // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
+    const url = "http://127.0.0.1:5000/lastest-status";
+    const [generatedExcuse, setGeneratedExcuse] = useState("");
+    const [temp2m, setTemp2m] = useState("");
+    const [rh2m, setRH2m] = useState("");
+    const [ws3m, setWS3m] = useState("");
+    const [wd3m, setWD3m] = useState("");
+    const [press, setPress] = useState("");
+
+    const fetchExcuse = (dev_id) => {
+        Axios.get(`${url}/${dev_id}`).then(
+            (resp) => {
+                setGeneratedExcuse(resp.data);
+                const { result } = resp.data;
+                const Temp_2m = result.Temp_2m_C !== 0 ? result.Temp_2m_C : "NaN";
+                const RH_2m = result.RH_2m_perc !== 0 ? result.RH_2m_perc : "NaN";
+                const WS_3m_ms = result.WS_3m_ms !== 0 ? result.WS_3m_ms : "NaN";
+                const WD_3m_deg = result.WD_3m_deg !== 0 ? result.WD_3m_deg : "NaN";
+                const Press = result.Press_hPa !== 0 ? result.Press_hPa : "NaN";
+                setTemp2m(Temp_2m);
+                setRH2m(RH_2m);
+                setWS3m(WS_3m_ms);
+                setWD3m(WD_3m_deg);
+                setPress(Press);
+            }
+        );
+    };
+
+    const handleDeviceChange = (event) => {
+        const selectedDevice = event.target.value;
+        let dev_id;
+        switch (selectedDevice) {
+        case "Choose1":
+            dev_id = "000003";
+            break;
+        case "Choose2":
+            dev_id = "000004";
+            break;
+        case "Choose3":
+            dev_id = "000002";
+            break;
+        case "Choose4":
+            dev_id = "000001";
+            break;
+        default:
+            dev_id = "000000";
+            break;
+        }
+        fetchExcuse(dev_id);
+    };
+
+
     return (
         <>
         {/* {size.width > 600} */}
@@ -31,14 +84,12 @@ const Station = () => {
             {/* <p className="Device-Logs">Logs</p > */}
         </div>
 
-        <div className="drop-down">
-            <select>
+        <div className="drop-down" >
+            <select onChange={handleDeviceChange}>
                     <option value="Choose1">White Glacier Nunatak</option>
                     <option value="Choose2">White Glacier Melt Zone</option>
                     <option value="Choose3">White Glacier Moraine</option>
                     <option value="Choose4">Colour Lake</option>
-                    <option value="Choose5">Crusoe Glacier</option>
-                    <option value="Choose6">Erratics Island</option>
             </select>
         </div>
 
@@ -47,27 +98,27 @@ const Station = () => {
             <div className="blue-block"></div>
             <TbTemperature className='TbTemperature'/>
             <p className="TbTemperature_Text">Temperature</p >
-            <p className="TbTemperature_Text2">-8.7°C</p >
+            <p className="TbTemperature_Text2">{temp2m}°C</p >
 
             <div className="blue-block2"></div>
             <SlGraph className='SlGraph'/>
             <p className="RH_Text">RH</p >
-            <p className="RH_Text2">84.2%</p >
+            <p className="RH_Text2">{rh2m}%</p >
 
             <div className="blue-block3"></div>
             <CgPinBottom className='CgPinBottom'/>
             <p className="CgPinBottom_Text">BP</p >
-            <p className="CgPinBottom_Text2">959.3 hPa</p >
+            <p className="CgPinBottom_Text2">{press} hPa</p >
 
             <div className="blue-block4"></div>
             <FaWind className='FaWind'/>
             <p className="FaWind_Text">Wind Speed</p >
-            <p className="FaWind_Text2">12.3 m/s</p >
+            <p className="FaWind_Text2">{ws3m} m/s</p >
 
             <div className="blue-block5"></div>
             <FaDirections className='FaDirections'/>
             <p className="FaDirections_Text">WindDir</p >
-            <p className="FaDirections_Text2">167.5 Deg</p >
+            <p className="FaDirections_Text2">{wd3m} Deg</p >
 
         </div>
 

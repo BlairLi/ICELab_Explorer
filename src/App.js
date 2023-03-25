@@ -11,6 +11,10 @@ import RequireAuth from './component/RequireAuth';
 import Unauthorized from './component/Unauthorized';
 import WindRose from "./component/WindRose";
 import User from "./component/User";
+import PersistLogin from "./component/PersistLogin";
+import EditAdmin from "./component/EditAdmin";
+import Register from "./component/Register";
+import Map from "./component/Map";
 
 const ROLES = {
   'User': 2001,
@@ -25,18 +29,24 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Menu />}>
+            {/* 用户关联dashboard登出后的处理 ？ */}
               <Route path="DashBoards" element={<DashBoards />} />
               <Route path="DashBoards2" element={<DashBoards2 />} />
               <Route path="Graphs" element={<WindRose />} />
               <Route path="Station" element={<Station />} />
               <Route path="ExtractPage" element={<ExtractPage />} />
+              <Route path="Map" element={<Map />} />
               <Route path="unauthorized" element={<Unauthorized />} />
               {/* we want to protect these routes */}
-              {/* <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}> */}
-                <Route path="Admin" element={<User/>}></Route>
-              {/* </Route> */}
+              <Route element={<PersistLogin />}>
+                <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+                  <Route path="Admin" element={<Admin/>}></Route>
+                  <Route path="EditAdmin" element={<EditAdmin/>}></Route>
+                </Route>
+              </Route>
           </Route>
           <Route path="Login" element={<Login />} />
+          <Route path="Register" element={<Register />} />
         </Routes>
 
       </main>

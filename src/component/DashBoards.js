@@ -11,7 +11,7 @@ import DashBoards2 from "./DashBoards2";
 
 const DashBoards = () => {
     const [station, setStation] = useState("White Glacier Nunatak");
-    const [variable, setVariable] = useState("Temperature");
+    const [variable, setVariable] = useState("Temp_2m_C");
     const [plotType, setPlotType] = useState("LineChart");
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
@@ -23,6 +23,7 @@ const DashBoards = () => {
     const [isOpenDash1, setIsOpenDash1] = useState(true);
     const [createList, setcreateList] = useState([]);
 
+    // 用createList上传mongodb 到plottype
 
     const dict = {
         station,
@@ -84,10 +85,10 @@ const DashBoards = () => {
                     <p className="WhichStation">Station</p >
                     <div className="drop-down2">
                         <select value={station} onChange={handleStation}>
-                            <option value="White Glacier Nunatak">White Glacier Nunatak</option>
-                            <option value="White Glacier Melt Zone">White Glacier Melt Zone</option>
-                            <option value="White Glacier Moraine">White Glacier Moraine</option>
-                            <option value="Colour Lake">Colour Lake</option>
+                            <option value="000003">White Glacier Nunatak</option>
+                            <option value="000004">White Glacier Melt Zone</option>
+                            <option value="000002">White Glacier Moraine</option>
+                            <option value="000001">Colour Lake</option>
                             <option value="Crusoe Glacier">Crusoe Glacier</option>
                             <option value="Erratics Island">Erratics Island</option>
                         </select>
@@ -97,7 +98,7 @@ const DashBoards = () => {
                     <p className="WhichVariable">Variable</p >
                     <div className="drop-down3">
                         <select value={variable} onChange={handleVariable}>
-                            <option value="Temperature">Temperature</option>
+                            <option value="Temp_2m_C">Temperature</option>
                             <option value="Relative humidity">Relative humidity</option>
                             <option value="Wind speed">Wind speed</option>
                             <option value="Wind direction">Wind direction</option>
