@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import '../css/DashBoard2.css';
-import '../dist/accordion.min.css';
 import { ImBin } from 'react-icons/im';
 import Modal from "./Modal";
 import DashBoards from "./DashBoards";
 import DashBoardCharts from "./DashBoardCharts";
 import { graph_line_DashBoard, graph_wr, data1, data2 } from "./WindRose";
 import Axios from 'axios';
-import { AiFillAlert } from "react-icons/ai";
 
  
 function DashBoards2(props) {
@@ -40,13 +38,6 @@ function DashBoards2(props) {
     }
 
     const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
-    
-    const convertList = {
-        "ColourLake": "000001",
-        "Moraine": "000002",
-        "Nunatak": "000003",
-        "WHEM": "000004"
-    }
 
     // fetch value for linechart
     const fetchLinechart = (dev_id, ftime, var_t) => {
@@ -64,10 +55,10 @@ function DashBoards2(props) {
     )
     };
     // fetch value for windrose
-    const fetchExcuse = (excuse, ftime) => {
+    const fetchExcuse = (excuse, ftime, ttime) => {
         var dat_t = {
           "TIMESTAMP_F": ftime,
-          "TIMESTAMP_T": 202207280645
+          "TIMESTAMP_T": ttime
         }
         Axios.post(`${url}dashboard_wr/${excuse}`, dat_t).then(
           (resp) => {
@@ -91,17 +82,15 @@ function DashBoards2(props) {
         const station = alldataObj.station
         const variable = alldataObj.variable
         if (plotType=="LineChart") {
-            // fetchLinechart(parseInt(inputData.station),20220423074600,inputData.variable)
             fetchLinechart(station,fromValue,variable)
             graph_line_DashBoard(Linexy)
-            console.log("running success2")
         }
         else if (plotType=="Histogram") {
             console.log("TBD")
         } 
         else if (plotType=="WindRose") {
-            fetchExcuse()
-            graph_wr()
+            fetchExcuse(station,fromValue,toValue)
+            graph_wr(generatedExcuse)
         }
         else console.log("GraphType select ERROR")
 

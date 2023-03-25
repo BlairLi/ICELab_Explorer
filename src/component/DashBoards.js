@@ -10,7 +10,7 @@ import DashBoards2 from "./DashBoards2";
 
 
 const DashBoards = () => {
-    const [station, setStation] = useState("White Glacier Nunatak");
+    const [station, setStation] = useState("000003");
     const [variable, setVariable] = useState("Temp_2m_C");
     const [plotType, setPlotType] = useState("LineChart");
     const now = new Date();
@@ -100,8 +100,8 @@ const DashBoards = () => {
                         <select value={variable} onChange={handleVariable}>
                             <option value="Temp_2m_C">Temperature</option>
                             <option value="Relative humidity">Relative humidity</option>
-                            <option value="Wind speed">Wind speed</option>
-                            <option value="Wind direction">Wind direction</option>
+                            <option value="WS_3m_ms">Wind speed</option>
+                            <option value="WD_3m_deg">Wind direction</option>
                             <option value="Incoming/downward shortwave radiation">Incoming/downward shortwave radiation</option>
                             <option value="Snow depth">Snow depth</option>
                             <option value="Battery power">Battery power</option>
@@ -129,8 +129,8 @@ const DashBoards = () => {
                         <button value="WindRose" className="transparent-button3" onClick={handlePlotType} />
                     </div>
                 </div>
-                <div class="TimeChoose">
-                    <p class="From">From</p >
+                <div className="TimeChoose">
+                    <p className="From">From</p >
                     <input
                         value={fromTime}
                         type="datetime-local"
@@ -138,8 +138,8 @@ const DashBoards = () => {
                         onChange={handleFromTime}
                     />
                 </div>
-                <div class="TimeChoose2">
-                    <p class="To">To</p >
+                <div className="TimeChoose2">
+                    <p className="To">To</p >
                     <input
                         value={toTime}
                         type="datetime-local"

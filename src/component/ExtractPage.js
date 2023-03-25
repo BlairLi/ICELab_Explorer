@@ -329,24 +329,24 @@ const Export = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div class="row">
-          <div class="column">
-            <h1 className="heading1">Export Setting</h1>
-              <div class="buttonNav">
-                  <p class="cusName">FileName:</p>
-                  <label class="custom-field one">
+        <div className="row">
+          <div className="column">
+            <h1 classNameName="heading1">Export Setting</h1>
+              <div className="buttonNav">
+                  <p className="cusName">FileName:</p>
+                  <label className="custom-field one">
                     <input
                       type="text"
                       placeholder=" "
                       value={name}
                       onChange={handleChange}
                     />
-                    <span class="placeholder">Name</span>
+                    <span className="placeholder">Name</span>
                   </label>
               </div>
-              <div class="buttonNav">
-                  <p class="fileFormat">File Format:</p>
-                  <div class="dropDown">
+              <div className="buttonNav">
+                  <p className="fileFormat">File Format:</p>
+                  <div className="dropDown">
                     <select required>
                       <option value="" disabled selected hidden>
                         Choose preference
@@ -356,21 +356,21 @@ const Export = () => {
                     </select>
                   </div>
               </div>
-              <div class="buttonNav">
-                  <p class="from">From</p>
+              <div className="buttonNav">
+                  <p className="from">From</p>
                   <input
                     type="datetime-local"
-                    class="startdate"
+                    className="startdate"
                     disabled={isChecked}
                     value={startDate}
                     onChange={handleStartDateChange}
                   />
               </div>
-              <div class="buttonNav">
-                <p class="to">To</p>
+              <div className="buttonNav">
+                <p className="to">To</p>
                 <input
                   type="datetime-local"
-                  class="Enddate"
+                  className="Enddate"
                   disabled={isChecked}
                   value={endDate}
                   onChange={handleEndDateChange}

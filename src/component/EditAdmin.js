@@ -3,6 +3,7 @@ import '../css/AdminPage.css';
 import { json, useNavigate } from "react-router-dom"
 import axios from "../api/axios";
 import useAuth from "../hooks/useAuth";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const EditAdmin = () => {
     
@@ -16,6 +17,8 @@ const EditAdmin = () => {
     const { auth } = useAuth();
     const userRef = useRef();
     const errRef = useRef();
+    const axiosPrivate = useAxiosPrivate();
+
 
     let config = {
         headers: {
