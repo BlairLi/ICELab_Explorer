@@ -30,20 +30,21 @@ function App() {
         <Routes>
           <Route path="/" element={<Menu />}>
             {/* 用户关联dashboard登出后的处理 ？ */}
-              <Route path="DashBoards" element={<DashBoards />} />
-              <Route path="DashBoards2" element={<DashBoards2 />} />
-              <Route path="Graphs" element={<WindRose />} />
-              <Route path="Station" element={<Station />} />
-              <Route path="ExtractPage" element={<ExtractPage />} />
-              <Route path="Map" element={<Map />} />
-              <Route path="unauthorized" element={<Unauthorized />} />
-              {/* we want to protect these routes */}
-              <Route element={<PersistLogin />}>
-                <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
-                  <Route path="Admin" element={<Admin/>}></Route>
-                  <Route path="EditAdmin" element={<EditAdmin/>}></Route>
-                </Route>
+            <Route index element={<Map />}/>
+            <Route path="DashBoards" element={<DashBoards />} />
+            <Route path="DashBoards2" element={<DashBoards2 />} />
+            <Route path="Graphs" element={<WindRose />} />
+            <Route path="Station" element={<Station />} />
+            <Route path="ExtractPage" element={<ExtractPage />} />
+            <Route path="Map" element={<Map />} />
+            <Route path="unauthorized" element={<Unauthorized />} />
+            {/* we want to protect these routes */}
+            <Route element={<PersistLogin />}>
+              <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
+                <Route path="Admin" element={<Admin/>}></Route>
+                <Route path="EditAdmin" element={<EditAdmin/>}></Route>
               </Route>
+            </Route>
           </Route>
           <Route path="Login" element={<Login />} />
           <Route path="Register" element={<Register />} />

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import '../css/AdminPage.css';
-import { json, useNavigate } from "react-router-dom"
+import { json, useNavigate, useLocation } from "react-router-dom"
 import axios from "../api/axios";
 import useAuth from "../hooks/useAuth";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
@@ -8,6 +8,7 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 const EditAdmin = () => {
     
     const navigate = useNavigate();
+    const location = useLocation();
 
     const goBack = () => navigate(-1);
 
@@ -27,36 +28,49 @@ const EditAdmin = () => {
     }
 
     useEffect(() => {
-        getUserInfo()
-        userRef.current.focus();
-    }, []);
-
-    useEffect(() => {
         setErrMsg('');
     }, [user])
 
-    const getUserInfo = () => {
-        axios.get('/users', config)
-            .then((response) => {
-                const data = response.data;
-                setPosts(data);
-                console.log('Data has been received!');
-            })
-            .catch(() => {
-                alert('Error retrieving data!');
-            })
-    }
+    useEffect(() => {
+        let isMounted = true;
+        const controller = new AbortController();
+
+        const getUserInfo = async () => {
+            try {
+                const response = await axiosPrivate.get('/users', {
+                    signal: controller.signal
+                });
+                console.log(response.data);
+                isMounted && setPosts(response.data);
+            } catch (err) {
+                console.error(err);
+                navigate('/login', { state: { from: location }, replace: true });
+            }
+        }
+
+        getUserInfo();
+        userRef.current.focus();
+
+        return () => {
+            isMounted = false;
+            controller.abort();
+        }
+    }, [])
 
     const permitUser = async (e) => {
         e.preventDefault();
+        let isMounted = true;
+        const controller = new AbortController();
         try {
-            const response = await axios.put('/users', {
+            const response = await axiosPrivate.put('/users', {
                 'username': user,
                 'roles': {
                     'User': 2001,
                     'Admin': 5150
                 }
-            }, config);
+            }, {
+                signal: controller.signal
+            });
             if (response.status === 204) {
                 setErrMsg(`User ${user} not found`);
             } else {
@@ -75,12 +89,20 @@ const EditAdmin = () => {
             }
             errRef.current.focus();
         }
+        return () => {
+            isMounted = false;
+            controller.abort();
+        }
     }
     
     const deleteUser = async (e) => {
         e.preventDefault();
+        let isMounted = true;
+        const controller = new AbortController();
         try {
-            const response = await axios.delete(`/users/${user}`, config);
+            const response = await axiosPrivate.delete(`/users/${user}`, {
+                signal: controller.signal
+            });
             if (response.status === 204) {
                 setErrMsg(`User ${user} not found`);
             } else {
@@ -98,6 +120,11 @@ const EditAdmin = () => {
                 setErrMsg('Edit Failed');
             }
             errRef.current.focus();
+        }
+        
+        return () => {
+            isMounted = false;
+            controller.abort();
         }
     }
 

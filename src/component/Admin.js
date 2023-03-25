@@ -21,22 +21,6 @@ const Admin = () => {
         }
     }
 
-    // useEffect(() => {
-    //     getUserInfo()
-    // }, []);
-
-    // const getUserInfo = async () => {
-    //     axios.get('/users', config)
-    //         .then((response) => {
-    //             const data = response.data;
-    //             setPosts(data);
-    //             console.log('Data has been received!', data);
-    //         })
-    //         .catch(() => {
-    //             alert('Error retrieving data!');
-    //         })
-    // }
-
     useEffect(() => {
         let isMounted = true;
         const controller = new AbortController();

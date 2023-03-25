@@ -14,6 +14,7 @@ import "../css/Menu.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
+import Map from "./Map";
 
 function Menu() {
   const navigate = useNavigate();
