@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import '../css/AdminPage.css';
-import { json, useNavigate, useLocation } from "react-router-dom"
-import axios from "../api/axios";
+import { useNavigate, useLocation } from "react-router-dom"
 import useAuth from "../hooks/useAuth";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
@@ -15,17 +14,9 @@ const EditAdmin = () => {
     const [user, setUser] = useState('');
     const [posts, setPosts] = useState([]);
     const [errMsg, setErrMsg] = useState('');
-    const { auth } = useAuth();
     const userRef = useRef();
     const errRef = useRef();
     const axiosPrivate = useAxiosPrivate();
-
-
-    let config = {
-        headers: {
-            'Authorization': 'Bearer ' + auth.accessToken
-        }
-    }
 
     useEffect(() => {
         setErrMsg('');
@@ -76,6 +67,7 @@ const EditAdmin = () => {
             } else {
                 setErrMsg(`User ${user} has admin permission`);
             }
+            isMounted && setPosts(response.data);
             errRef.current.focus();
         }catch (err) {
             if (!err?.response) {

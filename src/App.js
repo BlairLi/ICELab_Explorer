@@ -15,6 +15,7 @@ import PersistLogin from "./component/PersistLogin";
 import EditAdmin from "./component/EditAdmin";
 import Register from "./component/Register";
 import Map from "./component/Map";
+import DownAdmin from "./component/DownAdmin";
 
 const ROLES = {
   'User': 2001,
@@ -42,6 +43,7 @@ function App() {
             <Route element={<PersistLogin />}>
               <Route element={<RequireAuth allowedRoles={[ROLES.Admin]} />}>
                 <Route path="Admin" element={<Admin/>}></Route>
+                <Route path="DownAdmin" element={<DownAdmin/>}></Route>
                 <Route path="EditAdmin" element={<EditAdmin/>}></Route>
               </Route>
             </Route>

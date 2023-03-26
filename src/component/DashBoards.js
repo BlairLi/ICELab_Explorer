@@ -2,14 +2,17 @@ import "@picocss/pico"
 import '../css/DashBoards.css';
 import { AiOutlineLineChart } from 'react-icons/ai';
 import { GiHistogram } from 'react-icons/gi';
-import { FaChartArea } from 'react-icons/fa';
 import { RiWindyFill } from 'react-icons/ri';
-import { useState } from "react";
-import { Link } from "react-router-dom"
+import { useState, useEffect } from "react";
 import DashBoards2 from "./DashBoards2";
-
+import useAuth from "../hooks/useAuth";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const DashBoards = () => {
+    const { auth } = useAuth();
+    const User = auth.user
+    const axiosPrivate = useAxiosPrivate();
+
     const [station, setStation] = useState("000003");
     const [variable, setVariable] = useState("Temp_2m_C");
     const [plotType, setPlotType] = useState("LineChart");
@@ -23,8 +26,6 @@ const DashBoards = () => {
     const [isOpenDash1, setIsOpenDash1] = useState(true);
     const [createList, setcreateList] = useState([]);
 
-    // 用createList上传mongodb 到plottype
-
     const dict = {
         station,
         variable,
@@ -33,8 +34,33 @@ const DashBoards = () => {
         toTime,
         boardName
     }
+    
+    const handlegetDashboard = () => {
+        let isMounted = true;
+        const controller = new AbortController();
+        
+        const getDashboard = async () => {
+            try {
+                alert("User: "+User)
+                const response = await axiosPrivate.get(`/dashboards/${User}`, {
+                    signal: controller.signal
+                });
+                const newList = [...createList, response.data];
+                isMounted && !((newList+'').isEmpty()) && setcreateList(newList)
+            } catch (err) {
+                console.error(err);
+            }
+        }
 
-
+        getDashboard()
+        
+        return () => {
+            isMounted = false;
+            controller.abort();
+        }
+    }
+    useEffect( handlegetDashboard , []) // 此处填什么？应该根据什么变
+    
     const handleStation = (e) => {
         setStation(e.target.value)
     };
@@ -64,8 +90,8 @@ const DashBoards = () => {
     }
 
     const createDate = () => {
+        // console.log(newList);
         const newList = [...createList, dict];
-        console.log(newList);
         setcreateList(newList)
         setIsOpenDash1(false)
     }

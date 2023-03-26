@@ -6,7 +6,7 @@ import DashBoards from "./DashBoards";
 import DashBoardCharts from "./DashBoardCharts";
 import { graph_line_DashBoard, graph_wr, data1, data2 } from "./WindRose";
 import Axios from 'axios';
-
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
  
 function DashBoards2(props) {
     const [val, setVal] = useState([]);
@@ -37,6 +37,31 @@ function DashBoards2(props) {
         setIsOpen(false);
     }
 
+    // const handleSave = () => {
+    //     let isMounted = true;
+    //         const controller = new AbortController();
+    
+    //         const saveDashboard = async () => {
+    //             try {
+    //                 const response = await axiosPrivate.put('/dashboards', {
+    //                     signal: controller.signal
+    //                 });
+    //                 const newList = [...createList, response.data];
+    //                 console.log("newList: "+newList);
+    //                 isMounted && !newList && setcreateList(newList)
+    //             } catch (err) {
+    //                 console.error(err);
+    //             }
+    //         }
+    
+    //         saveDashboard()
+
+    //         return () => {
+    //             isMounted = false;
+    //             controller.abort();
+    //         }
+    // }
+
     const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
 
     // fetch value for linechart
@@ -46,11 +71,9 @@ function DashBoards2(props) {
         "TIMESTAMP_T": 202207280645,
         "Varible": var_t//"RH_Avg"
         }
-        alert(JSON.stringify(dat_t))
         Axios.post(`${url}dashboard_line_xy/${dev_id}`, dat_t).then(
             (resp) => {
                 setLinexy(resp.data);
-                alert(JSON.stringify(resp.data))
             }
     )
     };
@@ -70,10 +93,8 @@ function DashBoards2(props) {
         setshowJsondata(JSON.stringify(props.dict[0]))
     }, []);
 
-    // 点击两次才能抓取variable的问题
     async function handleVariables(data) {
         setshowJsondata(JSON.stringify(data))
-        // alert("showJsondata: "+showJsondata)
         const alldata = showJsondata
         const alldataObj = JSON.parse(alldata)
         const plotType = alldataObj.plotType
@@ -96,10 +117,6 @@ function DashBoards2(props) {
 
     }
 
-    // inputData.fromTime
-    // console.log("Inputdata: "+inputData)
-    // const fromValue = parseInt(inputData.fromTime.replace("T", "").replace(/[-:]/g, "") + "00");
- 
     if (!isOpenDash2) return <DashBoards />
     return (
         <>
@@ -107,7 +124,6 @@ function DashBoards2(props) {
                 <div className='DashBoardContent'>
                     <div>
                         <h1>DashBoards</h1>
-                        {/* <button className="CreateMoreButton" onClick={()=>handleCloseDash2()}>RETURN</button> */}
                         <button className="CreateMoreButton" onClick={() => handleAdd()}>RETURN</button>
                     </div>
  
