@@ -79,7 +79,10 @@ const EditAdmin = () => {
             })
     }
 
-    const exportToExcel = () => {
+    
+
+    const exportToExcel = (e) => {
+        e.preventDefault();
         if (user !== '') {
             getDownloadInfo();
             setDownload(true);

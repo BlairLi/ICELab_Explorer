@@ -10,10 +10,15 @@ function WindRose() {
   const [currTime, setcurrTime] = useState();
   const [past3Time, setpast3] = useState();
   const [past1Time, setpast1] = useState();
+  const [Time, setTime] = useState();
   useEffect(() => {
     Axios.get(`http://127.0.0.1:5000/lastest-status/000001`).then((res) => {
-      setcurrTime(res.data.result.TIMESTAMP)
-    })
+
+      setcurrTime(res.data.result.TIMESTAMP);
+      const hi = res.data.result.TIMESTAMP;
+      setTime(hi);
+
+    });
   }, [])
 
 
@@ -399,7 +404,7 @@ function WindRose() {
 
   return (
     <div className="WindRose">
-      <p>{currTime}</p>
+      <p>{Time}</p>
       <p>{past1Time}</p>
       <p>{past3Time}</p>
       <h1>Line Chart Graph</h1>

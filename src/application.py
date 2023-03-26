@@ -3,6 +3,7 @@ import pymongo
 from flask_cors import CORS
 from datetime import datetime
 import statistics
+import math
 
 application = Flask(__name__)
 CORS(application)  # , resources=r'/*'
@@ -70,7 +71,7 @@ def get_all_attendees(Device_id):
         del temp['_id']
         output.append(temp)
     return jsonify({
-        'result': output
+        'result': output 
     })
 
 
@@ -201,8 +202,6 @@ def lastest(device_id):
     del res['_id']
     return jsonify({'result': res})
 
-# line chart数据
-
 
 @application.route('/dashboard_dg/<device_id>', methods=['POST'])
 def dashboarddg_fetch(device_id):
@@ -244,9 +243,18 @@ def dashboardwr_fetch(device_id):
     }, {})
     dir_w = []
     spd = []
+    wind_dir_n = ""
+    wind_spd_n = ""  # units of wind speed
+    if device_id == "000000":
+        wind_dir_n = 'WindDir_resultmean'
+        wind_spd_n = "WindSpd_vector_ms"
+    else:
+        wind_dir_n = "WD_3m_deg"
+        wind_spd_n = 'WS_3m_ms'
+
     for m in f:
-        dir_w.append(m['WindDir_resultmean'])
-        spd.append(m['WindSpd_vector_ms'])
+        dir_w.append(m[wind_dir_n])
+        spd.append(m[wind_spd_n])
     res = [[0 for j in range(16)] for i in range(8)]
     for i in range(len(dir_w)):
         wind_level = 0
@@ -343,7 +351,6 @@ def dashboardline_xy(device_id):
         result_T.append(date_formatted)
     u = get_device_info(device_id)
     d = dict(u.json['result'])
-    # print(d)
     unit = d[Var]
     try:
         Min_v = min(result_v)
@@ -390,6 +397,73 @@ def log_insert():
     return jsonify({"result": "Log inserted successful"})
 
 
+# histogram 数据生成
+@application.route('/dashboard_hg/<device_id>', methods=['POST'])
+def histogram(device_id):
+    db = application.MongoClient["Device_Data"]
+    col = db[device_id]
+    try:
+        From_time = request.json['TIMESTAMP_F']
+        To_time = request.json['TIMESTAMP_T']
+        Var = request.json['Varible']
+    except KeyError as e:
+        return jsonify({'error': "The key should be: " + str(e)}), 400
+    f = col.find({'TIMESTAMP': {
+        '$gte': From_time,  # 大于等于
+        "$lte": To_time}  # 小于等于
+    }, {})
+# except KeyError as e:
+#             return jsonify({"res": "varible does not exist in device"}), 400
+    u = get_device_info(device_id)
+    d = dict(u.json['result'])
+    # print(d)
+    try:
+        unit = d[Var]
+    except KeyError as e:
+        return jsonify({"res": "varible does not exist in device"}), 400
+
+    result_v = []
+    for m in f:
+        temp = m[Var]
+        result_v.append(m[Var])
+
+    try:
+        Min_v = min(result_v)
+        Max_v = max(result_v)
+        Avg_v = statistics.mean(result_v)
+        std_dev = statistics.stdev(result_v)
+    except ValueError as e:
+        return jsonify({"y": result_v, "var": Var, "unit": unit}), 200
+    # range setting
+    interval = Max_v - Min_v
+    Range = 0
+    if interval > 500:
+        Range = 100
+    else:
+        Range = 10
+    bottom = math.floor(Min_v / Range) * Range
+    ceiling = math.ceil(Max_v/Range) * Range
+    
+    Bar_Num = (ceiling - bottom) / Range
+    Bar_Num = int(Bar_Num)
+    res = []
+    res_x = []
+    t = bottom
+    for i in range(Bar_Num):
+        res.append(0)
+        res_x.append(str(t)+unit + " - " + str(t + Range)+unit)
+        t += Range
+
+    for m in result_v:
+        temp = bottom
+        for n in range(Bar_Num):
+            if temp < m <= temp+Range:
+                res[n] += 1
+                break
+            temp += Range
+    return jsonify({"x": res_x, "y": res, "var": Var, "unit": unit, "average": Avg_v, "min": Min_v, "max": Max_v, "standard devision": std_dev})
+
+
 # 测试
 if __name__ == "__main__":
-    application.run(debug=True)
+    application.run(debug=True,port=5000)
