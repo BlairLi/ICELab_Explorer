@@ -3,23 +3,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Public+Sans:wght@400;500;600&family=Roboto:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Public+Sans:wght@900&family=Roboto:wght@700&display=swap');
 
-div.Scrollbar{
+* { padding: 0; margin: 0; }
+html, body, #root, main, #fullheight {
+    min-height: 100%;
+    height: 100%;
+}
+
+div.Scrollbar {
   overflow: auto;
   white-space: nowrap;
   overscroll-behavior-inline: contain;
-  width: 60px;
+  width: 100%;
+  left:18.3125rem;
+  width: 102.6875rem;
+  height: 8.75rem;
+  top: 12.5rem;
+  position: absolute;
+  max-width: 70rem;
   display: flex;
   flex-wrap: wrap;
 }
 
+.parent-element {
+  display: flex;
+}
+.Scrollbar > * {
+  display: inline-block;
+}
+
 .grey-block {
-  width: 1120px;
-    height: 65px;
-    left: 293px;
-    top: 65px;
-    position:absolute;
-    background: #F7F9FB;
-    border-radius: 1rem;
+  width: 70rem;
+  height: 4.0625rem;
+  left: 18.3125rem;
+  top: 4.0625rem;
+  position:absolute;
+  background: #F7F9FB;
+  border-radius: 1rem;
   }
 
   .grey-block2 {
@@ -33,8 +52,8 @@ div.Scrollbar{
     position: absolute;
     width: 20.5rem;
     height: 4rem;
-    left: 293px;
-    top: 27rem;
+    left: 18.3125rem;
+    top: 29rem;
 
     background: #F3F7FB;
     border-radius: 1rem;
@@ -52,8 +71,8 @@ div.Scrollbar{
     position: absolute;
     width: 20.5rem;
     height: 4rem;
-    left: 293px;
-    top: 32.5rem;
+    left: 18.3125rem;
+    top: 34.5rem;
 
     background: #F3F7FB;
     border-radius: 1rem;
@@ -71,8 +90,8 @@ div.Scrollbar{
     position: absolute;
     width: 20.5rem;
     height: 4rem;
-    left: 293px;
-    top: 38rem;
+    left: 18.3125rem;
+    top: 40rem;
 
     background: #F3F7FB;
     border-radius: 1rem;
@@ -90,8 +109,8 @@ div.Scrollbar{
     position: absolute;
     width: 20.5rem;
     height: 4rem;
-    left: 293px;
-    top: 43.5rem;
+    left: 18.3125rem;
+    top: 45.5rem;
 
     background: #F3F7FB;
     border-radius: 1rem;
@@ -110,7 +129,7 @@ div.Scrollbar{
     width: 20.5rem;
     height: 4rem;
     left: 47.5rem;
-    top: 27rem;
+    top: 29rem;
 
     background: #F3F7FB;
     border-radius: 1rem;
@@ -129,7 +148,45 @@ div.Scrollbar{
     width: 20.5rem;
     height: 4rem;
     left: 47.5rem;
-    top: 32.5rem;
+    top: 34.5rem;
+
+    background: #F3F7FB;
+    border-radius: 1rem;
+    transform: rotate(-0.03deg);
+  }
+
+  .grey-block8 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    position: absolute;
+    width: 20.5rem;
+    height: 4rem;
+    left: 18.3125rem;
+    top: 51.1rem;
+
+    background: #F3F7FB;
+    border-radius: 1rem;
+    transform: rotate(-0.03deg);
+  }
+
+  .grey-block9 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    position: absolute;
+    width: 20.5rem;
+    height: 4rem;
+    left: 47.5rem;
+    top: 40rem;
 
     background: #F3F7FB;
     border-radius: 1rem;
@@ -183,7 +240,7 @@ div.Scrollbar{
 
   .Device-SS{
     position: absolute;
-    left: 293px;
+    left: 18.3125rem;
     top: 9rem;
     font-family: 'Public Sans';
     font-style: normal;
@@ -197,8 +254,8 @@ div.Scrollbar{
 
   .Device-Info{
     position: absolute;
-    left: 293px;
-    top: 24rem;
+    left: 18.375rem;
+    top: 26rem;
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 900;
@@ -211,7 +268,7 @@ div.Scrollbar{
   .Communcation{
     position: absolute;
     left: 48rem;
-    top: 24rem;
+    top: 26rem;
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
@@ -228,7 +285,7 @@ div.Scrollbar{
     font-weight: 700;
     font-size: 1.0rem;
     left: 49.5rem;
-    top: 28.3rem;
+    top: 30.3rem;
     color: #1D3A70;
   }
 
@@ -239,7 +296,18 @@ div.Scrollbar{
     font-weight: 700;
     font-size: 1rem;
     left: 49.5rem;
-    top: 33.7rem;
+    top: 35.7rem;
+    color: #1D3A70;
+  }
+
+  .Frenquency{
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    left: 49.5rem;
+    top: 41.3rem;
     color: #1D3A70;
   }
 
@@ -249,8 +317,8 @@ div.Scrollbar{
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    left: 333px;
-    top: 28.3rem;
+    left: 20.8125rem;
+    top: 30.3rem;
     color: #1D3A70;
   }
 
@@ -260,8 +328,8 @@ div.Scrollbar{
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    left: 333px;
-    top: 33.7rem;
+    left: 20.8125rem;
+    top: 35.7rem;
     color: #1D3A70;
   }
 
@@ -271,8 +339,8 @@ div.Scrollbar{
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    left: 333px;
-    top: 39.3rem;
+    left: 20.8125rem;
+    top: 41.3rem;
     color: #1D3A70;
   }
 
@@ -282,8 +350,19 @@ div.Scrollbar{
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    left: 333px;
-    top: 44.7rem;
+    left: 20.8125rem;
+    top: 46.7rem;
+    color: #1D3A70;
+  }
+
+  .LocationStation{
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    left: 20.8125rem;
+    top: 52.3rem;
     color: #1D3A70;
   }
 
@@ -295,7 +374,7 @@ div.Scrollbar{
     height: 2.5rem;
     align-items: center;
     background: #FFFFFF;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 0.875rem rgba(0, 0, 0, 0.1);
     border-radius: 0.8rem;
     --border-width: 0rem;
     margin-bottom: 0px;
@@ -331,114 +410,209 @@ div.Scrollbar{
 
   .TbTemperature{
     position: absolute;
-    width: 88px;
-    height: 81px;
-    left: 390px;
-    top: 260px;
+    width: 5.5rem;
+    height: 5.0625rem;
+    left: 5.9375rem;
+    top: 3.75rem;
     color: white;
   }
 
-  .SlGraph{
+  .WiHumidity{
     position: absolute;
-    width: 88px;
-    height: 89px;
-    left: 620px;
-    top: 260px;
+    width: 5.5rem;
+    height: 5.5625rem;
+    left: 21.25rem;
+    top: 3.75rem;
     color: #fdfdfd;
   }
 
-  .CgPinBottom{
+  .FaRegSnowflake{
     position: absolute;
-    width: 88px;
-    height: 81px;
-    left: 860px;
-    top: 275px;
+    width: 4.6875rem;
+    height: 4.0625rem;
+    left: 36.25rem;
+    top: 4.6875rem;
     color: #fdfdfd;
   }
 
   .FaWind{
     position: absolute;
-    width: 60px;
-    height: 81px;
-    left: 1110px;
-    top: 265px;
+    width: 3.75rem;
+    height: 5.0625rem;
+    left: 51.875rem;
+    top: 4.25rem;
     color: #fdfdfd;
   }
 
   .FaDirections{
     position: absolute;
-    width: 60px;
-    height: 81px;
-    left: 1345px;
-    top: 265px;
+    width: 3.75rem;
+    height: 5.0625rem;
+    left: 66.875rem;
+    top: 4.6875rem;
+    color: #fdfdfd;
+  }
+
+  .FaRadiation{
+    position: absolute;
+    width: 3.75rem;
+    height: 5.0625rem;
+    left: 81.875rem;
+    top: 4.6875rem;
+    color: #fdfdfd;
+  }
+
+  .FaRadiation2{
+    position: absolute;
+    width: 3.75rem;
+    height: 5.0625rem;
+    left: 1111.5625rem;
+    top: 4.6875rem;
+    color: #fdfdfd;
+  }
+
+  .FaRadiation3{
+    position: absolute;
+    width: 3.75rem;
+    height: 5.0625rem;
+    left: 126.4375rem;
+    top: 4.6875rem;
+    color: #fdfdfd;
+    z-index: 1;
+  }
+
+  .FaRadiation4{
+    position: absolute;
+    width: 3.75rem;
+    height: 5.0625rem;
+    left: 141.5rem;
+    top: 4.6875rem;
+    color: #fdfdfd;
+    z-index: 1;
+  }
+
+  .GiBattery75{
+    position: absolute;
+    width: 3.75rem;
+    height: 5.0625rem;
+    left: 96.25rem;
+    top: 4.1875rem;
     color: #fdfdfd;
   }
 
  .blue-block{
     position: absolute;
-    width: 177px;
-    height: 130px;
-    left: 293px;
-    top: 200px;
+    width: 11.0625rem;
+    height: 8.125rem;
     background:
     rgba(18, 137, 255, 1);
-    border-radius: 25px;
+    border-radius: 1.5625rem;
+
  }
 
  .blue-block2{
     position: absolute;
-    width: 177px;
-    height: 130px;
-    left: 522px;
-    top: 200px;
+    width: 11.0625rem;
+    height: 8.125rem;
+    left: 14.875rem;
     background: rgba(18, 137, 255, 0.69);
-    border-radius: 25px;
+    border-radius: 1.5625rem;
  }
 
  .blue-block3{
     position: absolute;
-    width: 177px;
-    height: 130px;
-    left: 760px;
-    top: 200px;
+    width: 11.0625rem;
+    height: 8.125rem;
+    left: 29.75rem;
     background: rgba(18, 137, 255, 1);
-    border-radius: 25px;
+    border-radius: 1.5625rem;
  }
 
  .blue-block4{
     position: absolute;
-    width: 177px;
-    height: 130px;
-    left: 996px;
-    top: 200px;
+    width: 11.0625rem;
+    height: 8.125rem;
+    left: 44.625rem;
     background: rgba(18, 137, 255, 0.69);
-    border-radius: 25px;
+    border-radius: 1.5625rem;
  }
 
  .blue-block5{
   position: absolute;
-  width: 177px;
-    height: 130px;
-    left: 1231px;
-    top: 200px;
+  width: 11.0625rem;
+  height: 8.125rem;
+  left: 59.5rem;
   background: rgba(18, 137, 255, 1);
-  border-radius: 25px;
+  border-radius: 1.5625rem;
+  overflow-x: scroll;
+  overflow-x: hidden;
+ }
+
+ .blue-block6{
+  position: absolute;
+  width: 11.0625rem;
+  height: 8.125rem;
+  left: 74.375rem;
+  background: rgba(18, 137, 255, 0.69);
+  border-radius: 1.5625rem;
+  overflow-x: scroll;
+  overflow-x: hidden;
+ }
+
+ .blue-block7{
+  position: absolute;
+  width: 11.0625rem;
+  height: 8.125rem;
+  left: 89.25rem;
+  background: rgba(18, 137, 255, 1);
+  border-radius: 1.5625rem;
+  overflow-x: scroll;
+  overflow-x: hidden;
+ }
+
+ .blue-block8{
+  position: absolute;
+  width: 11.0625rem;
+  height: 8.125rem;
+  left: 104.125rem;
+  background: rgba(18, 137, 255, 0.69);
+  border-radius: 1.5625rem;
+  overflow-x: scroll;
+  overflow-x: hidden;
+ }
+
+ .blue-block10{
+  position: absolute;
+  width: 11.0625rem;
+  height: 8.125rem;
+  left: 119rem;
+  background: rgba(18, 137, 255, 1);
+  border-radius: 1.5625rem;
+  overflow-x: scroll;
+  overflow-x: hidden;
+ }
+
+ .blue-block9{
+  position: absolute;
+  width: 11.0625rem;
+  height: 8.125rem;
+  left: 133.875rem;
+  background: rgba(18, 137, 255, 0.69);
+  border-radius: 1.5625rem;
   overflow-x: scroll;
   overflow-x: hidden;
  }
 
  .TbTemperature_Text{
     position: absolute;
-    width: 174px;
-    height: 41px;
-    left: 310px;
-    top: 205px;
-
+    width: 10.875rem;
+    height: 2.5625rem;
+    left:0.9375rem;
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 800;
     font-size: 1.3rem;
-    line-height: 28px;
+    line-height: 1.75rem;
     display: flex;
     align-items: flex-end;
 
@@ -447,16 +621,16 @@ div.Scrollbar{
 
  .TbTemperature_Text2{
     position: absolute;
-    width: 112px;
-    height: 41px;
-    left: 307px;
-    top: 242px;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 0.9375rem;
+    top: 2.9375rem;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
     font-size: 1.7rem;
-    line-height: 28px;
+    line-height: 1.75rem;
     display: flex;
     align-items: flex-end;
 
@@ -465,16 +639,16 @@ div.Scrollbar{
 
  .RH_Text2{
     position: absolute;
-    width: 112px;
-    height: 41px;
-    left: 540px;
-    top: 242px;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 15.9375rem;
+    top: 2.9375rem;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
     font-size: 1.7rem;
-    line-height: 28px;
+    line-height: 1.75rem;
     display: flex;
     align-items: flex-end;
 
@@ -483,16 +657,15 @@ div.Scrollbar{
 
  .RH_Text{
     position: absolute;
-    width: 112px;
-    height: 41px;
-    left: 540px;
-    top: 205px;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 15.9375rem;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
     font-size: 1.3rem;
-    line-height: 28px;
+    line-height: 1.75rem;
     display: flex;
     align-items: flex-end;
 
@@ -501,96 +674,256 @@ div.Scrollbar{
 
  .CgPinBottom_Text{
     position: absolute;
-    width: 112px;
-    height: 41px;
-    left: 780px;
-    top: 220px;
-
+    width: 7rem;
+    height: 2.5625rem;
+    left: 30.75rem;
+    top:0.9375rem;
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.5rem;
-    line-height: 28px;
+    font-size: 1.3rem;
+    line-height: 1.75rem;
     display: flex;
     color:white;
   }
 
   .CgPinBottom_Text2{
     position: absolute;
-    width: 112px;
-    height: 41px;
-    left: 780px;
-    top: 255px;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 30.75rem;
+    top: 3.75rem;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
     font-size: 1.5rem;
-    line-height: 28px;
+    line-height: 1.75rem;
     display: flex;
     color:white;
   }
 
   .FaWind_Text{
     position: absolute;
-    width: 112px;
-    height: 41px;
-    left: 1010px;
-    top: 220px;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 45.625rem;
+    top: 0.9375rem;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
     font-size: 1.3rem;
-    line-height: 28px;
+    line-height: 1.75rem;
     display: flex;
     color:white;
   }
 
   .FaWind_Text2{
     position: absolute;
-    width: 112px;
-    height: 41px;
-    left: 1010px;
-    top: 255px;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 45.625rem;
+    top: 3.75rem;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
     font-size: 1.6rem;
-    line-height: 28px;
+    line-height: 1.75rem;
     display: flex;
     color:white;
   }
 
   .FaDirections_Text{
     position: absolute;
-    width: 112px;
-    height: 41px;
-    left: 1242px;
-    top: 220px;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 60.4375rem;
+    top: 0.9375rem;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
     font-size: 1.3rem;
-    line-height: 28px;
+    line-height: 1.75rem;
     display: flex;
     color:white;
   }
 
   .FaDirections_Text2{
     position: absolute;
-    width: 112px;
-    height: 41px;
-    left: 1242px;
-    top: 255px;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 60.4375rem;
+    top: 3.75rem;
 
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
     font-size: 1.5rem;
-    line-height: 28px;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+  }
+
+  .GiRadiations_Text{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 75.3125rem;
+    top: 0.9375rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+  }
+
+  .GiRadiations_Text2{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 75rem;
+    top: 3.75rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.4rem;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+  }
+
+  .GiBattery75_Text{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 90rem;
+    top: 0.9375rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+  }
+
+  .GiBattery75_Text2{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 90rem;
+    top: 3.75rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+  }
+
+  .GiRadiations_Text3{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 104.6875rem;
+    top: 0.9375rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+  }
+  .GiRadiations_Text4{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 104.6875rem;
+    top: 3.75rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+  }
+
+  .GiRadiations_Text5{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 119.6875rem;
+    top: 0.9375rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+    z-index: 1;
+  }
+
+  .GiRadiations_Text6{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 119.6875rem;
+    top: 3.75rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+    z-index: 1;
+  }
+
+  .GiRadiations_Text7{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 134.5625rem;
+    top: 0.9375rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    line-height: 1.75rem;
+    display: flex;
+    color:white;
+  }
+
+  .GiRadiations_Text8{
+    position: absolute;
+    width: 7rem;
+    height: 2.5625rem;
+    left: 134.375rem;
+    top: 3.75rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 1000;
+    font-size: 1.3rem;
+    line-height: 1.75rem;
     display: flex;
     color:white;
   }
@@ -601,6 +934,28 @@ div.Scrollbar{
 }
   .Text1:hover{
     background: #1289FF;
-    border-radius: 25px;
+    border-radius: 1.5625rem;
     width: 6rem;
+  }
+
+  .Explanation{
+    position: absolute;
+    width: 45.625rem;
+    height: 1.125rem;
+    left: 18.4375rem;
+    top: 23.125rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    text-align: left;
+    /* identical to box height */
+
+    display: flex;
+    align-items: flex-end;
+
+    color: rgba(0, 0, 0, 0.65);
+
   }

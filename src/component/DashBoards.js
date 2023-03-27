@@ -41,12 +41,13 @@ const DashBoards = () => {
         
         const getDashboard = async () => {
             try {
-                alert("User: "+User)
+                // alert("User: "+ User)
                 const response = await axiosPrivate.get(`/dashboards/${User}`, {
                     signal: controller.signal
                 });
-                const newList = [...createList, response.data];
-                isMounted && !((newList+'').isEmpty()) && setcreateList(newList)
+                const newList = createList.concat(response.data);
+                alert(newList)
+                isMounted && !((response.data).length === 0) && setcreateList(newList)
             } catch (err) {
                 console.error(err);
             }

@@ -81,7 +81,7 @@ const Login = () => {
         <label className="login">LOGIN</label>
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-group">
-            <label htmlFor="email">Email address</label>
+            <label htmlFor="email">User Name</label>
             {/* <input type="email" name="email" placeholder="Email address / Username" /> */}
             <input
                           type="text"
@@ -91,7 +91,7 @@ const Login = () => {
                           onChange={(e) => setUser(e.target.value)}
                           value={user}
                           required
-                          placeholder="Email address / Username"
+                          placeholder="User Name"
                       />
           </div>
           <div className="input-group">

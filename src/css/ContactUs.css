@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Kantumruy+Pro:wght@500&family=Public+Sans:wght@300;800;900&family=Roboto:wght@500;700&display=swap');
+.ThankYou{
+    width: 14.375rem;
+    height: 10rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    color: #141313;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    flex-direction: column;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 1.875rem;
+
+    position: absolute;
+    width: 16.375rem;
+    height: 15.5rem;
+    left: 24.31rem;
+    top: 14rem;
+}
+
+.ThankYou2{
+    width: 14.375rem;
+    height: 10rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    color: #141313;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    flex-direction: column;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 1.875rem;
+    color: rgba(0, 120, 240, 0.57);
+    position: absolute;
+    width: 16.375rem;
+    height: 15.5rem;
+    left: 24.31rem;
+    top: 22.25rem;
+}
+
+.ICELAB{
+    position: absolute;
+    width: 33.81rem;
+    height: 22.5rem;
+    left: 54.25rem;
+    top: 9.6875rem;
+    border-radius: 1.25rem;
+}
+
+.Vector{
+
+    width: 4rem;
+    height: 4rem;
+    position:absolute;
+    left:24.31rem;
+    top:26.875rem;
+    background: #FFFFFF;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.AboutUs{
+
+    position: absolute;
+    width: 26.4375rem;
+    height: 23.635rem;
+    left: 24.31rem;
+    top: 34.75rem;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    text-align: left;
+    white-space: pre-wrap;
+    display: flex;
+    align-items: center;
+
+}
+
+.AboutUs2{
+
+    position: absolute;
+    width: 26.4375rem;
+    height: 23.635rem;
+    left: 24.31rem;
+    top: 24.75rem;
+    color: rgba(0, 120, 240, 0.9);
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    text-align: left;
+    white-space: pre-wrap;
+    display: flex;
+    align-items: center;
+
+}
+
+.Contact{
+    position: absolute;
+    width: 9.4375rem;
+    height: 6.375rem;
+    left: 55.4375rem;
+    top: 33.25rem;
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    display: flex;
+    align-items: center;
+
+    color: rgba(0, 0, 0, 0.9);
+
+}
+
+.Name{
+    position: absolute;
+    width: 10rem;
+    height: 1.25rem;
+    left: 58.3125rem;
+    top: 39.125rem;
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.Email{
+    position: absolute;
+    width: 18.75rem;
+    height: 1.25rem;
+    left: 58.3125rem;
+    top: 42.0625rem;
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+}
+
+.Location{
+    position: absolute;
+    width: 18.75rem;
+    height: 1.25rem;
+    left: 58.3125rem;
+    top: 45.3125rem;
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.Website{
+    position: absolute;
+    width: 26.6875rem;
+    height: 1.25rem;
+    left: 58.3125rem;
+    top: 48.25rem;
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.dot{
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 55.5rem;
+    border-radius: 2.5rem;
+    top: 38.75rem;
+    background: rgba(20, 19, 19, 0.05);
+}
+
+.dot2{
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 55.4375rem;
+    top: 41.6875rem;
+    border-radius: 2.5rem;
+    background: rgba(20, 19, 19, 0.05);
+}
+
+.dot3{
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 55.5rem;
+    top: 44.9375rem;
+    border-radius: 2.5rem;
+    background: rgba(20, 19, 19, 0.05);
+}
+
+.dot4{
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    left: 55.5rem;
+    top: 47.875rem;
+    border-radius: 2.5rem;
+    background: rgba(20, 19, 19, 0.05);
+}
+
+.CgProfile{
+    position: absolute;
+    left: 56rem;
+    top: 39.1875rem;
+}
+
+.HiOutlineMail{
+    position: absolute;
+    left: 56rem;
+    top: 42.1875rem;
+}
+
+.GrLocation{
+    position: absolute;
+    left: 56rem;
+    top: 45.375rem;
+}
+
+.BiHome{
+    position: absolute;
+    left: 56rem;
+    top: 48.3125rem;
+}

@@ -10,13 +10,15 @@ function WindRose() {
   const [currTime, setcurrTime] = useState();
   const [past3Time, setpast3] = useState();
   const [past1Time, setpast1] = useState();
-  const [Time, setTime] = useState();
+  const [Time, setTime] = useState(202303261212);
   useEffect(() => {
     Axios.get(`http://127.0.0.1:5000/lastest-status/000001`).then((res) => {
 
       setcurrTime(res.data.result.TIMESTAMP);
       const hi = res.data.result.TIMESTAMP;
       setTime(hi);
+      setpast1(pastDate(Time,1))
+      setpast1(pastDate(Time,3))
 
     });
   }, [])
@@ -70,22 +72,21 @@ function WindRose() {
   const [hisGramxy, sethisGramxy] = useState(data3);
   const [generatedExcuse, setGeneratedExcuse] = useState(data2);
 
-  function pastDate(temp_d,mon){
+  function pastDate(temp_d=202303261212, mon) {
     let dateString = temp_d.toString();
-      let inputDate = new Date(dateString.substr(0, 4), parseInt(dateString.substr(4, 2)) - 1, dateString.substr(6, 2), dateString.substr(8, 2), dateString.substr(10, 2));
-      let month = inputDate.getMonth() - mon;
-      let year = inputDate.getFullYear();
-      if (month < 0) {
-        month += 12;
-        year -= 1;
-      }
-      // Subtract 3 months from the input date
-      let threeMonthsAgo = new Date(year, month, inputDate.getDate(), inputDate.getHours(), inputDate.getMinutes());
+    let inputDate = new Date(dateString.substr(0, 4), parseInt(dateString.substr(4, 2)) - 1, dateString.substr(6, 2), dateString.substr(8, 2), dateString.substr(10, 2));
+    let month = inputDate.getMonth() - mon;
+    let year = inputDate.getFullYear();
+    if (month < 0) {
+      month += 12;
+      year -= 1;
+    }
+    // Subtract 3 months from the input date
+    let threeMonthsAgo = new Date(year, month, inputDate.getDate(), inputDate.getHours(), inputDate.getMinutes());
 
-      // Format the date and time as a string in the same format as the input
-      let resultString = threeMonthsAgo.getFullYear().toString() + (threeMonthsAgo.getMonth() + 1).toString().padStart(2, "0") + threeMonthsAgo.getDate().toString().padStart(2, "0") + threeMonthsAgo.getHours().toString().padStart(2, "0") + threeMonthsAgo.getMinutes().toString().padStart(2, "0");
-      alert(resultString);
-      return parseInt(resultString)
+    // Format the date and time as a string in the same format as the input
+    let resultString = threeMonthsAgo.getFullYear().toString() + (threeMonthsAgo.getMonth() + 1).toString().padStart(2, "0") + threeMonthsAgo.getDate().toString().padStart(2, "0") + threeMonthsAgo.getHours().toString().padStart(2, "0") + threeMonthsAgo.getMinutes().toString().padStart(2, "0");
+    return parseInt(resultString)
   }
 
   const fetchLinechart = (dev_id, ftime, var_t) => {
@@ -103,8 +104,8 @@ function WindRose() {
 
   const fetchExcuse = (excuse, ftime) => {
     var dat_t = {
-      "TIMESTAMP_F": 202201230746,
-      "TIMESTAMP_T": currTime
+      "TIMESTAMP_F": ftime,
+      "TIMESTAMP_T": Time
     }
     Axios.post(`${url}dashboard_wr/${excuse}`, dat_t).then(
       (resp) => {
@@ -405,17 +406,16 @@ function WindRose() {
   return (
     <div className="WindRose">
       <p>{Time}</p>
-      <p>{past1Time}</p>
-      <p>{past3Time}</p>
       <h1>Line Chart Graph</h1>
-      <button onClick={() => fetchLinechart("000001", 200704252200, "Temp_2m_C")}> Linechart Last Month</button>
-      <button onClick={() => fetchLinechart("000000", 200704280900, "AirTC_Avg")}> Linechart Last 3 Months</button>
+      <button onClick={() => fetchLinechart("000001", pastDate(Time,1), "Temp_2m_C")}> Linechart Last 1 Month</button>
+      <button onClick={() => fetchLinechart("000001", pastDate(Time,3), "Temp_2m_C")}> Linechart Last 3 Months</button>
       <p>{graph_line(Linexy)}</p>
       <h1>Windrose Graph</h1>
-      <button onClick={() => fetchExcuse("000002", 202206010000)}>Windrose Last Months</button>
-      <button onClick={() => fetchExcuse("000002", 202212190000)}>Windrose Last 3 Months</button>
+      <button onClick={() => fetchExcuse("000001", pastDate(Time,1))}>Windrose Last 1 Months</button>
+      <button onClick={() => fetchExcuse("000001", 202101011212)}>Windrose Last 3 Months</button>
       <p>{graph_wr(generatedExcuse)}</p>
-      <button onClick={() => fetchHg("000002", 200408080000, "Temp_2m_C")}>histrogram Last 3 Months</button>
+      <button onClick={() => fetchHg("000001", pastDate(Time,1), "Temp_2m_C")}>histrogram Last 1 Month</button>
+      <button onClick={() => fetchHg("000001", pastDate(Time,3), "Temp_2m_C")}>histrogram Last 3 Months</button>
       <p>{graph_hisGram(hisGramxy)}</p>
       {/* <p> {graph(Graphmode)} </p> */}
     </div>

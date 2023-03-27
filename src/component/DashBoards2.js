@@ -5,6 +5,7 @@ import { ImBin } from 'react-icons/im';
 import Modal from "./Modal";
 import DashBoards from "./DashBoards";
 import DashBoardCharts from "./DashBoardCharts";
+import useAuth from "../hooks/useAuth";
 import Axios from 'axios';
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
  
@@ -52,7 +53,9 @@ function DashBoards2(props) {
             14
         ]
         }
-
+    const { auth } = useAuth();
+    const User = auth.user
+    const axiosPrivate = useAxiosPrivate();
     const [currTime, setcurrTime] = useState();
     const [plotType, setplotType] = useState();
     const [val, setVal] = useState([]);
@@ -70,7 +73,7 @@ function DashBoards2(props) {
         Axios.get(`http://127.0.0.1:5000/lastest-status/000001`).then((res) => {
           setcurrTime(res.data.result.TIMESTAMP)
         })
-        setshowJsondata(JSON.stringify(props.dict[0]))
+        setshowJsondata(JSON.stringify(props.dict[curIndex]))
       }, [])
 
     
@@ -93,34 +96,34 @@ function DashBoards2(props) {
         setIsOpen(false);
     }
 
-    // const handleSave = () => {
-    //     let isMounted = true;
-    //         const controller = new AbortController();
-    
-    //         const saveDashboard = async () => {
-    //             try {
-    //                 const response = await axiosPrivate.put('/dashboards', {
-    //                     signal: controller.signal
-    //                 });
-    //                 const newList = [...createList, response.data];
-    //                 console.log("newList: "+newList);
-    //                 isMounted && !newList && setcreateList(newList)
-    //             } catch (err) {
-    //                 console.error(err);
-    //             }
-    //         }
-    
-    //         saveDashboard()
+    const handleSave = () => {
+        let isMounted = true;
+        const controller = new AbortController();
 
-    //         return () => {
-    //             isMounted = false;
-    //             controller.abort();
-    //         }
-    // }
+        const saveDashboard = async () => {
+            try {
+                const response = await axiosPrivate.put('/dashboards', {
+                    'username': User,
+                    'plotGraph': props.dict
+                },{
+                    signal: controller.signal
+                });
+                console.log("saveDashboard: "+response.data)
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        saveDashboard()
+
+        return () => {
+            isMounted = false;
+            controller.abort();
+        }
+    }
 
     // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
     const url = "http://127.0.0.1:5000/";
-
 
     const fetchLinechart = (dev_id, ftime, var_t) => {
         var dat_t = {
@@ -146,6 +149,7 @@ function DashBoards2(props) {
         }
     );
     };
+
     const fetchHg = (dev_id, ftime, var_t) => {
     var dat_t = {
         "TIMESTAMP_F": ftime,//200408080000,
@@ -272,7 +276,6 @@ function DashBoards2(props) {
         </div>
     );
     };
-
 
     function max2D(list_t) {
     // let newArr = list_t.flat(Infinity)
@@ -436,10 +439,12 @@ function DashBoards2(props) {
 
     };
 
-    function handleVariables(data) {
-        setshowJsondata(JSON.stringify(data))
-        const alldata = showJsondata
-        const alldataObj = JSON.parse(alldata)
+    async function handleVariables(data) {
+        alert("data: "+data)
+        await setshowJsondata(JSON.parse(JSON.stringify(data)))
+        await alert("showJsondata: "+showJsondata)
+        alert("alldataObj: "+alldataObj)
+        const alldataObj = showJsondata
         setplotType(alldataObj.plotType)
         const plottype = alldataObj.plotType
         const fromValue = parseInt(alldataObj.fromTime.replace("T", "").replace(/[-:]/g, ""));
@@ -455,7 +460,6 @@ function DashBoards2(props) {
         else if (plottype=="WindRose") {
             fetchExcuse(station,fromValue,toValue)
         }
-
     }
 
     const handleGraph = (garphType) => {
@@ -495,7 +499,7 @@ function DashBoards2(props) {
                             <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDelete() }} action="Delete">Are you sure to Delete?</Modal>
                         </div>
                         <div className="SaveButtonDad">
-                            <button className="SaveButton">SAVE</button>
+                            <button className="SaveButton" onClick={handleSave}>SAVE</button>
                         </div>
                     </div>
                 </div>
