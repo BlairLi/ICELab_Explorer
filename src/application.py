@@ -351,9 +351,10 @@ def dashboardline_xy(device_id):
     for m in f:
         result_v.append(m[Var])
         date_str = str(m["TIMESTAMP"])
-        date_obj = datetime.strptime(date_str, "%Y%m%d%H%M%S")
-        date_formatted = date_obj.strftime("%Y-%m-%d %H:%M:%S")
+        date_obj = datetime.strptime(date_str, "%Y%m%d%H%M")
+        date_formatted = date_obj.strftime("%Y-%m-%d %H:%M")
         result_T.append(date_formatted)
+        result_T.append(date_str)
     u = get_device_info(device_id)
     d = dict(u.json['result'])
     unit = d[Var]
@@ -363,7 +364,9 @@ def dashboardline_xy(device_id):
         Avg_v = statistics.mean(result_v)
         std_dev = statistics.stdev(result_v)
     except ValueError as e:
-        return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit}), 200
+        return jsonify({"x": [],"y": []}), 400
+        # return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit}), 200
+        
     return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit, "average": Avg_v, "min": Min_v, "max": Max_v, "standard devision": std_dev})
 
 

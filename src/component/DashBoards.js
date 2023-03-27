@@ -102,7 +102,7 @@ const DashBoards = () => {
     }
 
 
-    if (!isOpenDash1) return <DashBoards2 create={DashBoards2Create} delete={deleteDate} dict={createList} />
+    if (!isOpenDash1) return <DashBoards2 create={DashBoards2Create} delete={deleteDate} dict={createList} showSave={true} showReturn={true} />
     return (
         <>
             <>
@@ -179,9 +179,7 @@ const DashBoards = () => {
                         <input type="text" className="NameInput" value={boardName} onChange={handleBoardName} />
                     </label>
                 </form>
-                {/* <Link to="/DashBoard2"> */}
                 <button className="NextButton" onClick={createDate}>CREATE</button>
-                {/* </Link> */}
             </>
 
         </>

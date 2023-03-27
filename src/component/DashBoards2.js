@@ -8,6 +8,9 @@ import DashBoardCharts from "./DashBoardCharts";
 import useAuth from "../hooks/useAuth";
 import Axios from 'axios';
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import ReturnButton from "./ReturnButton";
+import SaveButton from "./SaveButton";
+
  
 function DashBoards2(props) {
     var data2 = [
@@ -92,7 +95,7 @@ function DashBoards2(props) {
     }
  
     const handleDelete = () => {
-        props.datelete(curIndex)
+        props.delete(curIndex)
         setIsOpen(false);
     }
 
@@ -488,7 +491,8 @@ function DashBoards2(props) {
                 <div className='DashBoardContent'>
                     <div>
                         <h1>{User}'s DashBoards</h1>
-                        <button className="CreateMoreButton" onClick={() => handleAdd()}>RETURN</button>
+                        <ReturnButton openReturn={props.showReturn} setBack={() => handleAdd()}/>
+                        {/* <button className="CreateMoreButton" onClick={() => handleAdd()}>RETURN</button> */}
                     </div>
  
                     <div className='DigarmBoard'>
@@ -511,9 +515,7 @@ function DashBoards2(props) {
                             <DashBoardCharts openChart={isOpenChart} onCancel={() => { setIsOpenChart(false) }}>{showJsondata}{handleGraph(plotType)}</DashBoardCharts>
                             <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDelete() }} action="Delete">Are you sure to Delete?</Modal>
                         </div>
-                        <div className="SaveButtonDad">
-                            <button className="SaveButton" onClick={handleSave}>SAVE</button>
-                        </div>
+                        <SaveButton openSave={props.showSave} setSave={handleSave}/>
                     </div>
                 </div>
             </div>
