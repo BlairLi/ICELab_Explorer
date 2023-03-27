@@ -4,7 +4,7 @@ import "../css/WindRose.css"
 import { useEffect, useState } from "react";
 
 // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
-const url = "http://127.0.0.1:5000/";
+const url = "http://127.0.0.1:7000/";
 function WindRose() {
 
   const [currTime, setcurrTime] = useState();
@@ -12,7 +12,7 @@ function WindRose() {
   const [past1Time, setpast1] = useState();
   const [Time, setTime] = useState(202303261212);
   useEffect(() => {
-    Axios.get(`http://127.0.0.1:5000/lastest-status/000001`).then((res) => {
+    Axios.get(`http://127.0.0.1:7000/lastest-status/000001`).then((res) => {
 
       setcurrTime(res.data.result.TIMESTAMP);
       const hi = res.data.result.TIMESTAMP;

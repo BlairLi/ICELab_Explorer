@@ -22,18 +22,7 @@ const OVERLAY_STYLES = {
 }
 
 
-// const nameToInt = {
-//   "White Glacier": 000000
-// }
-
 export default function DashBoardCharts({openChart, onCancel, children}) {
-  
-  // useEffect = () => {
-  //   fetchLinechart(children.di)
-  // }
-
-  // const fromValue = parseInt(children.fromTime.replace("T", "").replace(/[-:]/g, "") + "00");
-  // const toValue = parseInt(children.fromTime.replace("T", "").replace(/[-:]/g, "") + "00");
 
   if (!openChart) return null
     return (
@@ -41,7 +30,7 @@ export default function DashBoardCharts({openChart, onCancel, children}) {
             <div style={OVERLAY_STYLES} onClick={onCancel}/>
             <div style={MODAL_STYLES}>
                 {children}
-                <button onClick={onCancel} className="SaveButton">Back</button>
+            <button onClick={onCancel} className="SaveButton">Back</button>
             </div>
         </>
   )

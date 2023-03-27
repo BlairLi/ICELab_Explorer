@@ -33,7 +33,7 @@ const [isOpen, setIsOpen] = useState(false);
       <div className="menu">
         <ul className="navbar-nav">
           <li className="logo">
-            <Link to="/" className="nav-link-logo">
+            <Link to="/DashHistory" className="nav-link-logo">
               <label className="bluePart2">ICELab </label>
               <label className="blackPart2">Queen's</label>
             </Link>
@@ -87,8 +87,8 @@ const [isOpen, setIsOpen] = useState(false);
 
           {/* Support */}
           <li className="nav-item">
-            <Link to="/Support" className="nav-link">
-              <span className="link-text">Support</span>
+            <Link to="/ContactUS" className="nav-link">
+              <span className="link-text">Contact</span>
               <MdContactSupport className='MdContactSupport'/>
             </Link>
           </li>

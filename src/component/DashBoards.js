@@ -46,7 +46,6 @@ const DashBoards = () => {
                     signal: controller.signal
                 });
                 const newList = createList.concat(response.data);
-                alert(newList)
                 isMounted && !((response.data).length === 0) && setcreateList(newList)
             } catch (err) {
                 console.error(err);
@@ -97,13 +96,13 @@ const DashBoards = () => {
         setIsOpenDash1(false)
     }
 
-    const deteleDate = (index) => {
+    const deleteDate = (index) => {
         const newList = createList.filter((item,i)=>i !== index);
         setcreateList(newList);
     }
 
 
-    if (!isOpenDash1) return <DashBoards2 create={DashBoards2Create} datelete={deteleDate} dict={createList} />
+    if (!isOpenDash1) return <DashBoards2 create={DashBoards2Create} delete={deleteDate} dict={createList} />
     return (
         <>
             <>

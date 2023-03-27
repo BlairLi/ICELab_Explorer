@@ -16,7 +16,7 @@ import Axios from "axios";
 const Station = () => {
     //const size = useWindowSize();
     // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
-    const url = "http://127.0.0.1:5000/lastest-status";
+    const url = "http://127.0.0.1:7000/lastest-status";
     const [generatedExcuse, setGeneratedExcuse] = useState("");
     const [temp2m, setTemp2m] = useState("");
     const [rh2m, setRH2m] = useState("");
