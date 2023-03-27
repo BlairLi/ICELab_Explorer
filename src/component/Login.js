@@ -72,10 +72,10 @@ const Login = () => {
   return (
     <>
     <div className="App">
-      <div className="logoLogin">
+      <Link to="/" className="logoLogin">
         <label className="bluePart">ICELab </label>
         <label className="blackPart">Queen's</label>
-      </div>
+      </Link>
       <div className="main">
         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
         <label className="login">LOGIN</label>
