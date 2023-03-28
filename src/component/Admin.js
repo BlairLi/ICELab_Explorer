@@ -50,6 +50,7 @@ const Admin = () => {
         return posts.map((post, index) => (
             <tr key={index}>
                 <td className="adminTable">{index + 1}</td>
+                <td className="adminTable">{post._id}</td>
                 <td className="adminTable">{post.username}</td>
                 <td className="adminTable">{post?.roles?.Admin ? 'User, Admin' : 'User'}</td>
             </tr>
@@ -68,6 +69,7 @@ const Admin = () => {
                         <thead>
                             <tr>
                                 <th className="adminTableTitle">ID</th>
+                                <th className="adminTableTitle">Server User ID</th>
                                 <th className="adminTableTitle">Username</th>
                                 <th className="adminTableTitle">Permission</th>
                             </tr>
