@@ -19,7 +19,8 @@
 }
 
 .nav-link {
-text-decoration: none;
+  text-decoration: none;
+  border-radius: 4px;
 }
 
 .nav-item {
@@ -37,11 +38,14 @@ text-decoration: none;
 .nav-link:hover .RiDashboard2Line,
 .nav-link:hover .RiBaseStationFill,
 .nav-link:hover .FaMapMarkedAlt,
-.nav-link:hover .FaHistory,
+.nav-link:hover .BiHistory,
+.nav-link:hover .RiAdminFill
 .nav-link:hover .MdContactSupport,
 .nav-link:hover .BiLogIn,
 .nav-link:hover .RiLogoutBoxRFill,
-.nav-link:hover .RiAdminFill
+.nav-link:hover .RiAdminFill,
+.nav-link:hover .FaHistory,
+.nav-link:hover .MdContactSupport
 {
   color: #FFF;
 }
@@ -69,8 +73,17 @@ text-decoration: none;
   position: absolute;
   width: 1.57rem;
   height: 2.437rem;
-  left: 1.0625rem;
+  left: 2.0rem;
   top: 5.2rem;
+  color:#4979D1;
+}
+
+.BiHistory{
+  position: absolute;
+  width: 1.57rem;
+  height: 2.437rem;
+  left: 2rem;
+  top: 8.9rem;
   color:#4979D1;
 }
 
@@ -78,8 +91,8 @@ text-decoration: none;
   position: absolute;
   width: 1.57rem;
   height: 2.43rem;
-  left: 1.0625rem;
-  top: 8.9625rem;
+  left: 2rem;
+  top: 12.5375rem;
   color:#4979D1;
 }
 
@@ -87,8 +100,8 @@ text-decoration: none;
   position: absolute;
   width: 1.57rem;
   height: 2.43rem;
-  left: 1.0625rem;
-  top: 12.5375rem;
+  left: 2rem;
+  top: 16.2875rem;
   color:#4979D1;
 }
 
@@ -96,8 +109,8 @@ text-decoration: none;
   position: absolute;
   width: 1.445rem;
   height: 2.43rem;
-  left: 1.18rem;
-  top: 16.2875rem;
+  left: 2rem;
+  top: 20.0375rem;
   color:#4979D1;
 }
 
@@ -105,8 +118,8 @@ text-decoration: none;
   position: absolute;
   width: 1.445rem;
   height: 2.43rem;
-  left: 1.18rem;
-  top: 20.0375rem;
+  left: 2rem;
+  top: 23.7225rem;
   color:#4979D1;
 }
 
@@ -114,8 +127,8 @@ text-decoration: none;
   position: absolute;
   width: 1.445rem;
   height: 2.43rem;
-  left: 0.9375rem;
-  top: 23.7225rem;
+  left: 2rem;
+  top: 31.05rem;
   color:#4979D1;
 }
 
@@ -123,8 +136,8 @@ text-decoration: none;
   position: absolute;
   width: 1.445rem;
   height: 2.43rem;
-  left: 1.0625rem;
-  top: 31.05rem;
+  left: 2rem;
+  top: 34.735rem;
   color:#4979D1;
 }
 
@@ -132,7 +145,7 @@ text-decoration: none;
   position: absolute;
   width: 1.445rem;
   height: 2.43rem;
-  left: 1.0625rem;
+  left: 2rem;
   /* top: 31.1625rem; */
   top: 27.3725rem;
   color:#4979D1;

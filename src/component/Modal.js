@@ -7,7 +7,7 @@ const MODAL_STYLES = {
     padding: '50px',
     zIndex: 1000
   }
-  
+
   const OVERLAY_STYLES = {
     position: 'fixed',
     top: 0,
@@ -26,7 +26,7 @@ export default function Modal({open, children, onClose, onCancel, action}) {
             <div style={OVERLAY_STYLES} onClick={onCancel}/>
             <div style={MODAL_STYLES}>
                 {children}
-                <button onClick={onClose} className="SaveButton">{action}</button>
+                <button onClick={onClose} className="DeleteButton">{action}</button>
             </div>
         </>
   )

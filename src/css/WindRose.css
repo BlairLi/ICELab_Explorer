@@ -1,3 +1,264 @@
 .WindRose{
     margin-left: 20rem;
 }
+
+.LineChartCSS{
+    position: absolute;
+    width: 1360px;
+    height: 365px;
+    left: 300px;
+    top: 276px;
+}
+
+.WindRoseCSS{
+    width: 1200px;
+    left: 1000px;
+    top: 1040px;
+    position: absolute;
+}
+
+.HistogramCSS{
+    width: 1200px;
+    height: 200px;
+    left: 250px;
+    top: 1000px;
+    position: absolute;
+}
+
+.TextLine{
+
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+    width: 216px;
+    height: 30px;
+    left: 280px;
+    top: 181px;
+    font-size: 1.1rem;
+
+    color: #000000;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.TextWind{
+    position: absolute;
+    width: 159px;
+    height: 30px;
+    left: 921px;
+    top: 950px;
+    font-size: 1.1rem;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+
+    color: #000000;
+
+}
+
+.TextHis{
+    position: absolute;
+    width: 216px;
+    height: 30px;
+    left: 250px;
+    top: 950px;
+
+    font-size: 1.1rem;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+
+    color: #000000;
+}
+
+.Line1Month{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+
+    position: absolute;
+    width: 220px;
+    height: 28px;
+    left: 510px;
+    top: 182px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 26px;
+    /* identical to box height, or 217% */
+
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+
+    color: #243465;
+
+    background: #D4E3F5;
+    border-radius: 10px;
+}
+
+.Line3Month{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+
+    position: absolute;
+    width: 220px;
+    height: 28px;
+    left: 790px;
+    top: 182px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 26px;
+    /* identical to box height, or 217% */
+
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+
+    color: #243465;
+
+    background: #D4E3F5;
+    border-radius: 10px;
+}
+
+.Wind1Month{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+
+    position: absolute;
+    width: 150px;
+    height: 28px;
+    left: 1122px;
+    top: 952px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 26px;
+    /* identical to box height, or 217% */
+
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+
+    color: #243465;
+
+    background: #D4E3F5;
+    border-radius: 10px;
+}
+
+.Wind3Month{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+
+    position: absolute;
+    width: 150px;
+    height: 28px;
+    left: 1320px;
+    top: 952px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 26px;
+
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+
+    color: #243465;
+
+    background: #D4E3F5;
+    border-radius: 10px;
+}
+
+.His3Month{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+
+    position: absolute;
+    width: 150px;
+    height: 28px;
+    left: 500px;
+    top: 952px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 26px;
+    /* identical to box height, or 217% */
+
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+
+    color: #243465;
+
+
+    background: #D4E3F5;
+    border-radius: 10px;
+}
+
+.His1Month{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+
+    position: absolute;
+    width: 150px;
+    height: 28px;
+    left: 700px;
+    top: 952px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 26px;
+    /* identical to box height, or 217% */
+
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+
+    color: #243465;
+
+
+    background: #D4E3F5;
+    border-radius: 10px;
+}

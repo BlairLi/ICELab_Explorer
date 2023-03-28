@@ -8,7 +8,11 @@ import DashBoardCharts from "./DashBoardCharts";
 import useAuth from "../hooks/useAuth";
 import Axios from 'axios';
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
- 
+import ReturnButton from "./ReturnButton";
+import SaveButton from "./SaveButton";
+import Ellipse from ".././Ellipse.png";
+
+
 function DashBoards2(props) {
     var data2 = [
         [11, 0, 0, 0, 3, 7, 3, 1, 1, 0, 2, 4, 1, 1, 3, 0],
@@ -20,7 +24,7 @@ function DashBoards2(props) {
         [0, 16, 19, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         [0, 11, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
         ];
-    
+
         var data1 = {
         x: [20220423080000, 20220423081500, 20220423083000, 20220423090000, 20220423091500, 20220423093000, 20220423094500, 20220423100000, 20220423101500, 20220423103000, 20220423104500, 20220423110000, 20220423111500, 20220423113000, 20220423114500, 20220423120000, 20220423121500, 20220423123000, 20220423124500, 20220423130000, 20220423131500, 20220423133000, 20220423134500, 20220423140000, 20220423141500, 20220423143000, 20220423144500, 20220423150000, 20220423151500, 20220423153000, 20220423154500, 20220423160000, 20220423161500, 20220423163000, 20220423164500, 20220423170000, 20220423171500, 20220423173000, 20220423174500, 20220423180000, 20220423181500, 20220423183000, 20220423184500, 20220423190000, 20220423191500, 20220423193000, 20220423194500, 20220423200000, 20220423201500, 20220423203000, 20220423204500, 20220423210000, 20220423211500, 20220423213000, 20220423214500, 20220423220000, 20220423221500, 20220423223000, 20220423224500, 20220423230000, 20220423231500, 20220423233000, 20220423234500, 20220424000000, 20220424001500, 20220424003000, 20220424004500, 20220424010000, 20220424011500, 20220424013000, 20220424014500, 20220424020000, 20220424021500, 20220424023000, 20220424024500, 20220424030000, 20220424031500, 20220424033000, 20220424034500, 20220424040000, 20220424041500],
         y: [85.9, 86.3, 86, 86, 85.8, 86.1, 86.6, 86.5, 86.3, 86.5, 87, 86.4, 86.5, 86.9, 86.7, 86.3, 86.6, 86.9, 87, 86.8, 87.2, 86.5, 86.9, 87.2, 87.1, 87.2, 87.2, 87.5, 87.7, 87.9, 87.6, 87.7, 87.7, 87.5, 87.7, 87.8, 87.7, 87.9, 87.7, 87.7, 88, 87.7, 87.8, 87.7, 87.6, 87.6, 87.6, 87.6, 87.5, 87.4, 87.3, 87.6, 87.4, 87.4, 87.2, 87, 86.8, 86.7, 86.9, 86.5, 86.7, 86.6, 86, 84.5, 85.6, 83.5, 84.2, 81.3, 78.94, 76.91, 80.2, 78.06, 72.58, 73.46, 82, 85.1, 81.9, 65.8, 60.42, 64.25, 57.81],
@@ -62,7 +66,7 @@ function DashBoards2(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenChart, setIsOpenChart] = useState(false);
     const [isOpenDash2, setIsOpenDash2] = useState(true);
-    const [showJsondata,setshowJsondata] = useState({});
+    const [showJsondata,setshowJsondata] = useState();
     const [curIndex,setCurIndex] = useState(null)
     const [Linexy, setLinexy] = useState(data1); // line chart data
     const [generatedExcuse, setGeneratedExcuse] = useState(data2); // wind rose data
@@ -70,13 +74,13 @@ function DashBoards2(props) {
     var index = 0;
 
     useEffect(() => {
-        Axios.get(`http://127.0.0.1:5000/lastest-status/000001`).then((res) => {
+        Axios.get(`http://127.0.0.1:7000/lastest-status/000001`).then((res) => {
           setcurrTime(res.data.result.TIMESTAMP)
         })
         setshowJsondata(JSON.stringify(props.dict[curIndex]))
       }, [])
 
-    
+
 
     const handleAdd = () => {
         props.create(true);
@@ -90,9 +94,9 @@ function DashBoards2(props) {
         inputdata[i] = onChangeValue.target.value;
         setVal(inputdata)
     }
- 
+
     const handleDelete = () => {
-        props.datelete(curIndex)
+        props.delete(curIndex)
         setIsOpen(false);
     }
 
@@ -114,7 +118,7 @@ function DashBoards2(props) {
             }
         }
 
-        saveDashboard()
+        if (User) saveDashboard()
 
         return () => {
             isMounted = false;
@@ -123,31 +127,33 @@ function DashBoards2(props) {
     }
 
     // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
-    const url = "http://127.0.0.1:5000/";
+    const url = "http://127.0.0.1:7000/";
 
-    const fetchLinechart = (dev_id, ftime, var_t) => {
+     const fetchLinechart = (dev_id, ftime, var_t) => {
         var dat_t = {
           "TIMESTAMP_F": ftime,//20220423074600,
           "TIMESTAMP_T": currTime,
           "Varible": var_t//"RH_Avg"
         }
+        // console.log("fetchLinechart dat_t: "+JSON.stringify(dat_t.Varible))
         Axios.post(`${url}dashboard_line_xy/${dev_id}`, dat_t).then(
-          (resp) => {
+            (resp) => {
             setLinexy(resp.data);
           }
         )
       };
-    
+
     const fetchExcuse = (excuse, ftime) => {
     var dat_t = {
         "TIMESTAMP_F": 202201230746,
         "TIMESTAMP_T": currTime
     }
+    // console.log("fetchExcuse dat_t: "+JSON.stringify(dat_t))
     Axios.post(`${url}dashboard_wr/${excuse}`, dat_t).then(
         (resp) => {
-        setGeneratedExcuse(resp.data.res);
+            setGeneratedExcuse(resp.data.res);
         }
-    );
+        );
     };
 
     const fetchHg = (dev_id, ftime, var_t) => {
@@ -156,9 +162,10 @@ function DashBoards2(props) {
         "TIMESTAMP_T": currTime,
         "Varible": var_t//"RH_Avg"
     }
+    // console.log("fetchHg dat_t: "+ JSON.stringify(dat_t.Varible))
     Axios.post(`${url}dashboard_hg/${dev_id}`, dat_t).then(
         (resp) => {
-        sethisGramxy(resp.data);
+            sethisGramxy(resp.data);
         }
     )
     };
@@ -431,7 +438,7 @@ function DashBoards2(props) {
         return (
             <div >
             <ReactECharts className='graph' style={{
-                width: "40%",
+                width: "100%",
                 height: "600px"
             }} option={options} />
             </div>
@@ -439,34 +446,51 @@ function DashBoards2(props) {
 
     };
 
+    useEffect( () => {
+        try{
+            const alldataObj = JSON.parse(showJsondata)
+            setplotType(alldataObj.plotType)
+            const plottype = alldataObj.plotType
+            const fromValue = parseInt(alldataObj.fromTime.replace("T", "").replace(/[-:]/g, ""));
+            const toValue = parseInt(alldataObj.toTime.replace("T", "").replace(/[-:]/g, ""));
+            const station = alldataObj.station
+            const variable = alldataObj.variable
+            if (plottype=="LineChart") {
+                fetchLinechart(station,fromValue,variable)
+            }
+            else if (plottype=="Histogram") {
+                fetchHg(station, fromValue, variable)
+            }
+            else if (plottype=="WindRose") {
+                fetchExcuse(station,fromValue,toValue)
+            }
+        }catch (err){}
+        if (showJsondata) setIsOpenChart(true)
+    },[showJsondata])
+
     async function handleVariables(data) {
-        alert("data: "+data)
-        await setshowJsondata(JSON.parse(JSON.stringify(data)))
-        await alert("showJsondata: "+showJsondata)
-        alert("alldataObj: "+alldataObj)
-        const alldataObj = showJsondata
-        setplotType(alldataObj.plotType)
-        const plottype = alldataObj.plotType
-        const fromValue = parseInt(alldataObj.fromTime.replace("T", "").replace(/[-:]/g, ""));
-        const toValue = parseInt(alldataObj.toTime.replace("T", "").replace(/[-:]/g, ""));
-        const station = alldataObj.station
-        const variable = alldataObj.variable
-        if (plottype=="LineChart") {
-            fetchLinechart(station,fromValue,variable)
-        }
-        else if (plottype=="Histogram") {
-            fetchHg(station, fromValue, variable)
-        } 
-        else if (plottype=="WindRose") {
-            fetchExcuse(station,fromValue,toValue)
-        }
+        if (JSON.stringify(data)==showJsondata) setIsOpenChart(true)
+        setshowJsondata(JSON.stringify(data))
     }
 
     const handleGraph = (garphType) => {
-        if (garphType=="LineChart") return graph_line(Linexy)
-        if (garphType=="Histogram") return graph_hisGram(hisGramxy)
-        if (garphType=="WindRose") return graph_wr(generatedExcuse)
+        if (garphType=="LineChart") {
+            return graph_line(Linexy)
+        }
+        else if (garphType=="Histogram"){
+            return graph_hisGram(hisGramxy)
+        }
+        else if (garphType=="WindRose"){
+            return graph_wr(generatedExcuse)
+        }
     }
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handleAdd2 = () => {
+    setCurrentIndex(currentIndex + 1);
+    };
+
 
     if (!isOpenDash2) return <DashBoards />
     return (
@@ -474,38 +498,40 @@ function DashBoards2(props) {
             <div className='DataBoard'>
                 <div className='DashBoardContent'>
                     <div>
-                        <h1>DashBoards</h1>
-                        <button className="CreateMoreButton" onClick={() => handleAdd()}>RETURN</button>
+                        <h className="TitileDash">DashBoards</h>
+                        <ReturnButton openReturn={props.showReturn} setBack={() => handleAdd()}/>
+
+                        {/* <button className="CreateMoreButton" onClick={() => handleAdd()}>RETURN</button> */}
                     </div>
- 
+
                     <div className='DigarmBoard'>
                         <div className="diagramList">
                             {props.dict.map((data, index) => {
                                 return (
                                     <>
-                                        <div key={index} className='card'>
+
+                                        <div key={index} className='card' style={{ left: `${index * 450}px` }}>
                                             <div className='actions'>
-                                                {data.boardName}
+                                                <p className="NameGiven">{data.boardName}</p>
+                                                <img className="Ellipse" src={Ellipse} alt="Ellipse" />
                                                 {/* <input value={data} onChange={e=>handleChange(e,i)} /> */}
-                                                <button onClick={() => { handleVariables(data); setIsOpenChart(true) }}>Open Created Charts</button>
+                                                <button className="OpenButton" onClick={() => { handleVariables(data) }}>Open Created Charts</button>
                                             </div>
-                                            <button className='cardBin' onClick={() => { setIsOpen(true); setCurIndex(index) }}><ImBin /></button>
+                                            <button className='Bin' onClick={() => { setIsOpen(true); setCurIndex(index) }}><ImBin className='BinGraph'/></button>
                                         </div>
                                     </>
- 
+
                                 )
                             })}
-                            <DashBoardCharts openChart={isOpenChart} onCancel={() => { setIsOpenChart(false) }}>{showJsondata}{handleGraph(plotType)}</DashBoardCharts>
-                            <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDelete() }} action="Delete">Are you sure to Delete?</Modal>
+                            <DashBoardCharts className="PopUp" openChart={isOpenChart} onCancel={() => { setIsOpenChart(false) }}>{showJsondata}{handleGraph(plotType)}</DashBoardCharts>
+                            <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDelete() }} action="Delete"><p className="DeleteConfirm">Are you sure to Delete?</p></Modal>
                         </div>
-                        <div className="SaveButtonDad">
-                            <button className="SaveButton" onClick={handleSave}>SAVE</button>
-                        </div>
+                        <SaveButton openSave={props.showSave} setSave={handleSave}/>
                     </div>
                 </div>
             </div>
         </>
     );
 }
- 
+
 export default DashBoards2;

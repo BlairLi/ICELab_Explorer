@@ -5,6 +5,11 @@ from datetime import datetime
 import statistics
 import math
 
+import csv
+import json
+from io import StringIO
+
+
 application = Flask(__name__)
 CORS(application)  # , resources=r'/*'
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/Sample_Data"
@@ -12,9 +17,9 @@ CORS(application)  # , resources=r'/*'
 # mongo = pymongo(application)
 
 
-application.MongoClient = pymongo.mongo_client.MongoClient(
-    "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
-# application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
+# application.MongoClient = pymongo.mongo_client.MongoClient(
+#     "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
+application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
 
 
 def sql_filter(sql):
@@ -71,7 +76,7 @@ def get_all_attendees(Device_id):
         del temp['_id']
         output.append(temp)
     return jsonify({
-        'result': output 
+        'result': output
     })
 
 
@@ -90,27 +95,27 @@ def get_one(device_id, rec):
     return jsonify({"result": output})
 
 
-@application.route('/insert/<device_id>', methods=['POST'])
-def register(device_id):
-    db = application.MongoClient["Device_Info"]
-    col = db["Device_Info"]
-    f = col.find_one({"DEVICEID": device_id})
-    Lis_V = f["List_V"]
-    resp = []
-    for i in range(len(Lis_V)):
-        resp.append("")
-    for i in range(len(Lis_V)):
-        try:
-            resp[i] = request.json[Lis_V[i]]
-        except KeyError:
-            return jsonify({'error': 'wrong varible names or wrong varible order'})
-    db = application.MongoClient["Device_Data"]
-    col = db[device_id]
-    new_doc = {}
-    for i in range(len(Lis_V)):
-        new_doc[Lis_V[i]] = resp[i]
-    col.insert_one(new_doc)
-    return jsonify({'result': 'Registration successful.'})
+# @application.route('/insert/<device_id>', methods=['POST'])
+# def register(device_id):
+#     db = application.MongoClient["Device_Info"]
+#     col = db["Device_Info"]
+#     f = col.find_one({"DEVICEID": device_id})
+#     Lis_V = f["List_V"]
+#     resp = []
+#     for i in range(len(Lis_V)):
+#         resp.append("")
+#     for i in range(len(Lis_V)):
+#         try:
+#             resp[i] = request.json[Lis_V[i]]
+#         except KeyError:
+#             return jsonify({'error': 'wrong varible names or wrong varible order'})
+#     db = application.MongoClient["Device_Data"]
+#     col = db[device_id]
+#     new_doc = {}
+#     for i in range(len(Lis_V)):
+#         new_doc[Lis_V[i]] = resp[i]
+#     col.insert_one(new_doc)
+#     return jsonify({'result': 'Registration successful.'})
 
 
 @application.route('/export/<device_id>', methods=['POST'])
@@ -346,9 +351,10 @@ def dashboardline_xy(device_id):
     for m in f:
         result_v.append(m[Var])
         date_str = str(m["TIMESTAMP"])
-        date_obj = datetime.strptime(date_str, "%Y%m%d%H%M%S")
-        date_formatted = date_obj.strftime("%Y-%m-%d %H:%M:%S")
+        date_obj = datetime.strptime(date_str, "%Y%m%d%H%M")
+        date_formatted = date_obj.strftime("%Y-%m-%d %H:%M")
         result_T.append(date_formatted)
+        result_T.append(date_str)
     u = get_device_info(device_id)
     d = dict(u.json['result'])
     unit = d[Var]
@@ -358,43 +364,44 @@ def dashboardline_xy(device_id):
         Avg_v = statistics.mean(result_v)
         std_dev = statistics.stdev(result_v)
     except ValueError as e:
-        return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit}), 200
+        return jsonify({"x": [], "y": []}), 400
+        # return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit}), 200
+
     return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit, "average": Avg_v, "min": Min_v, "max": Max_v, "standard devision": std_dev})
 
 
-@application.route('/log_insert', methods=['POST'])
-def log_insert():
-    Auth_db = application.MongoClient["Auth"]
-    col_b = Auth_db["Bearer_Token"]
-    token = request.headers.get('Authorization')
-    if not token:
-        return jsonify({'error': "Bearer Token needed"}), 400
-    token_t = token[0:6]
-    if token_t != "Bearer":
-        return jsonify({"result": "log insert failed: wrong auth type, must be Bearer."}), 401
-    Bea_t = token[7:]
-    print(Bea_t)
-    if col_b.find_one({"PW": int(Bea_t)}) is None:
-        return jsonify({"result": "log insert failed: wrong auth, Bear not found"}), 401
-    Auth_db = application.MongoClient["Log"]
-    col_b = Auth_db["User_Download_Log"]
-    try:
-        U_name = request.json['USERNAME']
-        U_name = sql_filter(U_name)
-        request_type = request.json['Request_type']
-        request_type = sql_filter(request_type)
-        R_body = request.json['REQUESTBODY']
-    except KeyError:
-        return jsonify({'error': 'wrong varible names or wrong varible order'})
-    timt_c = datetime.now()
-    time_c = format(timt_c, '%Y-%m-%d %H:%M:%S')
-    col_b.insert_one({
-        "USERNAME": U_name,
-        "TIME": time_c,
-        'Request_type': request_type,
-        "REQUESTBODY": R_body
-    })
-    return jsonify({"result": "Log inserted successful"})
+# @application.route('/insert_doc/<device_id>', methods=['POST'])
+# def log_insert():
+#     Auth_db = application.MongoClient["Auth"]
+#     col_b = Auth_db["Bearer_Token"]
+#     token = request.headers.get('Authorization')
+#     if not token:
+#         return jsonify({'error': "Bearer Token needed"}), 400
+#     token_t = token[0:6]
+#     if token_t != "Bearer":
+#         return jsonify({"result": "log insert failed: wrong auth type, must be Bearer."}), 401
+#     Bea_t = token[7:]
+#     if col_b.find_one({"PW": int(Bea_t)}) is None:
+#         return jsonify({"result": "log insert failed: wrong auth, Bear not found"}), 401
+#     Auth_db = application.MongoClient["Log"]
+#     col_b = Auth_db["User_Download_Log"]
+#     try:
+#         U_name = request.json['USERNAME']
+#         U_name = sql_filter(U_name)
+#         request_type = request.json['Request_type']
+#         request_type = sql_filter(request_type)
+#         R_body = request.json['REQUESTBODY']
+#     except KeyError:
+#         return jsonify({'error': 'wrong varible names or wrong varible order'})
+#     timt_c = datetime.now()
+#     time_c = format(timt_c, '%Y-%m-%d %H:%M:%S')
+#     col_b.insert_one({
+#         "USERNAME": U_name,
+#         "TIME": time_c,
+#         'Request_type': request_type,
+#         "REQUESTBODY": R_body
+#     })
+#     return jsonify({"result": "Log inserted successful"})
 
 
 # histogram 数据生成
@@ -443,7 +450,7 @@ def histogram(device_id):
         Range = 10
     bottom = math.floor(Min_v / Range) * Range
     ceiling = math.ceil(Max_v/Range) * Range
-    
+
     Bar_Num = (ceiling - bottom) / Range
     Bar_Num = int(Bar_Num)
     res = []
@@ -464,6 +471,56 @@ def histogram(device_id):
     return jsonify({"x": res_x, "y": res, "var": Var, "unit": unit, "average": Avg_v, "min": Min_v, "max": Max_v, "standard devision": std_dev})
 
 
+def try_int(value):
+    try:
+        x = int(value)
+        return x
+    except ValueError:
+        return value
+    except TypeError:
+        return value
+
+
+@application.route('/insert_doc/<device_id>', methods=['POST'])
+def dco_insert(device_id):
+    Auth_db = application.MongoClient["Auth"]
+    col_b = Auth_db["Bearer_Token"]
+    token = request.headers.get('Authorization')
+    if not token:
+        return jsonify({'error': "Bearer Token needed"}), 400
+    token_t = token[0:6]
+    if token_t != "Bearer":
+        return jsonify({"result": "log insert failed: wrong auth type, must be Bearer."}), 401
+    Bea_t = token[7:]
+    if col_b.find_one({"PW": int(Bea_t)}) is None:
+        return jsonify({"result": "log insert failed: wrong auth, Bear not found"}), 401
+
+    u = get_device_info(device_id)
+    d = dict(u.json['result'])
+    List_T = d["List_V"]
+
+    Auth_db = application.MongoClient["Device_Data"]
+    col_b = Auth_db[device_id]
+    try:
+        R_body = request.json['csv']
+    except KeyError:
+        return jsonify({'error': 'wrong varible names or wrong varible order'}), 400
+
+    csv_file = StringIO(R_body)
+    # Read the CSV data using the csv module
+    csv_reader = csv.DictReader(csv_file)
+    # Check if the keys match
+    header_keys = csv_reader.fieldnames
+    if header_keys != List_T:
+        return jsonify({"err": "Wrong keys or keys order"}), 400
+    # Convert the CSV data to a list of dictionaries
+    data_list = [{k: try_int(v) for k, v in row.items()} for row in csv_reader]
+    # Convert the list of dictionaries to JSON
+    # json_data = json.dumps(data_list)
+    col_b.insert_many(data_list)
+    return jsonify({"result": "inserted successful"})
+
+
 # 测试
 if __name__ == "__main__":
-    application.run(debug=True,port=5000)
+    application.run(debug=True, port=7000)

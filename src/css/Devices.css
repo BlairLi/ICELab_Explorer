@@ -13,15 +13,18 @@ div.Scrollbar {
   overflow: auto;
   white-space: nowrap;
   overscroll-behavior-inline: contain;
-  width: 100%;
+
   left:18.3125rem;
   width: 102.6875rem;
   height: 8.75rem;
   top: 12.5rem;
   position: absolute;
   max-width: 70rem;
+  height: 10rem;
   display: flex;
   flex-wrap: wrap;
+
+
 }
 
 .parent-element {
@@ -98,25 +101,6 @@ div.Scrollbar {
     transform: rotate(-0.03deg);
   }
 
-  .grey-block5 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    gap: 1rem;
-
-    position: absolute;
-    width: 20.5rem;
-    height: 4rem;
-    left: 18.3125rem;
-    top: 45.5rem;
-
-    background: #F3F7FB;
-    border-radius: 1rem;
-    transform: rotate(-0.03deg);
-  }
-
   .grey-block6 {
     display: flex;
     flex-direction: row;
@@ -167,7 +151,7 @@ div.Scrollbar {
     width: 20.5rem;
     height: 4rem;
     left: 18.3125rem;
-    top: 51.1rem;
+    top: 45.5rem;
 
     background: #F3F7FB;
     border-radius: 1rem;
@@ -317,7 +301,7 @@ div.Scrollbar {
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    left: 20.8125rem;
+    left: 20rem;
     top: 30.3rem;
     color: #1D3A70;
   }
@@ -328,19 +312,8 @@ div.Scrollbar {
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    left: 20.8125rem;
+    left: 20rem;
     top: 35.7rem;
-    color: #1D3A70;
-  }
-
-  .NickName{
-    position: absolute;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1rem;
-    left: 20.8125rem;
-    top: 41.3rem;
     color: #1D3A70;
   }
 
@@ -350,9 +323,10 @@ div.Scrollbar {
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    left: 20.8125rem;
-    top: 46.7rem;
+    left: 20rem;
+    top: 41.2rem;
     color: #1D3A70;
+    z-index: 1;
   }
 
   .LocationStation{
@@ -361,8 +335,8 @@ div.Scrollbar {
     font-style: normal;
     font-weight: 700;
     font-size: 1rem;
-    left: 20.8125rem;
-    top: 52.3rem;
+    left: 20rem;
+    top: 46.7rem;
     color: #1D3A70;
   }
 
@@ -466,7 +440,7 @@ div.Scrollbar {
     position: absolute;
     width: 3.75rem;
     height: 5.0625rem;
-    left: 1111.5625rem;
+    left: 111.5625rem;
     top: 4.6875rem;
     color: #fdfdfd;
   }
@@ -629,7 +603,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     line-height: 1.75rem;
     display: flex;
     align-items: flex-end;
@@ -647,7 +621,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     line-height: 1.75rem;
     display: flex;
     align-items: flex-end;
@@ -697,7 +671,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     line-height: 1.75rem;
     display: flex;
     color:white;
@@ -729,7 +703,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.75rem;
     display: flex;
     color:white;
@@ -761,7 +735,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     line-height: 1.75rem;
     display: flex;
     color:white;
@@ -793,7 +767,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 1.75rem;
     display: flex;
     color:white;
@@ -825,7 +799,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1.75rem;
     display: flex;
     color:white;
@@ -856,7 +830,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.75rem;
     display: flex;
     color:white;
@@ -889,7 +863,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.75rem;
     display: flex;
     color:white;
@@ -922,7 +896,7 @@ div.Scrollbar {
     font-family: 'Public Sans';
     font-style: normal;
     font-weight: 1000;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.75rem;
     display: flex;
     color:white;
@@ -958,4 +932,24 @@ div.Scrollbar {
 
     color: rgba(0, 0, 0, 0.65);
 
+  }
+
+  .Scrollbar::-webkit-scrollbar{
+    background: transparent;
+  }
+
+  .Scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 0px;
+      height: 10px;
+      width: 1px;
+      height: 1px;
+  }
+
+  div.Scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  div.Scrollbar:not(:hover)::-webkit-scrollbar-thumb {
+    display: none;
   }

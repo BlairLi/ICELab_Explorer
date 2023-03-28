@@ -27,7 +27,7 @@ const OVERLAY_STYLES = {
 // }
 
 export default function DashBoardCharts({openChart, onCancel, children}) {
-  
+
   // useEffect = () => {
   //   fetchLinechart(children.di)
   // }
@@ -41,7 +41,7 @@ export default function DashBoardCharts({openChart, onCancel, children}) {
             <div style={OVERLAY_STYLES} onClick={onCancel}/>
             <div style={MODAL_STYLES}>
                 {children}
-                <button onClick={onCancel} className="SaveButton">Back</button>
+                <button onClick={onCancel} className="BackButton">Back</button>
             </div>
         </>
   )

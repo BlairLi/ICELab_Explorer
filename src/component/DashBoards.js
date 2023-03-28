@@ -34,11 +34,11 @@ const DashBoards = () => {
         toTime,
         boardName
     }
-    
+
     const handlegetDashboard = () => {
         let isMounted = true;
         const controller = new AbortController();
-        
+
         const getDashboard = async () => {
             try {
                 // alert("User: "+ User)
@@ -46,7 +46,6 @@ const DashBoards = () => {
                     signal: controller.signal
                 });
                 const newList = createList.concat(response.data);
-                alert(newList)
                 isMounted && !((response.data).length === 0) && setcreateList(newList)
             } catch (err) {
                 console.error(err);
@@ -54,14 +53,14 @@ const DashBoards = () => {
         }
 
         getDashboard()
-        
+
         return () => {
             isMounted = false;
             controller.abort();
         }
     }
     useEffect( handlegetDashboard , []) // 此处填什么？应该根据什么变
-    
+
     const handleStation = (e) => {
         setStation(e.target.value)
     };
@@ -97,13 +96,13 @@ const DashBoards = () => {
         setIsOpenDash1(false)
     }
 
-    const deteleDate = (index) => {
+    const deleteDate = (index) => {
         const newList = createList.filter((item,i)=>i !== index);
         setcreateList(newList);
     }
 
 
-    if (!isOpenDash1) return <DashBoards2 create={DashBoards2Create} datelete={deteleDate} dict={createList} />
+    if (!isOpenDash1) return <DashBoards2 create={DashBoards2Create} delete={deleteDate} dict={createList} showSave={true} showReturn={true} />
     return (
         <>
             <>
@@ -116,8 +115,6 @@ const DashBoards = () => {
                             <option value="000004">White Glacier Melt Zone</option>
                             <option value="000002">White Glacier Moraine</option>
                             <option value="000001">Colour Lake</option>
-                            <option value="Crusoe Glacier">Crusoe Glacier</option>
-                            <option value="Erratics Island">Erratics Island</option>
                         </select>
                     </div>
                 </div>
@@ -129,7 +126,7 @@ const DashBoards = () => {
                             <option value="Relative humidity">Relative humidity</option>
                             <option value="WS_3m_ms">Wind speed</option>
                             <option value="WD_3m_deg">Wind direction</option>
-                            <option value="Incoming/downward shortwave radiation">Incoming/downward shortwave radiation</option>
+                            <option value="Shortwave Radiation"> Shortwave Radiation</option>
                             <option value="Snow depth">Snow depth</option>
                             <option value="Battery power">Battery power</option>
                         </select>
@@ -180,9 +177,7 @@ const DashBoards = () => {
                         <input type="text" className="NameInput" value={boardName} onChange={handleBoardName} />
                     </label>
                 </form>
-                {/* <Link to="/DashBoard2"> */}
                 <button className="NextButton" onClick={createDate}>CREATE</button>
-                {/* </Link> */}
             </>
 
         </>

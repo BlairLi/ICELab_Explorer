@@ -16,6 +16,8 @@ import EditAdmin from "./component/EditAdmin";
 import Register from "./component/Register";
 import Map from "./component/Map";
 import DownAdmin from "./component/DownAdmin";
+import ContactUS from "./component/ContactUS";
+import DashHistory from "./component/DashHistory";
 
 const ROLES = {
   'User': 2001,
@@ -27,16 +29,17 @@ function App() {
   return (
     <>
 
-      <main>
+<main>
         <Routes>
           <Route path="/" element={<Menu />}>
             {/* 用户关联dashboard登出后的处理 ？ */}
-            <Route index element={<Map />}/>
             <Route path="DashBoards" element={<DashBoards />} />
             <Route path="DashBoards2" element={<DashBoards2 />} />
             <Route path="Graphs" element={<WindRose />} />
             <Route path="Station" element={<Station />} />
             <Route path="ExtractPage" element={<ExtractPage />} />
+            <Route path="ContactUS" element={<ContactUS />} />
+            <Route path="DashHistory" element={<DashHistory />} />
             <Route path="Map" element={<Map />} />
             <Route path="unauthorized" element={<Unauthorized />} />
             {/* we want to protect these routes */}
@@ -53,6 +56,7 @@ function App() {
         </Routes>
 
       </main>
+
 
 
     </>
