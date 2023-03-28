@@ -67,7 +67,7 @@ const UpAdmin = () => {
       } else {
 
         try {
-          const url = "http://127.0.0.1:7000/insert_doc";
+          const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/insert_doc";
           let config = {
             headers: {
               'Content-Type': 'application/json',
