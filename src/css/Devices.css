@@ -23,7 +23,7 @@ div.Scrollbar {
   height: 10rem;
   display: flex;
   flex-wrap: wrap;
-
+  overflow-y: hidden;
 
 }
 
