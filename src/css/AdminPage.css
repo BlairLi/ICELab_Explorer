@@ -191,7 +191,8 @@ table {
 .uploadAdmin,
 .deleteAdmin,
 .permitAdmin,
-.downAdmin {
+.downAdmin,
+.upAdmin {
   height: 1rem;
   width: 23.5rem;
   position: absolute;
@@ -205,7 +206,8 @@ table {
 .uploadAdmin:nth-last-child(-n + 2),
 .deleteAdmin:nth-last-child(-n + 2),
 .permitAdmin:nth-last-child(-n + 2),
-.downAdmin:nth-last-child(-n + 2)  {
+.downAdmin:nth-last-child(-n + 2),
+.upAdmin:nth-last-child(-n + 2) {
   margin-bottom: 10px;
 }
 
@@ -239,13 +241,19 @@ table {
   top: 22.6rem;
 }
 
+.upAdmin {
+  left: 27.25rem;
+  top: 21.95rem;
+}
+
 button.secondaryBackAdmin,
 button.secondaryEditAdmin,
 button.secondaryDownloadAdmin,
 button.secondaryUploadAdmin,
 button.secondaryDeleteAdmin,
 button.secondaryPermitAdmin,
-button.secondaryDownAdmin {
+button.secondaryDownAdmin,
+button.secondaryUpAdmin {
   border-radius: 10px;
   border: none;
   color: #fff;
@@ -278,7 +286,8 @@ button.secondaryEditAdmin {
 button.secondaryDownloadAdmin {
   background: #14a04e;
 }
-button.secondaryUploadAdmin {
+button.secondaryUploadAdmin,
+button.secondaryUpAdmin {
   background: #386bda;
 }
 button.secondaryDeleteAdmin {
@@ -295,7 +304,8 @@ button.secondaryDownloadAdmin:hover,
 button.secondaryUploadAdmin:hover,
 button.secondaryDeleteAdmin:hover,
 button.secondaryPermitAdmin:hover,
-button.secondaryDownAdmin:hover  {
+button.secondaryDownAdmin:hover,
+button.secondaryUpAdmin:hover  {
   background: #0f65bb;
   color: #ffffff;
   border-color: #ffffff00;
@@ -308,7 +318,8 @@ button.secondaryEditAdmin:hover {
 button.secondaryDownloadAdmin:hover {
   background: #0e6934;
 }
-button.secondaryUploadAdmin:hover {
+button.secondaryUploadAdmin:hover,
+button.secondaryUpAdmin:hover {
   background: #203d7c;
 }
 button.secondaryDeleteAdmin:hover {

@@ -65,12 +65,11 @@ function DashBoards2(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenChart, setIsOpenChart] = useState(false);
     const [isOpenDash2, setIsOpenDash2] = useState(true);
-    const [showJsondata,setshowJsondata] = useState("LineChart");
+    const [showJsondata,setshowJsondata] = useState();
     const [curIndex,setCurIndex] = useState(null)
     const [Linexy, setLinexy] = useState(data1); // line chart data
     const [generatedExcuse, setGeneratedExcuse] = useState(data2); // wind rose data
     const [hisGramxy, sethisGramxy] = useState(data3); // histogram data
-    var index = 0;
 
     useEffect(() => {
         Axios.get(`http://127.0.0.1:7000/lastest-status/000001`).then((res) => {
@@ -464,7 +463,7 @@ function DashBoards2(props) {
                 fetchExcuse(station,fromValue,toValue)
             }
         }catch (err){}
-        setIsOpenChart(true)
+        if (showJsondata) setIsOpenChart(true)
     },[showJsondata])
 
     async function handleVariables(data) {

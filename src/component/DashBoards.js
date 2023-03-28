@@ -115,8 +115,8 @@ const DashBoards = () => {
                             <option value="000004">White Glacier Melt Zone</option>
                             <option value="000002">White Glacier Moraine</option>
                             <option value="000001">Colour Lake</option>
-                            <option value="Crusoe Glacier">Crusoe Glacier</option>
-                            <option value="Erratics Island">Erratics Island</option>
+                            {/* <option value="Crusoe Glacier">Crusoe Glacier</option>
+                            <option value="Erratics Island">Erratics Island</option> */}
                         </select>
                     </div>
                 </div>
@@ -125,12 +125,10 @@ const DashBoards = () => {
                     <div className="drop-down3">
                         <select value={variable} onChange={handleVariable}>
                             <option value="Temp_2m_C">Temperature</option>
-                            <option value="Relative humidity">Relative humidity</option>
+                            <option value="RH_2m_perc">Relative humidity</option>
                             <option value="WS_3m_ms">Wind speed</option>
                             <option value="WD_3m_deg">Wind direction</option>
-                            <option value="Incoming/downward shortwave radiation">Incoming/downward shortwave radiation</option>
-                            <option value="Snow depth">Snow depth</option>
-                            <option value="Battery power">Battery power</option>
+                            <option value="SW_in_wm2">Incoming/downward shortwave radiation</option>
                         </select>
                     </div>
                 </div>
