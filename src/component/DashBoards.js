@@ -128,8 +128,7 @@ const DashBoards = () => {
                             <option value="WD_3m_deg">Wind direction</option>
                             <option value="Shortwave Radiation"> Shortwave Radiation</option>
                             <option value="Snow depth">Snow depth</option>
-                            <option value="Battery power">Battery power</option>
-
+                            {/* <option value="Battery power">Battery power</option> */}
                         </select>
                     </div>
                 </div>
