@@ -23,7 +23,8 @@ div.Scrollbar {
   height: 10rem;
   display: flex;
   flex-wrap: wrap;
-  overflow-y: hidden;
+
+
 }
 
 .parent-element {
@@ -439,7 +440,7 @@ div.Scrollbar {
     position: absolute;
     width: 3.75rem;
     height: 5.0625rem;
-    left: 111.5625rem;
+    left: 96.25rem;
     top: 4.6875rem;
     color: #fdfdfd;
   }
@@ -448,7 +449,7 @@ div.Scrollbar {
     position: absolute;
     width: 3.75rem;
     height: 5.0625rem;
-    left: 126.4375rem;
+    left:  111.5625rem;
     top: 4.6875rem;
     color: #fdfdfd;
     z-index: 1;
@@ -458,7 +459,7 @@ div.Scrollbar {
     position: absolute;
     width: 3.75rem;
     height: 5.0625rem;
-    left: 141.5rem;
+    left: 126.4375rem;
     top: 4.6875rem;
     color: #fdfdfd;
     z-index: 1;
@@ -547,7 +548,7 @@ div.Scrollbar {
   position: absolute;
   width: 11.0625rem;
   height: 8.125rem;
-  left: 104.125rem;
+  left: 89.25rem;
   background: rgba(18, 137, 255, 0.69);
   border-radius: 1.5625rem;
   overflow-x: scroll;
@@ -558,7 +559,7 @@ div.Scrollbar {
   position: absolute;
   width: 11.0625rem;
   height: 8.125rem;
-  left: 119rem;
+  left: 104.125rem;
   background: rgba(18, 137, 255, 1);
   border-radius: 1.5625rem;
   overflow-x: scroll;
@@ -569,7 +570,7 @@ div.Scrollbar {
   position: absolute;
   width: 11.0625rem;
   height: 8.125rem;
-  left: 133.875rem;
+  left: 119rem;
   background: rgba(18, 137, 255, 0.69);
   border-radius: 1.5625rem;
   overflow-x: scroll;
@@ -808,7 +809,7 @@ div.Scrollbar {
     position: absolute;
     width: 7rem;
     height: 2.5625rem;
-    left: 104.6875rem;
+    left: 90rem;
     top: 0.9375rem;
 
     font-family: 'Public Sans';
@@ -823,7 +824,7 @@ div.Scrollbar {
     position: absolute;
     width: 7rem;
     height: 2.5625rem;
-    left: 104.6875rem;
+    left: 90rem;
     top: 3.75rem;
 
     font-family: 'Public Sans';
@@ -839,7 +840,7 @@ div.Scrollbar {
     position: absolute;
     width: 7rem;
     height: 2.5625rem;
-    left: 119.6875rem;
+    left: 104.6875rem;
     top: 0.9375rem;
 
     font-family: 'Public Sans';
@@ -856,7 +857,7 @@ div.Scrollbar {
     position: absolute;
     width: 7rem;
     height: 2.5625rem;
-    left: 119.6875rem;
+    left: 104.6875rem;
     top: 3.75rem;
 
     font-family: 'Public Sans';
@@ -873,7 +874,7 @@ div.Scrollbar {
     position: absolute;
     width: 7rem;
     height: 2.5625rem;
-    left: 134.5625rem;
+    left: 119.6875rem;
     top: 0.9375rem;
 
     font-family: 'Public Sans';
@@ -889,7 +890,7 @@ div.Scrollbar {
     position: absolute;
     width: 7rem;
     height: 2.5625rem;
-    left: 134.375rem;
+    left: 119.6875rem;
     top: 3.75rem;
 
     font-family: 'Public Sans';
@@ -916,7 +917,6 @@ div.Scrollbar {
     width: 45.625rem;
     height: 1.125rem;
     left: 18.4375rem;
-    /* top: 23.125rem; */
     top: 24rem;
 
     font-family: 'Public Sans';
@@ -952,10 +952,4 @@ div.Scrollbar {
 
   div.Scrollbar:not(:hover)::-webkit-scrollbar-thumb {
     display: none;
-  }
-
-    
-  .Scrollbar::-webkit-scrollbar-thumb {
-   background-color: rgba(0, 0, 0, 0.2);
-   border-radius: 20px;
   }
