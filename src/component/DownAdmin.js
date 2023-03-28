@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import '../css/AdminPage.css';
-import { json, useNavigate } from "react-router-dom"
-import axios from "../api/axios";
-import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom"
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import * as XLSX from 'xlsx';
 
 const EditAdmin = () => {
@@ -16,16 +15,11 @@ const EditAdmin = () => {
     const [errMsg, setErrMsg] = useState('');
     const [download, setDownload] = useState(false);
     const [output, setOutput] = useState('export');
-    const { auth } = useAuth();
     const userRef = useRef();
     const outRef = useRef();
     const errRef = useRef();
-
-    let config = {
-        headers: {
-            'Authorization': 'Bearer ' + auth.accessToken
-        }
-    }
+    const axiosPrivate = useAxiosPrivate();
+    const controller = new AbortController();
 
     useEffect(() => {
         userRef.current.focus();
@@ -62,7 +56,9 @@ const EditAdmin = () => {
     }, [download, posts])
 
     const getDownloadInfo = async () => {
-        await axios.get(`/employees/${user}`, config)
+        await axiosPrivate.get(`/employees/${user}`, {
+            signal: controller.signal
+        })
             .then((response) => {
                 if (response.status === 204) {
                     setErrMsg(`User ${user} not found`);
