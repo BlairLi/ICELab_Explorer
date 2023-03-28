@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '../css/AdminPage.css';
 import { Link, useNavigate, useLocation } from "react-router-dom"
-import axios from "../api/axios";
 import useAuth from "../hooks/useAuth";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
@@ -90,10 +89,19 @@ const Admin = () => {
                         User Download Log
                     </button>
                 </div>
+                <div className="downloadAdmin">
+                    <Link to="/DownAdmin" className="editAdminPage">
+                        <button className="secondaryDownloadAdmin">
+                            User Download Log
+                        </button>
+                    </Link>
+                </div>
                 <div className="uploadAdmin">
-                    <button className="secondaryUploadAdmin" onClick={goBack}>
-                        Upload Climate Data
-                    </button>
+                    <Link to="/UpAdmin" className="editAdminPage">
+                        <button className="secondaryUploadAdmin">
+                            Upload Climate Data
+                        </button>
+                    </Link>
                 </div>
             </div>
             <div className="backAdmin">

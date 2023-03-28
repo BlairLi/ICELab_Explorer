@@ -3,8 +3,8 @@
     width: 100%;
     display: flex;
     position: absolute;
-    left:300px;
-    top:100px;
+    left:18.75rem;
+    top:6.25;
     align-items: center;
     flex-direction: row;
     margin: 0;
@@ -20,20 +20,20 @@
     padding-right: 0.5rem;
     border-color: rgb(0, 0, 0);
     background: #F7F9FB;
-    border-radius: 16px;
+    border-radius: 1rem;
   }
 
   .stationbarheader {
-    font-size: 20px;
+    font-size: 1.25rem;
     padding-bottom: 2rem;
   }
 
   .stationbarul {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .stationbaraccordian {
-    font-size: 16px;
+    font-size: 1rem;
     list-style: none;
     margin-left: 2rem;
     text-align: left;
@@ -53,23 +53,54 @@
     list-style: none;
   }
 
-  .DashBoardContent {
+
+  .TitileDash{
+    position: absolute;
+    width: 531px;
+    height: 58px;
+    left: 0px;
+    top: 95px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 58px;
+    /* identical to box height */
+
     display: flex;
-    padding: 0 2rem;
-    flex-direction: column;
-    font-size: 20px;
+    align-items: flex-end;
 
-  }
-
-  h1{
-    margin: 0;
+    color: #000000;
   }
 
   .CreateMoreButton{
-    background-color: #1289FF;
-    width: 15rem;
-    height: 5vh;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+
+    position: absolute;
+    width: 146px;
+    height: 36px;
+    left: 230px;
+    top: 106px;
+
+    background: #D4E3F5;
+    border-radius: 10px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 26px;
+
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+
+    color: #243465;
   }
 
   .SaveButtonDad{
@@ -78,21 +109,50 @@
   }
 
   .SaveButton {
-    background-color: #1289FF;
-    width: 15rem;
-    height: 5vh;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+
+    position: absolute;
+    width: 146px;
+    height: 36px;
+    left: 430px;
+    top: 106px;
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 26px;
+
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+
+    color: #243465;
+    background: #D4E3F5;
+    border-radius: 10px;
 
   }
 
   .card {
-    background-color: white;
-    border-radius: 4px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    margin: 4rem;
-    padding: 2rem;
-    width: 35rem;
-    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+
+    position: absolute;
+    width: 327px;
+    height: 191px;
+    left: 0px;
+    top: 201px;
+
+    /* Greyscale / 50 */
+
+    background: #F3F7FB;
+    border-radius: 16px;
   }
 
   .cardBin {
@@ -114,3 +174,189 @@
     /* border-style: solid;
     border-color: coral; */
   }
+
+  .NameGiven{
+    position: absolute;
+    width: 106px;
+    height: 26px;
+    left: 25px;
+    top: 20px;
+
+    font-family: 'Public Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 26px;
+    /* identical to box height, or 186% */
+
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+
+    color: #243465;
+}
+
+.OpenButton{
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 10px;
+
+    position: absolute;
+    width: 277px;
+    height: 39px;
+    left: 28px;
+    top: 90px;
+
+    background: #1D3A70;
+    border-radius: 16px;
+    font-family: 'public sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.3px;
+
+}
+
+.Bin{
+  display: flex;
+flex-direction: row;
+align-items: center;
+padding: 16px;
+gap: 16px;
+
+position: absolute;
+width: 36px;
+height: 36px;
+left: 20px;
+top: 150px;
+
+background: #F3F7FB;
+border-radius: 16px;
+}
+
+.BinGraph{
+  position: absolute;
+  width: 23px;
+  height: 30px;
+  left: 5px;
+  top: 0px;
+  color:#4979D1;
+}
+
+.Ellipse{
+  left:255px;
+  top:0px;
+  position: absolute;
+}
+
+SaveButton.SaveButton2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 8px;
+
+  position: absolute;
+  width: 146px;
+  height: 36px;
+  left: 230px;
+  top: 506px;
+
+  background: #D4E3F5;
+  border-radius: 10px;
+
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 26px;
+
+  letter-spacing: 0.46px;
+  text-transform: uppercase;
+
+  color: #243465;
+}
+
+.PopUp{
+  width: 600px;
+  left:50px;
+  position: absolute;
+}
+
+.BackButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 10px;
+
+  position: absolute;
+  width: 130px;
+  height: 39px;
+  left: 620px;
+  top: 690px;
+
+  color: #243465;
+  background: #D4E3F5;
+  border-radius: 16px;
+  font-family: 'public sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.DeleteButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 10px;
+
+  position: absolute;
+  width: 130px;
+  height: 39px;
+  left: 70px;
+  top: 100px;
+
+  color: #243465;
+  background: #D4E3F5;
+  border-radius: 16px;
+  font-family: 'public sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.DeleteConfirm{
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+
+
+
+
+

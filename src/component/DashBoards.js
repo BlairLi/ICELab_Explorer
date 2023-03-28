@@ -2,14 +2,17 @@ import "@picocss/pico"
 import '../css/DashBoards.css';
 import { AiOutlineLineChart } from 'react-icons/ai';
 import { GiHistogram } from 'react-icons/gi';
-import { FaChartArea } from 'react-icons/fa';
 import { RiWindyFill } from 'react-icons/ri';
-import { useState } from "react";
-import { Link } from "react-router-dom"
+import { useState, useEffect } from "react";
 import DashBoards2 from "./DashBoards2";
-
+import useAuth from "../hooks/useAuth";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const DashBoards = () => {
+    const { auth } = useAuth();
+    const User = auth.user
+    const axiosPrivate = useAxiosPrivate();
+
     const [station, setStation] = useState("000003");
     const [variable, setVariable] = useState("Temp_2m_C");
     const [plotType, setPlotType] = useState("LineChart");
@@ -23,8 +26,6 @@ const DashBoards = () => {
     const [isOpenDash1, setIsOpenDash1] = useState(true);
     const [createList, setcreateList] = useState([]);
 
-    // 用createList上传mongodb 到plottype
-
     const dict = {
         station,
         variable,
@@ -34,6 +35,31 @@ const DashBoards = () => {
         boardName
     }
 
+    const handlegetDashboard = () => {
+        let isMounted = true;
+        const controller = new AbortController();
+
+        const getDashboard = async () => {
+            try {
+                // alert("User: "+ User)
+                const response = await axiosPrivate.get(`/dashboards/${User}`, {
+                    signal: controller.signal
+                });
+                const newList = createList.concat(response.data);
+                isMounted && !((response.data).length === 0) && setcreateList(newList)
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        getDashboard()
+
+        return () => {
+            isMounted = false;
+            controller.abort();
+        }
+    }
+    useEffect( handlegetDashboard , []) // 此处填什么？应该根据什么变
 
     const handleStation = (e) => {
         setStation(e.target.value)
@@ -64,19 +90,19 @@ const DashBoards = () => {
     }
 
     const createDate = () => {
+        // console.log(newList);
         const newList = [...createList, dict];
-        console.log(newList);
         setcreateList(newList)
         setIsOpenDash1(false)
     }
 
-    const deteleDate = (index) => {
+    const deleteDate = (index) => {
         const newList = createList.filter((item,i)=>i !== index);
         setcreateList(newList);
     }
 
 
-    if (!isOpenDash1) return <DashBoards2 create={DashBoards2Create} datelete={deteleDate} dict={createList} />
+    if (!isOpenDash1) return <DashBoards2 create={DashBoards2Create} delete={deleteDate} dict={createList} showSave={true} showReturn={true} />
     return (
         <>
             <>
@@ -89,8 +115,6 @@ const DashBoards = () => {
                             <option value="000004">White Glacier Melt Zone</option>
                             <option value="000002">White Glacier Moraine</option>
                             <option value="000001">Colour Lake</option>
-                            <option value="Crusoe Glacier">Crusoe Glacier</option>
-                            <option value="Erratics Island">Erratics Island</option>
                         </select>
                     </div>
                 </div>
@@ -99,12 +123,13 @@ const DashBoards = () => {
                     <div className="drop-down3">
                         <select value={variable} onChange={handleVariable}>
                             <option value="Temp_2m_C">Temperature</option>
-                            <option value="Relative humidity">Relative humidity</option>
+                            <option value="RH_2m_perc">Relative humidity</option>
                             <option value="WS_3m_ms">Wind speed</option>
                             <option value="WD_3m_deg">Wind direction</option>
-                            <option value="Incoming/downward shortwave radiation">Incoming/downward shortwave radiation</option>
+                            <option value="Shortwave Radiation"> Shortwave Radiation</option>
                             <option value="Snow depth">Snow depth</option>
                             <option value="Battery power">Battery power</option>
+
                         </select>
                     </div>
                 </div>
@@ -153,9 +178,7 @@ const DashBoards = () => {
                         <input type="text" className="NameInput" value={boardName} onChange={handleBoardName} />
                     </label>
                 </form>
-                {/* <Link to="/DashBoard2"> */}
                 <button className="NextButton" onClick={createDate}>CREATE</button>
-                {/* </Link> */}
             </>
 
         </>

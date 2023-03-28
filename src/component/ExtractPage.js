@@ -4,7 +4,9 @@ import {useState, useEffect} from "react";
 import "../css/ExtractPage.css"
 import { Checkbox } from 'antd';
 import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import * as XLSX from 'xlsx';
+import useAuth from "../hooks/useAuth";
 /* import * as XLSX from 'xlsx'; */
 /* import { Form } from 'antd'; */
 /* import { Select, MenuItem, FormControl, InputLabel, OutlinedInput, ListItemText, Checkbox } from '@mui/material'; */
@@ -156,6 +158,8 @@ const Export = () => {
   const [selectedParent, setSelectedParent] = useState(null);
   const [selectedChildren, setSelectedChildren] = useState([]);
   const [generatedExcuse, setGeneratedExcuse] = useState("");
+  const axiosPrivate = useAxiosPrivate();
+  const { auth } = useAuth()
 
   useEffect(() => {
     if (isChecked) {
@@ -166,7 +170,7 @@ const Export = () => {
   }, [isChecked]);
 
   const fetchExcuse = (dev_id, formatValue, fromValue, toValue, listValue) => {
-    const url = "http://127.0.0.1:5000/export-csv";
+    const url = "http://127.0.0.1:7000/export-csv";
     const flattenedListValue = listValue.flat();
     const dat_t = {
       "TIMESTAMP_F" : fromValue,
@@ -176,7 +180,7 @@ const Export = () => {
     //alert(fromValue);
     //alert(JSON.stringify(flattenedListValue));
     //alert(JSON.stringify(dat_t));
-    Axios.post(`${url}/${dev_id}`, dat_t).then((res) => {  
+    Axios.post(`${url}/${dev_id}`, dat_t).then((res) => {
       setGeneratedExcuse(res.data.result);
       downloadFile(res.data.result, `${name || defaultName}.${formatValue}`, formatValue);
     });
@@ -184,42 +188,42 @@ const Export = () => {
 
   const downloadFile = (csv, filename, formatValue) => {
     let blob, extension;
-  
+
     if (formatValue === "EXCEL") {
       // Convert CSV to a 2D array
       const csvArray = csv.split('\n').map(row => row.split(','));
-  
+
       // Create a new workbook
       const workbook = XLSX.utils.book_new();
-  
+
       // Create a new worksheet from the 2D array
       const worksheet = XLSX.utils.aoa_to_sheet(csvArray);
-  
+
       // Add the worksheet to the workbook
       XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-  
+
       // Write the workbook to a binary string
       const binaryString = XLSX.write(workbook, { type: "binary", bookType: "xlsx" });
-  
+
       // Convert the binary string to an ArrayBuffer
       const buffer = new ArrayBuffer(binaryString.length);
       const view = new Uint8Array(buffer);
       for (let i = 0; i < binaryString.length; i++) {
         view[i] = binaryString.charCodeAt(i) & 0xFF;
       }
-  
+
       blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
       extension = ".xlsx";
     } else {
       blob = new Blob([csv], { type: "text/csv" });
       extension = ".csv";
     }
-  
+
     // Remove extension from filename
     const name = filename.replace(/\.[^/.]+$/, "");
-  
+
     const fullFilename = `${name}${extension}`;
-  
+
     if (window.navigator.msSaveOrOpenBlob) {
       // IE11
       window.navigator.msSaveBlob(blob, fullFilename);
@@ -257,7 +261,7 @@ const Export = () => {
   const handleChildrenChange = (value) => {
     setSelectedChildren(value);
   };
-  
+
 
   const handleStartDateChange = (e) => {
     setStartDate(e.target.value);
@@ -273,6 +277,40 @@ const Export = () => {
     }
   };
 
+  const updateDownLog = async (nameValue, formatValue) => {
+    const url = "/employees";
+    if (nameValue === "" || formatValue === "") {
+      alert("Needs Filename for Download Log");
+    } else {
+      try {
+        if (nameValue === "") {
+          nameValue = "Data";
+        }
+        const currentTime = `${now.toISOString().slice(0, 11)}${hours}:${minutes}`;
+        const queryParams = {
+          username: auth.user,
+          downlog: 
+            {
+              fileName: nameValue + '.' + formatValue,
+              time: currentTime,
+              device: selectedParent,
+              _id: false
+            }
+        };
+        // const config = {
+        //   headers: {
+        //     Authorization: 'Bearer ' + auth.accessToken
+        //   }
+        // };
+        // await axiosPrivate.put(`${url}`, queryParams, config);
+        await axiosPrivate.put(`${url}`, queryParams);
+        console.log("Download Log has been Updated");
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!selectedParent || selectedChildren.length === 0) {
@@ -283,7 +321,7 @@ const Export = () => {
     const formatValue = e.target.querySelector("select").value;
     const fromValue = parseInt(startDate.replace("T", "").replace(/[-:]/g, "") );
     const toValue = parseInt(endDate.replace("T", "").replace(/[-:]/g, ""));
-    //const listValue = [...selectedChildren, "E_actual_kPa", "Press_hPa"]; 
+    //const listValue = [...selectedChildren, "E_actual_kPa", "Press_hPa"];
     let listValue = selectedChildren;
     let dev_id = null;
     if (selectedParent === "white Glacier Nunatak") {
@@ -316,13 +354,14 @@ const Export = () => {
       selectedChildren.length > 0 ? ` > ${selectedChildren.join(", ")}` : ""
     }\nList of Values: ${listValue}`;
     alert(message);
-    
+
     if (!formatValue) {
       alert("Please select a file format.");
       return;
     }
 
     fetchExcuse(dev_id, formatValue,fromValue, toValue, listValue);
+    updateDownLog(nameValue,formatValue);
   };
 
 

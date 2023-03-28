@@ -39,10 +39,9 @@ const Login = () => {
             }
         );
         // console.log(JSON.stringify(response?.data));
-        console.log(JSON.stringify(response));
+        // console.log(JSON.stringify(response));
         const accessToken = response?.data?.accessToken;
         const roles = response?.data?.roles;
-        // console.log("Role is", roles);
         setAuth({ user, pwd, roles, accessToken });
         setUser('');
         setPwd('');
@@ -73,16 +72,16 @@ const Login = () => {
   return (
     <>
     <div className="App">
-      <div className="logoLogin">
+      <Link to="/" className="logoLogin">
         <label className="bluePart">ICELab </label>
         <label className="blackPart">Queen's</label>
-      </div>
+      </Link>
       <div className="main">
         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
         <label className="login">LOGIN</label>
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-group">
-            <label htmlFor="email">Email address</label>
+            <label htmlFor="email">User Name</label>
             {/* <input type="email" name="email" placeholder="Email address / Username" /> */}
             <input
                           type="text"
@@ -92,7 +91,7 @@ const Login = () => {
                           onChange={(e) => setUser(e.target.value)}
                           value={user}
                           required
-                          placeholder="Email address / Username"
+                          placeholder="User Name"
                       />
           </div>
           <div className="input-group">
