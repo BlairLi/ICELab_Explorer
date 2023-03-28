@@ -17,9 +17,9 @@ CORS(application)  # , resources=r'/*'
 # mongo = pymongo(application)
 
 
-# application.MongoClient = pymongo.mongo_client.MongoClient(
-#     "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
-application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
+application.MongoClient = pymongo.mongo_client.MongoClient(
+    "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
+# application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
 
 
 def sql_filter(sql):
@@ -351,9 +351,9 @@ def dashboardline_xy(device_id):
     for m in f:
         result_v.append(m[Var])
         date_str = str(m["TIMESTAMP"])
-        date_obj = datetime.strptime(date_str, "%Y%m%d%H%M")
-        date_formatted = date_obj.strftime("%Y-%m-%d %H:%M")
-        result_T.append(date_formatted)
+        # date_obj = datetime.strptime(date_str, "%Y%m%d%H%M")
+        # date_formatted = date_obj.strftime("%Y-%m-%d %H:%M")
+        # result_T.append(date_formatted)
         result_T.append(date_str)
     u = get_device_info(device_id)
     d = dict(u.json['result'])

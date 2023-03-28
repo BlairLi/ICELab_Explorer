@@ -24,7 +24,6 @@ div.Scrollbar {
   display: flex;
   flex-wrap: wrap;
   overflow-y: hidden;
-
 }
 
 .parent-element {
@@ -917,7 +916,8 @@ div.Scrollbar {
     width: 45.625rem;
     height: 1.125rem;
     left: 18.4375rem;
-    top: 23.125rem;
+    /* top: 23.125rem; */
+    top: 24rem;
 
     font-family: 'Public Sans';
     font-style: normal;
@@ -952,4 +952,10 @@ div.Scrollbar {
 
   div.Scrollbar:not(:hover)::-webkit-scrollbar-thumb {
     display: none;
+  }
+
+    
+  .Scrollbar::-webkit-scrollbar-thumb {
+   background-color: rgba(0, 0, 0, 0.2);
+   border-radius: 20px;
   }

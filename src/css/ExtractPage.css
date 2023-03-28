@@ -258,6 +258,17 @@ input.Enddate{
   cursor: pointer;
 }
 
+.ExportButton {
+  margin-top: 20px;
+  background-color: #1890ff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 .ExportButton:hover {
   background-color: #40a9ff;
 }

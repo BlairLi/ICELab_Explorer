@@ -6,10 +6,10 @@ import { CiViewBoard } from 'react-icons/ci';
 import { BsGraphUp } from 'react-icons/bs';
 import { Link } from "react-router-dom"
 
-// const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
-const url = "http://127.0.0.1:7000/";
+const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/"
 function WindRose() {
 
+  const [selectedValue, setSelectedValue] = useState('Choose1');
   const [currTime, setcurrTime] = useState();
   const [past3Time, setpast3] = useState();
   const [past1Time, setpast1] = useState();
@@ -17,6 +17,30 @@ function WindRose() {
 
 
   const [sharedDevId, setSharedDevId] = useState('');
+
+  const handleDeviceChange = (event) => {
+    const selectedDevice = event.target.value;
+    setSelectedValue(selectedDevice);
+    let newDevId;
+    switch (selectedDevice) {
+    case "Choose1":
+        newDevId = "000003";
+        break;
+    case "Choose2":
+        newDevId = "000004";
+        break;
+    case "Choose3":
+        newDevId = "000002";
+        break;
+    case "Choose4":
+        newDevId = "000001";
+        break;
+    default:
+        newDevId = "000000";
+        break;
+    }
+    setSharedDevId(newDevId); 
+  };
 
   useEffect(() => {
     const storedDevId = localStorage.getItem('selectedDeviceId');
@@ -27,16 +51,15 @@ function WindRose() {
 
     const handleDevIdChanged = (event) => {
       setSharedDevId(event.detail);
-      //alert(`Received devvid in WindRose: ${event.detail}`);
+      alert(`Received devvid in WindRose: ${event.detail}`);
     };
 
     window.addEventListener('devvidChanged', handleDevIdChanged);
-    Axios.get(`http://127.0.0.1:7000/lastest-status/${sharedDevId}`).then((res) => {
-
+    Axios.get(`http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/lastest-status/${storedDevId}`).then((res) => {
       setcurrTime(res.data.result.TIMESTAMP);
       const hi = res.data.result.TIMESTAMP;
       setTime(hi);
-      alert(`The latest updated time is ${hi}`)
+      // alert(`The latest updated time is ${hi}`)
       setpast1(pastDate(Time, 1))
       setpast1(pastDate(Time, 3))
 
@@ -111,7 +134,7 @@ function WindRose() {
   const [hisGramxy, sethisGramxy] = useState(data3);
   const [generatedExcuse, setGeneratedExcuse] = useState(data2);
 
-  function pastDate(temp_d, mon) {
+  function pastDate(temp_d=202204251630, mon) {
     let dateString = temp_d.toString();
     let inputDate = new Date(dateString.substr(0, 4), parseInt(dateString.substr(4, 2)) - 1, dateString.substr(6, 2), dateString.substr(8, 2), dateString.substr(10, 2));
     let month = inputDate.getMonth() - mon;
@@ -444,29 +467,30 @@ function WindRose() {
 
   return (
     <div className="WindRose">
-      <div className="grey-block">
-            <p className="Device-device">Devices</p >
-            <CiViewBoard className='CiViewBoard'/>
-            <Link to="/Station">
-                <p className="Device-Overview">Overview</p >
-            </Link>
-            <Link to="/Graphs">
-                <BsGraphUp className='iconBsGraphUp'/>
-                <p className="Device-Graphs">Graphs</p >
-            </Link>
-            {/* <BsFillJournalBookmarkFill className='iconGrCatalog'/> */}
-            {/* <p className="Device-Logs">Logs</p > */}
-        </div>
 
-        <div className="drop-down">
-          <select id="mySelect">
-                    <option value="Choose1">White Glacier Nunatak</option>
-                    <option value="Choose2">White Glacier Melt Zone</option>
-                    <option value="Choose3">White Glacier Moraine</option>
-                    <option value="Choose4">Colour Lake</option>
-            </select>
-        </div>
-      <p>{Time}</p>
+      <div className="grey-block">
+        <p className="Device-device">Devices</p >
+        <CiViewBoard className='CiViewBoard' />
+        <Link to="/Station">
+          <p className="Device-Overview">Overview</p >
+        </Link>
+        <Link to="/Graphs">
+          <BsGraphUp className='iconBsGraphUp' />
+          <p className="Device-Graphs">Graphs</p >
+        </Link>
+        {/* <BsFillJournalBookmarkFill className='iconGrCatalog'/> */}
+        {/* <p className="Device-Logs">Logs</p > */}
+      </div>
+
+      <div className="drop-down">
+        <select id="mySelect" onChange={handleDeviceChange}>
+          <option value="Choose1">White Glacier Nunatak</option>
+          <option value="Choose2">White Glacier Melt Zone</option>
+          <option value="Choose3">White Glacier Moraine</option>
+          <option value="Choose4">Colour Lake</option>
+        </select>
+      </div>
+
       <h className='TextLine'>Line Chart: °C</h>
       <button className='Line1Month' onClick={() => fetchLinechart(sharedDevId, pastDate(Time, 1), "Temp_2m_C")}>Last 1 Month</button>
       <button className='Line3Month' onClick={() => fetchLinechart(sharedDevId, pastDate(Time, 3), "Temp_2m_C")}>Last 3 Months</button>

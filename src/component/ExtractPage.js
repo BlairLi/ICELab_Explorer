@@ -150,7 +150,7 @@ const Export = () => {
   const [defaultName, setDefaultName] = useState("Data");
   const [name, setName] = useState("");
   const [isChecked, setIsChecked] = useState(false);
-  const [startDate, setStartDate] = useState("1970-01-01T00:00");
+  const [startDate, setStartDate] = useState("2022-01-01T00:00");
   const now = new Date();
   const hours = now.getHours().toString().padStart(2, '0');
   const minutes = now.getMinutes().toString().padStart(2, '0');
@@ -170,7 +170,7 @@ const Export = () => {
   }, [isChecked]);
 
   const fetchExcuse = (dev_id, formatValue, fromValue, toValue, listValue) => {
-    const url = "http://127.0.0.1:7000/export-csv";
+    const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/export-csv";
     const flattenedListValue = listValue.flat();
     const dat_t = {
       "TIMESTAMP_F" : fromValue,
@@ -353,7 +353,7 @@ const Export = () => {
     const message = `Form submitted:\nName: ${nameValue}\nFile Format: ${formatValue}\nFrom: ${fromValue}\nTo: ${toValue}\nSelected Options: ${selectedParent}${
       selectedChildren.length > 0 ? ` > ${selectedChildren.join(", ")}` : ""
     }\nList of Values: ${listValue}`;
-    alert(message);
+    //alert(message);
 
     if (!formatValue) {
       alert("Please select a file format.");
