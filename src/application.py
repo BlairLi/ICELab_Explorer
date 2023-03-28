@@ -366,7 +366,6 @@ def dashboardline_xy(device_id):
     except ValueError as e:
         return jsonify({"x": [], "y": []}), 400
         # return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit}), 200
-
     return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit, "average": Avg_v, "min": Min_v, "max": Max_v, "standard devision": std_dev})
 
 

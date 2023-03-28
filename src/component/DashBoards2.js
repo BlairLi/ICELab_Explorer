@@ -12,7 +12,6 @@ import ReturnButton from "./ReturnButton";
 import SaveButton from "./SaveButton";
 import Ellipse from ".././Ellipse.png";
 
-
 function DashBoards2(props) {
     var data2 = [
         [11, 0, 0, 0, 3, 7, 3, 1, 1, 0, 2, 4, 1, 1, 3, 0],
@@ -71,7 +70,6 @@ function DashBoards2(props) {
     const [Linexy, setLinexy] = useState(data1); // line chart data
     const [generatedExcuse, setGeneratedExcuse] = useState(data2); // wind rose data
     const [hisGramxy, sethisGramxy] = useState(data3); // histogram data
-    var index = 0;
 
     useEffect(() => {
         Axios.get(`http://127.0.0.1:7000/lastest-status/000001`).then((res) => {
@@ -500,7 +498,6 @@ function DashBoards2(props) {
                     <div>
                         <h className="TitileDash">DashBoards</h>
                         <ReturnButton openReturn={props.showReturn} setBack={() => handleAdd()}/>
-
                         {/* <button className="CreateMoreButton" onClick={() => handleAdd()}>RETURN</button> */}
                     </div>
 
@@ -516,6 +513,7 @@ function DashBoards2(props) {
                                                 <img className="Ellipse" src={Ellipse} alt="Ellipse" />
                                                 {/* <input value={data} onChange={e=>handleChange(e,i)} /> */}
                                                 <button className="OpenButton" onClick={() => { handleVariables(data) }}>Open Created Charts</button>
+
                                             </div>
                                             <button className='Bin' onClick={() => { setIsOpen(true); setCurIndex(index) }}><ImBin className='BinGraph'/></button>
                                         </div>
@@ -525,6 +523,7 @@ function DashBoards2(props) {
                             })}
                             <DashBoardCharts className="PopUp" openChart={isOpenChart} onCancel={() => { setIsOpenChart(false) }}>{showJsondata}{handleGraph(plotType)}</DashBoardCharts>
                             <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDelete() }} action="Delete"><p className="DeleteConfirm">Are you sure to Delete?</p></Modal>
+
                         </div>
                         <SaveButton openSave={props.showSave} setSave={handleSave}/>
                     </div>

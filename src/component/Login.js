@@ -39,7 +39,7 @@ const Login = () => {
             }
         );
         // console.log(JSON.stringify(response?.data));
-        console.log(JSON.stringify(response));
+        // console.log(JSON.stringify(response));
         const accessToken = response?.data?.accessToken;
         const roles = response?.data?.roles;
         setAuth({ user, pwd, roles, accessToken });
@@ -72,10 +72,10 @@ const Login = () => {
   return (
     <>
     <div className="App">
-      <div className="logoLogin">
+      <Link to="/" className="logoLogin">
         <label className="bluePart">ICELab </label>
         <label className="blackPart">Queen's</label>
-      </div>
+      </Link>
       <div className="main">
         <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
         <label className="login">LOGIN</label>

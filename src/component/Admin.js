@@ -97,9 +97,11 @@ const Admin = () => {
                     </Link>
                 </div>
                 <div className="uploadAdmin">
-                    <button className="secondaryUploadAdmin" onClick={goBack}>
-                        Upload Climate Data
-                    </button>
+                    <Link to="/UpAdmin" className="editAdminPage">
+                        <button className="secondaryUploadAdmin">
+                            Upload Climate Data
+                        </button>
+                    </Link>
                 </div>
             </div>
             <div className="backAdmin">

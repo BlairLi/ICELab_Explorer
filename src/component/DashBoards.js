@@ -123,12 +123,13 @@ const DashBoards = () => {
                     <div className="drop-down3">
                         <select value={variable} onChange={handleVariable}>
                             <option value="Temp_2m_C">Temperature</option>
-                            <option value="Relative humidity">Relative humidity</option>
+                            <option value="RH_2m_perc">Relative humidity</option>
                             <option value="WS_3m_ms">Wind speed</option>
                             <option value="WD_3m_deg">Wind direction</option>
                             <option value="Shortwave Radiation"> Shortwave Radiation</option>
                             <option value="Snow depth">Snow depth</option>
                             <option value="Battery power">Battery power</option>
+
                         </select>
                     </div>
                 </div>

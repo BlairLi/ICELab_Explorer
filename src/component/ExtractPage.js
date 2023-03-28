@@ -4,7 +4,9 @@ import {useState, useEffect} from "react";
 import "../css/ExtractPage.css"
 import { Checkbox } from 'antd';
 import Axios from "axios";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import * as XLSX from 'xlsx';
+import useAuth from "../hooks/useAuth";
 /* import * as XLSX from 'xlsx'; */
 /* import { Form } from 'antd'; */
 /* import { Select, MenuItem, FormControl, InputLabel, OutlinedInput, ListItemText, Checkbox } from '@mui/material'; */
@@ -156,6 +158,8 @@ const Export = () => {
   const [selectedParent, setSelectedParent] = useState(null);
   const [selectedChildren, setSelectedChildren] = useState([]);
   const [generatedExcuse, setGeneratedExcuse] = useState("");
+  const axiosPrivate = useAxiosPrivate();
+  const { auth } = useAuth()
 
   useEffect(() => {
     if (isChecked) {
@@ -166,7 +170,7 @@ const Export = () => {
   }, [isChecked]);
 
   const fetchExcuse = (dev_id, formatValue, fromValue, toValue, listValue) => {
-    const url = "http://127.0.0.1:5000/export-csv";
+    const url = "http://127.0.0.1:7000/export-csv";
     const flattenedListValue = listValue.flat();
     const dat_t = {
       "TIMESTAMP_F" : fromValue,
@@ -273,6 +277,40 @@ const Export = () => {
     }
   };
 
+  const updateDownLog = async (nameValue, formatValue) => {
+    const url = "/employees";
+    if (nameValue === "" || formatValue === "") {
+      alert("Needs Filename for Download Log");
+    } else {
+      try {
+        if (nameValue === "") {
+          nameValue = "Data";
+        }
+        const currentTime = `${now.toISOString().slice(0, 11)}${hours}:${minutes}`;
+        const queryParams = {
+          username: auth.user,
+          downlog: 
+            {
+              fileName: nameValue + '.' + formatValue,
+              time: currentTime,
+              device: selectedParent,
+              _id: false
+            }
+        };
+        // const config = {
+        //   headers: {
+        //     Authorization: 'Bearer ' + auth.accessToken
+        //   }
+        // };
+        // await axiosPrivate.put(`${url}`, queryParams, config);
+        await axiosPrivate.put(`${url}`, queryParams);
+        console.log("Download Log has been Updated");
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!selectedParent || selectedChildren.length === 0) {
@@ -323,6 +361,7 @@ const Export = () => {
     }
 
     fetchExcuse(dev_id, formatValue,fromValue, toValue, listValue);
+    updateDownLog(nameValue,formatValue);
   };
 
 

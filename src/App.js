@@ -18,6 +18,7 @@ import Map from "./component/Map";
 import DownAdmin from "./component/DownAdmin";
 import ContactUS from "./component/ContactUS";
 import DashHistory from "./component/DashHistory";
+import UpAdmin from "./component/UpAdmin";
 
 const ROLES = {
   'User': 2001,
@@ -48,6 +49,7 @@ function App() {
                 <Route path="Admin" element={<Admin/>}></Route>
                 <Route path="DownAdmin" element={<DownAdmin/>}></Route>
                 <Route path="EditAdmin" element={<EditAdmin/>}></Route>
+                <Route path="UpAdmin" element={<UpAdmin/>}></Route>
               </Route>
             </Route>
           </Route>

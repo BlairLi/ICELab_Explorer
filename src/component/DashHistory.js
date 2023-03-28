@@ -18,11 +18,10 @@ function ContactUS() {
   const axiosPrivate = useAxiosPrivate();
   const [createList, setcreateList] = useState([]);
   const [showDashBoards2, setshowDashBoards2] = useState(false)
-
   useEffect( ()=>{
     let isMounted = true;
     const controller = new AbortController();
-
+        
     const getDashboard = async () => {
       try {
         // alert("User: "+ User)
@@ -64,5 +63,4 @@ function ContactUS() {
     );
   }
   }
-
   export default ContactUS;

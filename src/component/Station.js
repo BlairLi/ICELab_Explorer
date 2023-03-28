@@ -17,7 +17,7 @@ import Axios from "axios";
 //import useWindowSize from './windowsize.js'
 const Station = () => {
     const [selectedValue, setSelectedValue] = useState('Choose1');
-    const url = "http://127.0.0.1:5000/lastest-status";
+    const url = "http://127.0.0.1:7000/lastest-status";
     const [generatedExcuse, setGeneratedExcuse] = useState("");
     const [temp2m, setTemp2m] = useState("");
     const [rh2m, setRH2m] = useState("");
