@@ -216,7 +216,7 @@ input.Enddate{
 
 .ExportButton{
   position: relative;
-  z-index: 1000;
+  z-index: 1;
   background: #1289FF;
 }
 
@@ -256,8 +256,6 @@ input.Enddate{
   margin: 0;
   margin-right: 5px;
   cursor: pointer;
-<<<<<<< HEAD
-<<<<<<< HEAD:data_explorer/src/css/ExtractPage.css
 }
 
 .ExportButton {
@@ -270,12 +268,6 @@ input.Enddate{
   cursor: pointer;
   font-size: 16px;
 }
-=======
-} 
->>>>>>> master:src/css/ExtractPage.css
-=======
-}
->>>>>>> master
 
 .ExportButton:hover {
   background-color: #40a9ff;

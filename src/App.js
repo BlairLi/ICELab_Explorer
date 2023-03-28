@@ -38,7 +38,6 @@ function App() {
             <Route path="DashBoards2" element={<DashBoards2 />} />
             <Route path="Graphs" element={<WindRose />} />
             <Route path="Station" element={<Station />} />
-            <Route path="ExtractPage" element={<ExtractPage />} />
             <Route path="ContactUS" element={<ContactUS />} />
             <Route path="DashHistory" element={<DashHistory />} />
             <Route path="Map" element={<Map />} />
@@ -50,6 +49,9 @@ function App() {
                 <Route path="DownAdmin" element={<DownAdmin/>}></Route>
                 <Route path="EditAdmin" element={<EditAdmin/>}></Route>
                 <Route path="UpAdmin" element={<UpAdmin/>}></Route>
+              </Route>
+              <Route element={<RequireAuth allowedRoles={[ROLES.Admin, ROLES.User]} />}>
+                <Route path="ExtractPage" element={<ExtractPage />} />
               </Route>
             </Route>
           </Route>

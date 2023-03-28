@@ -17,7 +17,7 @@ import Axios from "axios";
 //import useWindowSize from './windowsize.js'
 const Station = () => {
     const [selectedValue, setSelectedValue] = useState('Choose1');
-    const url = "http://127.0.0.1:7000/lastest-status";
+    const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/lastest-status";
     const [generatedExcuse, setGeneratedExcuse] = useState("");
     const [temp2m, setTemp2m] = useState("");
     const [rh2m, setRH2m] = useState("");
@@ -43,20 +43,20 @@ const Station = () => {
       window.dispatchEvent(event);
       localStorage.setItem('selectedDeviceId', devvid);
       }, [devvid]);
-      
+
     function formatDate(numericDate) {
       // Convert the numeric value to a string
       const dateString = String(numericDate);
-    
+
       // Extract the year, month, and day parts from the string
       const year = dateString.slice(0, 4);
       const month = dateString.slice(4, 6);
       const day = dateString.slice(6, 8);
-    
+
       // Return the formatted date
       return `${year}-${month}-${day}`;
     }
-    
+
     const fetchExcuse = async (dev_id) => {
         Axios.get(`${url}/${dev_id}`).then(
             (resp) => {
@@ -177,11 +177,6 @@ const Station = () => {
             <p className="GiRadiations_Text">Incoming SW</p >
             <p className="GiRadiations_Text2">{shortwin} W/m^2</p >
 
-            <div className="blue-block7"></div>
-            <GiBattery75 className='GiBattery75'/>
-            <p className="GiBattery75_Text">Battery Power</p >
-            <p className="GiBattery75_Text2">delete V</p >
-
             <div className="blue-block8"></div>
             <FaRadiation className='FaRadiation2'/>
             <p className="GiRadiations_Text3">Outgoing SW</p >
@@ -229,11 +224,6 @@ const Station = () => {
             <FaRadiation className='FaRadiation'/>
             <p className="GiRadiations_Text">SW</p >
             <p className="GiRadiations_Text2">{shortwin} W/m^2</p >
-
-            <div className="blue-block7"></div>
-            <GiBattery75 className='GiBattery75'/>
-            <p className="GiBattery75_Text">Battery Power</p >
-            <p className="GiBattery75_Text2">delete V</p >
         </>
         )}
         </div>
