@@ -180,7 +180,7 @@ const Export = () => {
     //alert(fromValue);
     //alert(JSON.stringify(flattenedListValue));
     //alert(JSON.stringify(dat_t));
-    Axios.post(`${url}/${dev_id}`, dat_t).then((res) => {  
+    Axios.post(`${url}/${dev_id}`, dat_t).then((res) => {
       setGeneratedExcuse(res.data.result);
       downloadFile(res.data.result, `${name || defaultName}.${formatValue}`, formatValue);
     });
@@ -188,42 +188,42 @@ const Export = () => {
 
   const downloadFile = (csv, filename, formatValue) => {
     let blob, extension;
-  
+
     if (formatValue === "EXCEL") {
       // Convert CSV to a 2D array
       const csvArray = csv.split('\n').map(row => row.split(','));
-  
+
       // Create a new workbook
       const workbook = XLSX.utils.book_new();
-  
+
       // Create a new worksheet from the 2D array
       const worksheet = XLSX.utils.aoa_to_sheet(csvArray);
-  
+
       // Add the worksheet to the workbook
       XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
-  
+
       // Write the workbook to a binary string
       const binaryString = XLSX.write(workbook, { type: "binary", bookType: "xlsx" });
-  
+
       // Convert the binary string to an ArrayBuffer
       const buffer = new ArrayBuffer(binaryString.length);
       const view = new Uint8Array(buffer);
       for (let i = 0; i < binaryString.length; i++) {
         view[i] = binaryString.charCodeAt(i) & 0xFF;
       }
-  
+
       blob = new Blob([buffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
       extension = ".xlsx";
     } else {
       blob = new Blob([csv], { type: "text/csv" });
       extension = ".csv";
     }
-  
+
     // Remove extension from filename
     const name = filename.replace(/\.[^/.]+$/, "");
-  
+
     const fullFilename = `${name}${extension}`;
-  
+
     if (window.navigator.msSaveOrOpenBlob) {
       // IE11
       window.navigator.msSaveBlob(blob, fullFilename);
@@ -261,7 +261,7 @@ const Export = () => {
   const handleChildrenChange = (value) => {
     setSelectedChildren(value);
   };
-  
+
 
   const handleStartDateChange = (e) => {
     setStartDate(e.target.value);
@@ -321,7 +321,7 @@ const Export = () => {
     const formatValue = e.target.querySelector("select").value;
     const fromValue = parseInt(startDate.replace("T", "").replace(/[-:]/g, "") );
     const toValue = parseInt(endDate.replace("T", "").replace(/[-:]/g, ""));
-    //const listValue = [...selectedChildren, "E_actual_kPa", "Press_hPa"]; 
+    //const listValue = [...selectedChildren, "E_actual_kPa", "Press_hPa"];
     let listValue = selectedChildren;
     let dev_id = null;
     if (selectedParent === "white Glacier Nunatak") {
@@ -354,7 +354,7 @@ const Export = () => {
       selectedChildren.length > 0 ? ` > ${selectedChildren.join(", ")}` : ""
     }\nList of Values: ${listValue}`;
     alert(message);
-    
+
     if (!formatValue) {
       alert("Please select a file format.");
       return;

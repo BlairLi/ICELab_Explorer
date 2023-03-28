@@ -34,11 +34,11 @@ const DashBoards = () => {
         toTime,
         boardName
     }
-    
+
     const handlegetDashboard = () => {
         let isMounted = true;
         const controller = new AbortController();
-        
+
         const getDashboard = async () => {
             try {
                 // alert("User: "+ User)
@@ -53,14 +53,14 @@ const DashBoards = () => {
         }
 
         getDashboard()
-        
+
         return () => {
             isMounted = false;
             controller.abort();
         }
     }
     useEffect( handlegetDashboard , []) // 此处填什么？应该根据什么变
-    
+
     const handleStation = (e) => {
         setStation(e.target.value)
     };
@@ -115,8 +115,6 @@ const DashBoards = () => {
                             <option value="000004">White Glacier Melt Zone</option>
                             <option value="000002">White Glacier Moraine</option>
                             <option value="000001">Colour Lake</option>
-                            {/* <option value="Crusoe Glacier">Crusoe Glacier</option>
-                            <option value="Erratics Island">Erratics Island</option> */}
                         </select>
                     </div>
                 </div>
@@ -128,7 +126,10 @@ const DashBoards = () => {
                             <option value="RH_2m_perc">Relative humidity</option>
                             <option value="WS_3m_ms">Wind speed</option>
                             <option value="WD_3m_deg">Wind direction</option>
-                            <option value="SW_in_wm2">Incoming/downward shortwave radiation</option>
+                            <option value="Shortwave Radiation"> Shortwave Radiation</option>
+                            <option value="Snow depth">Snow depth</option>
+                            <option value="Battery power">Battery power</option>
+
                         </select>
                     </div>
                 </div>

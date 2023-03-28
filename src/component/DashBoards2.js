@@ -10,8 +10,8 @@ import Axios from 'axios';
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import ReturnButton from "./ReturnButton";
 import SaveButton from "./SaveButton";
+import Ellipse from ".././Ellipse.png";
 
- 
 function DashBoards2(props) {
     var data2 = [
         [11, 0, 0, 0, 3, 7, 3, 1, 1, 0, 2, 4, 1, 1, 3, 0],
@@ -23,7 +23,7 @@ function DashBoards2(props) {
         [0, 16, 19, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         [0, 11, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
         ];
-    
+
         var data1 = {
         x: [20220423080000, 20220423081500, 20220423083000, 20220423090000, 20220423091500, 20220423093000, 20220423094500, 20220423100000, 20220423101500, 20220423103000, 20220423104500, 20220423110000, 20220423111500, 20220423113000, 20220423114500, 20220423120000, 20220423121500, 20220423123000, 20220423124500, 20220423130000, 20220423131500, 20220423133000, 20220423134500, 20220423140000, 20220423141500, 20220423143000, 20220423144500, 20220423150000, 20220423151500, 20220423153000, 20220423154500, 20220423160000, 20220423161500, 20220423163000, 20220423164500, 20220423170000, 20220423171500, 20220423173000, 20220423174500, 20220423180000, 20220423181500, 20220423183000, 20220423184500, 20220423190000, 20220423191500, 20220423193000, 20220423194500, 20220423200000, 20220423201500, 20220423203000, 20220423204500, 20220423210000, 20220423211500, 20220423213000, 20220423214500, 20220423220000, 20220423221500, 20220423223000, 20220423224500, 20220423230000, 20220423231500, 20220423233000, 20220423234500, 20220424000000, 20220424001500, 20220424003000, 20220424004500, 20220424010000, 20220424011500, 20220424013000, 20220424014500, 20220424020000, 20220424021500, 20220424023000, 20220424024500, 20220424030000, 20220424031500, 20220424033000, 20220424034500, 20220424040000, 20220424041500],
         y: [85.9, 86.3, 86, 86, 85.8, 86.1, 86.6, 86.5, 86.3, 86.5, 87, 86.4, 86.5, 86.9, 86.7, 86.3, 86.6, 86.9, 87, 86.8, 87.2, 86.5, 86.9, 87.2, 87.1, 87.2, 87.2, 87.5, 87.7, 87.9, 87.6, 87.7, 87.7, 87.5, 87.7, 87.8, 87.7, 87.9, 87.7, 87.7, 88, 87.7, 87.8, 87.7, 87.6, 87.6, 87.6, 87.6, 87.5, 87.4, 87.3, 87.6, 87.4, 87.4, 87.2, 87, 86.8, 86.7, 86.9, 86.5, 86.7, 86.6, 86, 84.5, 85.6, 83.5, 84.2, 81.3, 78.94, 76.91, 80.2, 78.06, 72.58, 73.46, 82, 85.1, 81.9, 65.8, 60.42, 64.25, 57.81],
@@ -78,7 +78,7 @@ function DashBoards2(props) {
         setshowJsondata(JSON.stringify(props.dict[curIndex]))
       }, [])
 
-    
+
 
     const handleAdd = () => {
         props.create(true);
@@ -92,7 +92,7 @@ function DashBoards2(props) {
         inputdata[i] = onChangeValue.target.value;
         setVal(inputdata)
     }
- 
+
     const handleDelete = () => {
         props.delete(curIndex)
         setIsOpen(false);
@@ -140,7 +140,7 @@ function DashBoards2(props) {
           }
         )
       };
-    
+
     const fetchExcuse = (excuse, ftime) => {
     var dat_t = {
         "TIMESTAMP_F": 202201230746,
@@ -436,7 +436,7 @@ function DashBoards2(props) {
         return (
             <div >
             <ReactECharts className='graph' style={{
-                width: "40%",
+                width: "100%",
                 height: "600px"
             }} option={options} />
             </div>
@@ -458,7 +458,7 @@ function DashBoards2(props) {
             }
             else if (plottype=="Histogram") {
                 fetchHg(station, fromValue, variable)
-            } 
+            }
             else if (plottype=="WindRose") {
                 fetchExcuse(station,fromValue,toValue)
             }
@@ -483,36 +483,47 @@ function DashBoards2(props) {
         }
     }
 
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handleAdd2 = () => {
+    setCurrentIndex(currentIndex + 1);
+    };
+
+
     if (!isOpenDash2) return <DashBoards />
     return (
         <>
             <div className='DataBoard'>
                 <div className='DashBoardContent'>
                     <div>
-                        <h1>{User}'s DashBoards</h1>
+                        <h className="TitileDash">DashBoards</h>
                         <ReturnButton openReturn={props.showReturn} setBack={() => handleAdd()}/>
                         {/* <button className="CreateMoreButton" onClick={() => handleAdd()}>RETURN</button> */}
                     </div>
- 
+
                     <div className='DigarmBoard'>
                         <div className="diagramList">
                             {props.dict.map((data, index) => {
                                 return (
                                     <>
-                                        <div key={index} className='card'>
+
+                                        <div key={index} className='card' style={{ left: `${index * 450}px` }}>
                                             <div className='actions'>
-                                                {data.boardName}
+                                                <p className="NameGiven">{data.boardName}</p>
+                                                <img className="Ellipse" src={Ellipse} alt="Ellipse" />
                                                 {/* <input value={data} onChange={e=>handleChange(e,i)} /> */}
-                                                <button onClick={() => { handleVariables(data) }}>Open Created Charts</button>
+                                                <button className="OpenButton" onClick={() => { handleVariables(data) }}>Open Created Charts</button>
+
                                             </div>
-                                            <button className='cardBin' onClick={() => { setIsOpen(true); setCurIndex(index) }}><ImBin /></button>
+                                            <button className='Bin' onClick={() => { setIsOpen(true); setCurIndex(index) }}><ImBin className='BinGraph'/></button>
                                         </div>
                                     </>
- 
+
                                 )
                             })}
-                            <DashBoardCharts openChart={isOpenChart} onCancel={() => { setIsOpenChart(false) }}>{showJsondata}{handleGraph(plotType)}</DashBoardCharts>
-                            <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDelete() }} action="Delete">Are you sure to Delete?</Modal>
+                            <DashBoardCharts className="PopUp" openChart={isOpenChart} onCancel={() => { setIsOpenChart(false) }}>{showJsondata}{handleGraph(plotType)}</DashBoardCharts>
+                            <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDelete() }} action="Delete"><p className="DeleteConfirm">Are you sure to Delete?</p></Modal>
+
                         </div>
                         <SaveButton openSave={props.showSave} setSave={handleSave}/>
                     </div>
@@ -521,5 +532,5 @@ function DashBoards2(props) {
         </>
     );
 }
- 
+
 export default DashBoards2;

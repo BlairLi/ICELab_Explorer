@@ -8,6 +8,7 @@ import { TbFileExport } from 'react-icons/tb';
 import { MdContactSupport } from 'react-icons/md';
 import { BiLogIn } from 'react-icons/bi';
 import { RiLogoutBoxRFill } from 'react-icons/ri';
+import { BiHistory } from 'react-icons/bi';
 import { RiAdminFill } from 'react-icons/ri';
 import Modal from "./Modal";
 import "../css/Menu.css"
@@ -33,7 +34,7 @@ const [isOpen, setIsOpen] = useState(false);
       <div className="menu">
         <ul className="navbar-nav">
           <li className="logo">
-            <Link to="/DashHistory" className="nav-link-logo">
+            <Link to="/Map" className="nav-link-logo">
               <label className="bluePart2">ICELab </label>
               <label className="blackPart2">Queen's</label>
             </Link>
@@ -42,13 +43,13 @@ const [isOpen, setIsOpen] = useState(false);
 
           {/* Home */}
           {/* <div className="HomeTopic">Research focus
-            <div>Under enhanced Arctic warming the glaciers of the Canadian Arctic have become 
-              a significant contributor to global sea-level rise. The ICELab research program 
-              aims to improve our understanding of glacier-climate processes and ice dynamics 
-              in the high Arctic as a means to enhance our capacity to detect and project 
+            <div>Under enhanced Arctic warming the glaciers of the Canadian Arctic have become
+              a significant contributor to global sea-level rise. The ICELab research program
+              aims to improve our understanding of glacier-climate processes and ice dynamics
+              in the high Arctic as a means to enhance our capacity to detect and project
               future glacier response.
 
-              The ICELab team uses a combination of remote sensing and modelling approaches   
+              The ICELab team uses a combination of remote sensing and modelling approaches
               that are enhanced by field-based measurements on Canadian Arctic glaciers.</div>
           </div>
           <div>Background</div> */}
@@ -58,6 +59,14 @@ const [isOpen, setIsOpen] = useState(false);
           <Link to="/DashBoards" className="nav-link">
             <span className="link-text">DashBoards</span>
             <RiDashboard2Line className='RiDashboard2Line'/>
+          </Link>
+          </li>
+
+          {/* History */}
+          <li className="nav-item">
+          <Link to="/DashHistory" className="nav-link">
+            <span className="link-text">History</span>
+            <BiHistory className='BiHistory'/>
           </Link>
           </li>
 
@@ -93,6 +102,14 @@ const [isOpen, setIsOpen] = useState(false);
             </Link>
           </li>
 
+           {/* Admin */}
+           <li className="nav-item">
+            <Link to="/Admin" className="nav-link">
+              <span className="link-text">Admin</span>
+              <RiAdminFill className='RiAdminFill'/>
+            </Link>
+          </li>
+
           {/* Login */}
           <li className="nav-item">
             <Link to="/Login" className="nav-link">
@@ -102,13 +119,7 @@ const [isOpen, setIsOpen] = useState(false);
           </li>
 
 
-          {/* Admin */}
-          <li className="nav-item">
-            <Link to="/Admin" className="nav-link">
-              <span className="link-text">Admin</span>
-              <RiAdminFill className='RiAdminFill'/>
-            </Link>
-          </li>
+
 
           {/* LogOut */}
           <li className="nav-item LogOut" onClick={()=>setIsOpen(true)}>
@@ -119,7 +130,7 @@ const [isOpen, setIsOpen] = useState(false);
             </div>
             {/* </Link> */}
           </li>
-          <Modal open={isOpen} onCancel={() => {setIsOpen(false)}} onClose={signOut} action="Yes">Are you sure to Logout?</Modal>
+          <Modal open={isOpen} onCancel={() => {setIsOpen(false)}} onClose={signOut} action="Yes"><p className="DeleteConfirm">Are you sure to Logout?</p></Modal>
           </div>
       </div>
       <Outlet/>

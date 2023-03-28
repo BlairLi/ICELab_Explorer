@@ -17,9 +17,9 @@ CORS(application)  # , resources=r'/*'
 # mongo = pymongo(application)
 
 
-application.MongoClient = pymongo.mongo_client.MongoClient(
-    "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
-# application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
+# application.MongoClient = pymongo.mongo_client.MongoClient(
+#     "mongodb+srv://wadezheng0802:0jmVaMjokHSsob9i@cluster0.gncmfim.mongodb.net/")
+application.MongoClient = pymongo.MongoClient("mongodb://localhost:27017/")
 
 
 def sql_filter(sql):
@@ -364,9 +364,8 @@ def dashboardline_xy(device_id):
         Avg_v = statistics.mean(result_v)
         std_dev = statistics.stdev(result_v)
     except ValueError as e:
-        return jsonify({"x": [],"y": []}), 400
+        return jsonify({"x": [], "y": []}), 400
         # return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit}), 200
-        
     return jsonify({"x": result_T, "y": result_v, "var": Var, "unit": unit, "average": Avg_v, "min": Min_v, "max": Max_v, "standard devision": std_dev})
 
 
@@ -473,8 +472,11 @@ def histogram(device_id):
 
 def try_int(value):
     try:
-        return int(value)
+        x = int(value)
+        return x
     except ValueError:
+        return value
+    except TypeError:
         return value
 
 
@@ -509,13 +511,13 @@ def dco_insert(device_id):
     # Check if the keys match
     header_keys = csv_reader.fieldnames
     if header_keys != List_T:
-        return jsonify({"err": "Wrong keys or keys order"})
+        return jsonify({"err": "Wrong keys or keys order"}), 400
     # Convert the CSV data to a list of dictionaries
     data_list = [{k: try_int(v) for k, v in row.items()} for row in csv_reader]
     # Convert the list of dictionaries to JSON
     # json_data = json.dumps(data_list)
     col_b.insert_many(data_list)
-    return jsonify({"result": "inserted successful"}) 
+    return jsonify({"result": "inserted successful"})
 
 
 # 测试

@@ -2,6 +2,9 @@ import ReactECharts from 'echarts-for-react';
 import Axios from 'axios';
 import "../css/WindRose.css"
 import { useEffect, useState } from "react";
+import { CiViewBoard } from 'react-icons/ci';
+import { BsGraphUp } from 'react-icons/bs';
+import { Link } from "react-router-dom"
 
 // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
 const url = "http://127.0.0.1:7000/";
@@ -10,18 +13,54 @@ function WindRose() {
   const [currTime, setcurrTime] = useState();
   const [past3Time, setpast3] = useState();
   const [past1Time, setpast1] = useState();
-  const [Time, setTime] = useState(202303261212);
+  const [Time, setTime] = useState();
+
+
+  const [sharedDevId, setSharedDevId] = useState('');
+
   useEffect(() => {
-    Axios.get(`http://127.0.0.1:7000/lastest-status/000001`).then((res) => {
+    const storedDevId = localStorage.getItem('selectedDeviceId');
+    if (storedDevId) {
+      setSharedDevId(storedDevId);
+      //alert(`Received devvid in WindRose: ${storedDevId}`);
+    }
+
+    const handleDevIdChanged = (event) => {
+      setSharedDevId(event.detail);
+      //alert(`Received devvid in WindRose: ${event.detail}`);
+    };
+
+    window.addEventListener('devvidChanged', handleDevIdChanged);
+    Axios.get(`http://127.0.0.1:7000/lastest-status/${sharedDevId}`).then((res) => {
 
       setcurrTime(res.data.result.TIMESTAMP);
       const hi = res.data.result.TIMESTAMP;
       setTime(hi);
-      setpast1(pastDate(Time,1))
-      setpast1(pastDate(Time,3))
+      alert(`The latest updated time is ${hi}`)
+      setpast1(pastDate(Time, 1))
+      setpast1(pastDate(Time, 3))
 
     });
-  }, [])
+    return () => {
+      window.removeEventListener('devvidChanged', handleDevIdChanged);
+    };
+  }, []);
+
+
+
+
+
+  // useEffect(() => {
+  //   Axios.get(`http://127.0.0.1:7000/lastest-status/000001`).then((res) => {
+
+  //     setcurrTime(res.data.result.TIMESTAMP);
+  //     const hi = res.data.result.TIMESTAMP;
+  //     setTime(hi);
+  //     setpast1(pastDate(Time, 1))
+  //     setpast1(pastDate(Time, 3))
+
+  //   });
+  // }, [])
 
 
   var data2 = [
@@ -72,7 +111,7 @@ function WindRose() {
   const [hisGramxy, sethisGramxy] = useState(data3);
   const [generatedExcuse, setGeneratedExcuse] = useState(data2);
 
-  function pastDate(temp_d=202303261212, mon) {
+  function pastDate(temp_d, mon) {
     let dateString = temp_d.toString();
     let inputDate = new Date(dateString.substr(0, 4), parseInt(dateString.substr(4, 2)) - 1, dateString.substr(6, 2), dateString.substr(8, 2), dateString.substr(10, 2));
     let month = inputDate.getMonth() - mon;
@@ -160,7 +199,7 @@ function WindRose() {
     return (
       <div >
         <ReactECharts style={{
-          width: "80%",
+          width: "700px",
           height: "600px"
         }} option={option} />
       </div>
@@ -405,18 +444,43 @@ function WindRose() {
 
   return (
     <div className="WindRose">
+      <div className="grey-block">
+            <p className="Device-device">Devices</p >
+            <CiViewBoard className='CiViewBoard'/>
+            <Link to="/Station">
+                <p className="Device-Overview">Overview</p >
+            </Link>
+            <Link to="/Graphs">
+                <BsGraphUp className='iconBsGraphUp'/>
+                <p className="Device-Graphs">Graphs</p >
+            </Link>
+            {/* <BsFillJournalBookmarkFill className='iconGrCatalog'/> */}
+            {/* <p className="Device-Logs">Logs</p > */}
+        </div>
+
+        <div className="drop-down">
+          <select id="mySelect">
+                    <option value="Choose1">White Glacier Nunatak</option>
+                    <option value="Choose2">White Glacier Melt Zone</option>
+                    <option value="Choose3">White Glacier Moraine</option>
+                    <option value="Choose4">Colour Lake</option>
+            </select>
+        </div>
       <p>{Time}</p>
-      <h1>Line Chart Graph</h1>
-      <button onClick={() => fetchLinechart("000001", pastDate(Time,1), "Temp_2m_C")}> Linechart Last 1 Month</button>
-      <button onClick={() => fetchLinechart("000001", pastDate(Time,3), "Temp_2m_C")}> Linechart Last 3 Months</button>
-      <p>{graph_line(Linexy)}</p>
-      <h1>Windrose Graph</h1>
-      <button onClick={() => fetchExcuse("000001", pastDate(Time,1))}>Windrose Last 1 Months</button>
-      <button onClick={() => fetchExcuse("000001", 202101011212)}>Windrose Last 3 Months</button>
-      <p>{graph_wr(generatedExcuse)}</p>
-      <button onClick={() => fetchHg("000001", pastDate(Time,1), "Temp_2m_C")}>histrogram Last 1 Month</button>
-      <button onClick={() => fetchHg("000001", pastDate(Time,3), "Temp_2m_C")}>histrogram Last 3 Months</button>
-      <p>{graph_hisGram(hisGramxy)}</p>
+      <h className='TextLine'>Line Chart: °C</h>
+      <button className='Line1Month' onClick={() => fetchLinechart(sharedDevId, pastDate(Time, 1), "Temp_2m_C")}>Last 1 Month</button>
+      <button className='Line3Month' onClick={() => fetchLinechart(sharedDevId, pastDate(Time, 3), "Temp_2m_C")}>Last 3 Months</button>
+      <p className='LineChartCSS'>{graph_line(Linexy)}</p>
+
+      <h className="TextWind">Windrose: m/s</h>
+      <button className='Wind1Month' onClick={() => fetchExcuse(sharedDevId, pastDate(Time, 1))}>Last 1 Months</button>
+      <button className='Wind3Month' onClick={() => fetchExcuse(sharedDevId, pastDate(Time, 3))}>Last 3 Months</button>
+
+      <p className='TextHis'>Histogram: °C</p>
+      <p p className='WindRoseCSS'>{graph_wr(generatedExcuse)}</p>
+      <button className='His1Month' onClick={() => fetchHg(sharedDevId, pastDate(Time, 1), "Temp_2m_C")}>Last 1 Month</button>
+      <button className='His3Month' onClick={() => fetchHg(sharedDevId, pastDate(Time, 3), "Temp_2m_C")}>Last 3 Months</button>
+      <p className='HistogramCSS'>{graph_hisGram(hisGramxy)}</p>
       {/* <p> {graph(Graphmode)} </p> */}
     </div>
   );
