@@ -15,10 +15,12 @@ import "../css/Menu.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
+import useAuth from "../hooks/useAuth";
 import Map from "./Map";
 
 function Menu() {
   const navigate = useNavigate();
+  const User = useAuth();
   const logout = useLogout();
   const signOut = async () => {
     await logout();
@@ -119,10 +121,8 @@ const [isOpen, setIsOpen] = useState(false);
           </li>
 
 
-
-
           {/* LogOut */}
-          <li className="nav-item LogOut" onClick={()=>setIsOpen(true)}>
+          <li className="nav-item LogOut" onClick={()=>{(User)?setIsOpen(true):setIsOpen(false)}}>
             {/* <Link to="/LogOut" class="nav-link"> */}
             <div className="nav-link">
               <span className="link-text">LogOut</span>
