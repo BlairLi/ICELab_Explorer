@@ -101,6 +101,29 @@ const DashBoards = () => {
         setcreateList(newList);
     }
 
+    const getOptionsForVariable = (stationValue) => {
+        if (stationValue === "000004") {
+            return [
+                { value: "Temp_2m_C", label: "Temperature" },
+                { value: "RH_2m_perc", label: "Relative humidity" },
+                { value: "WS_3m_ms", label: "Wind speed" },
+                { value: "WD_3m_deg", label: "Wind direction" },
+                { value: "SW_in_wm2", label: "Incoming Shortwave Radiation" },
+                { value: "SW_out_wm2", label: "Outgoing Shortwave Radiation" },
+                { value: "LW_in_wm2", label: "Incoming Longwave Radiation" },
+                { value: "LW_out_wm2", label: "Outgoing Longwave Radiation" },
+            ];
+        }
+
+        return [
+            { value: "Temp_2m_C", label: "Temperature" },
+            { value: "RH_2m_perc", label: "Relative humidity" },
+            { value: "WS_3m_ms", label: "Wind speed" },
+            { value: "WD_3m_deg", label: "Wind direction" },
+            { value: "SW_in_wm2", label: "Shortwave Radiation" },
+            { value: "Depth_snow_m_avg", label: "Snow depth" },
+        ];
+    };
 
     if (!isOpenDash1) return <DashBoards2 create={DashBoards2Create} delete={deleteDate} dict={createList} showSave={true} showReturn={true} />
     return (
@@ -119,16 +142,14 @@ const DashBoards = () => {
                     </div>
                 </div>
                 <div className="drop-down-main2">
-                    <p className="WhichVariable">Variable</p >
+                    <p className="WhichVariable">Variable</p>
                     <div className="drop-down3">
                         <select value={variable} onChange={handleVariable}>
-                            <option value="Temp_2m_C">Temperature</option>
-                            <option value="RH_2m_perc">Relative humidity</option>
-                            <option value="WS_3m_ms">Wind speed</option>
-                            <option value="WD_3m_deg">Wind direction</option>
-                            <option value="Shortwave Radiation"> Shortwave Radiation</option>
-                            <option value="Snow depth">Snow depth</option>
-                            {/* <option value="Battery power">Battery power</option> */}
+                            {getOptionsForVariable(station).map((option) => (
+                                <option key={option.value} value={option.value}>
+                                    {option.label}
+                                </option>
+                            ))}
                         </select>
                     </div>
                 </div>
