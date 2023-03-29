@@ -34,6 +34,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Menu />}>
             {/* 用户关联dashboard登出后的处理 ？ */}
+            <Route index element={<Map />} />
             <Route path="DashBoards" element={<DashBoards />} />
             <Route path="DashBoards2" element={<DashBoards2 />} />
             <Route path="Graphs" element={<WindRose />} />
