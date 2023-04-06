@@ -1,12 +1,12 @@
-# Getting Started with Create React App
+# ICELab Web-based Real-time Explorer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was designed for ICELab to make their research data accessible and easier to understand to better inform and engage people within the community. Specifically, the Ice Climate, and Environment Lab (ICELab) at Queen’s manages and compiles data from a network of 4 high-Arctic weather stations that is currently used by Arctic researchers at Queen’s.
 
-## Available Scripts
+## Installation Guide
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
