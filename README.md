@@ -24,6 +24,6 @@ This project was designed for ICELab to make their research data accessible and 
     ```
 1. Run the webpack development server.
 
-```shell
-npm run start
-```
+    ```shell
+    npm run start
+    ```
