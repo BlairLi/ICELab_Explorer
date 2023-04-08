@@ -22,7 +22,7 @@ This project was designed for ICELab to make their research data accessible and 
     ```shell
     npm install
     ```
-1. Run the webpack development server.
+1. Run the frontend server.
 
     ```shell
     npm run start
