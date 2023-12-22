@@ -7,7 +7,7 @@ This project was designed for ICELab to make their research data accessible and 
 #### System Requirements
 
 - NPM 6 or higher
-- Node 10 or higher
+- Node 14 or higher
 
 #### Getting Started
 
