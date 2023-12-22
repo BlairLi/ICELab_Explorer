@@ -14,11 +14,11 @@ const Admin = () => {
     const [posts, setPosts] = useState([]);
     const { auth } = useAuth();
 
-    let config = {
-        headers: {
-            'Authorization': 'Bearer ' + auth.accessToken
-        }
-    }
+    // let config = {
+    //     headers: {
+    //         'Authorization': 'Bearer ' + auth.accessToken
+    //     }
+    // }
 
     useEffect(() => {
         let isMounted = true;
