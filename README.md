@@ -27,3 +27,5 @@ This project was designed for ICELab to make their research data accessible and 
     ```shell
     npm run start
     ```
+#### Access the Website (Powered by netlify)
+[Go](https://65854511b418e40008300307--bucolic-druid-71c9aa.netlify.app)
