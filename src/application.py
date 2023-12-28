@@ -1,12 +1,10 @@
 from flask import Flask, jsonify, request
 import pymongo
 from flask_cors import CORS
-from datetime import datetime
 import statistics
 import math
 
 import csv
-import json
 from io import StringIO
 
 
@@ -520,6 +518,5 @@ def dco_insert(device_id):
     return jsonify({"result": "inserted successful"})
 
 
-# 测试
 if __name__ == "__main__":
     application.run(debug=True, port=7000)

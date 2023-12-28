@@ -72,9 +72,12 @@ function DashBoards2(props) {
     const [generatedExcuse, setGeneratedExcuse] = useState(data2); // wind rose data
     const [hisGramxy, sethisGramxy] = useState(data3); // histogram data
     var index = 0;
+    // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
+    // const url = "http://127.0.0.1:7000";
+    const url = "https://icelab-explorer.netlify.app:7000";
 
     useEffect(() => {
-        Axios.get(`http://127.0.0.1:7000/lastest-status/000001`).then((res) => {
+        Axios.get(`${url}/lastest-status/000001`).then((res) => {
           setcurrTime(res.data.result.TIMESTAMP)
         })
         setshowJsondata(JSON.stringify(props.dict[curIndex]))
@@ -126,8 +129,6 @@ function DashBoards2(props) {
         }
     }
 
-    // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
-    const url = "http://127.0.0.1:7000/";
 
      const fetchLinechart = (dev_id, ftime, var_t) => {
         var dat_t = {
@@ -528,7 +529,9 @@ function DashBoards2(props) {
                                 )
                             })}
                             <DashBoardCharts className="PopUp" openChart={isOpenChart} onCancel={() => { setIsOpenChart(false) }}>{showJsondata}{handleGraph(plotType)}</DashBoardCharts>
-                            <Modal open={isOpen} onCancel={() => { setIsOpen(false); }} onClose={() => { handleDelete() }} action="Delete"><p className="DeleteConfirm">Are you sure to Delete?</p></Modal>
+                            <Modal open={isOpen} onCancel={() => { setIsOpen(false) }} onClose={() => { handleDelete() }} action="Delete">
+                                <p className="DeleteConfirm">Are you sure to Delete?</p>
+                            </Modal>
                         </div>
                         <SaveButton openSave={props.showSave} setSave={handleSave}/>
                     </div>

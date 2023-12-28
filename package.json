@@ -39,10 +39,11 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"node server\"",
+    "start": "concurrently \"react-scripts start\" \"node server\" \"python src/application.py\"",
     "build": "CI=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "install-python-deps": "pip install -r requirements.txt"
   },
   "eslintConfig": {
     "extends": [
