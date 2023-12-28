@@ -455,13 +455,13 @@ function DashBoards2(props) {
             const toValue = parseInt(alldataObj.toTime.replace("T", "").replace(/[-:]/g, ""));
             const station = alldataObj.station
             const variable = alldataObj.variable
-            if (plottype=="LineChart") {
+            if (plottype==="LineChart") {
                 fetchLinechart(station,fromValue,variable)
             }
-            else if (plottype=="Histogram") {
+            else if (plottype==="Histogram") {
                 fetchHg(station, fromValue, variable)
             }
-            else if (plottype=="WindRose") {
+            else if (plottype==="WindRose") {
                 fetchExcuse(station,fromValue,toValue)
             }
         }catch (err){}
@@ -469,18 +469,18 @@ function DashBoards2(props) {
     },[showJsondata])
 
     async function handleVariables(data) {
-        if (JSON.stringify(data)==showJsondata) setIsOpenChart(true)
+        if (JSON.stringify(data)===showJsondata) setIsOpenChart(true)
         setshowJsondata(JSON.stringify(data))
     }
 
     const handleGraph = (garphType) => {
-        if (garphType=="LineChart") {
+        if (garphType==="LineChart") {
             return graph_line(Linexy)
         }
-        else if (garphType=="Histogram"){
+        else if (garphType==="Histogram"){
             return graph_hisGram(hisGramxy)
         }
-        else if (garphType=="WindRose"){
+        else if (garphType==="WindRose"){
             return graph_wr(generatedExcuse)
         }
     }
