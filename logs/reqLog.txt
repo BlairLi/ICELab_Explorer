@@ -2577,3 +2577,15 @@
 20231228	15:26:39	d3a2caf0-a107-44ce-acf3-08a266620ed5	GET	https://icelab-explorer.netlify.app	/users
 20231228	15:26:41	740e71c7-e20e-4993-a144-75541a6ea4f3	OPTIONS	https://icelab-explorer.netlify.app	/dashboards/Blair
 20231228	15:26:41	91acc6fb-bd1d-4373-a6d8-fc0b5c65db6f	GET	https://icelab-explorer.netlify.app	/dashboards/Blair
+20231228	15:31:01	8cf5c202-5fa3-4cba-85f6-c81be69baa23	OPTIONS	https://icelab-explorer.netlify.app	/auth
+20231228	15:31:01	8d012a04-42cd-4d85-94e0-db93e2d221f1	POST	https://icelab-explorer.netlify.app	/auth
+20231228	15:31:01	7c547102-cb05-4c66-9f24-4b7cdc171ce8	OPTIONS	https://icelab-explorer.netlify.app	/users
+20231228	15:31:01	ae4841af-52fd-4c7a-9c0b-a1bd06fc270e	GET	https://icelab-explorer.netlify.app	/users
+20231228	15:32:45	a4236d8c-3909-42db-97bf-d1085d8fc4f9	OPTIONS	https://icelab-explorer.netlify.app	/auth
+20231228	15:32:45	0041bf7d-7ec5-49ac-8b40-c42b596eb874	POST	https://icelab-explorer.netlify.app	/auth
+20231228	15:32:45	7d5da206-62c6-4842-b1d8-6c7dbc2f1520	OPTIONS	https://icelab-explorer.netlify.app	/users
+20231228	15:32:45	71bbb84e-6ece-4482-b745-a49f13a8b34a	GET	https://icelab-explorer.netlify.app	/users
+20231228	15:34:06	ac298426-7921-482d-8ec5-ccd0fe801dd4	OPTIONS	https://icelab-explorer.netlify.app	/auth
+20231228	15:34:06	20cb9aed-7e4a-493b-a1af-5acb1e670fca	POST	https://icelab-explorer.netlify.app	/auth
+20231228	15:34:06	a33bd04b-4cd7-463f-a373-eaf4dc1a7e99	OPTIONS	https://icelab-explorer.netlify.app	/users
+20231228	15:34:06	81baf1c8-4413-4b02-b20f-db292a13a3ba	GET	https://icelab-explorer.netlify.app	/users
