@@ -2571,3 +2571,9 @@
 20231228	13:59:55	8df5acbc-6758-41d3-95b2-c3e01071cccc	GET	http://localhost:3000	/dashboards/undefined
 20231228	13:59:55	fe6398ee-ed89-4600-ae38-dbc9442e396c	GET	http://localhost:3000	/refresh
 20231228	13:59:55	979da707-b397-4e37-a5ef-2329c10a582d	GET	http://localhost:3000	/dashboards/undefined
+20231228	15:26:38	2c373562-6b6b-4de9-a94e-66cea098720b	OPTIONS	https://icelab-explorer.netlify.app	/auth
+20231228	15:26:38	83d7c349-016c-4194-8781-8e716fa1cd06	POST	https://icelab-explorer.netlify.app	/auth
+20231228	15:26:39	9d907448-c8d9-49a0-8d61-a98285b5939e	OPTIONS	https://icelab-explorer.netlify.app	/users
+20231228	15:26:39	d3a2caf0-a107-44ce-acf3-08a266620ed5	GET	https://icelab-explorer.netlify.app	/users
+20231228	15:26:41	740e71c7-e20e-4993-a144-75541a6ea4f3	OPTIONS	https://icelab-explorer.netlify.app	/dashboards/Blair
+20231228	15:26:41	91acc6fb-bd1d-4373-a6d8-fc0b5c65db6f	GET	https://icelab-explorer.netlify.app	/dashboards/Blair
