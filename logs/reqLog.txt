@@ -2612,3 +2612,15 @@
 20231229	21:09:11	c2b76956-b204-453f-8a76-2be66a8f36f0	OPTIONS	https://icelab-explorer.netlify.app	/refresh
 20231229	21:09:11	b6bf348c-adff-447c-84e1-50e0ae843261	GET	https://icelab-explorer.netlify.app	/refresh
 20231229	21:09:11	4c612a7b-1112-477c-a95f-2c72cfc41bad	GET	https://icelab-explorer.netlify.app	/users
+20231229	21:36:27	6d381860-d1af-4e74-8f57-3fba28985749	GET	http://localhost:3000	/ws
+20231229	21:36:31	f9b1979d-733a-42e1-8f87-218f33d0a2bc	GET	http://localhost:3000	/ws
+20231229	21:36:40	04ef883b-8b27-4179-9e67-8407f0a3615c	GET	http://localhost:3000	/ws
+20231229	21:36:40	7eb62a7d-f3c8-4236-9ff7-06c195dc57f0	POST	http://localhost:3000	/auth
+20231229	21:36:40	2b281d58-85d9-4081-a4fe-2fe5996eab74	GET	undefined	/favicon.ico
+20231229	21:36:40	5d12f259-efd7-48d9-a9c6-4c83ac66feef	GET	undefined	/users
+20231229	21:36:56	19bf2781-1238-4972-87ad-bdb95b3fd80c	GET	http://localhost:3000	/ws
+20231229	21:37:28	13347248-883b-43c3-abba-7df8b6151011	GET	http://localhost:3000	/ws
+20231229	21:38:45	778b2f01-3c6a-4d4f-b75d-dc0e2a1ddedb	OPTIONS	http://localhost:3000	/auth
+20231229	21:38:45	f08ed12a-f362-4831-9d58-a397f0542619	POST	http://localhost:3000	/auth
+20231229	21:38:47	1941e594-3854-436f-a18c-d1ef060df5a4	OPTIONS	http://localhost:3000	/users
+20231229	21:38:47	b64f2250-5fcd-4c37-9c9a-74f70823fda9	GET	http://localhost:3000	/users
