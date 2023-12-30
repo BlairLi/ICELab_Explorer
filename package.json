@@ -39,7 +39,7 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"node server\" \"python src/application.py\"",
+    "start": "concurrently \"react-scripts start\" \"node server\" \"node src/application.js\"",
     "build": "CI=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
