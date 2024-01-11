@@ -5,7 +5,7 @@ import axios from 'axios';
 // const BASE_URL = 'http://Cisc498testing-env.eba-tjww5nka.us-east-1.elasticbeanstalk.com';
 // const BASE_URL = 'http://498autentication-env.eba-w49fafyt.us-east-1.elasticbeanstalk.com';
 // const BASE_URL = 'http://localhost:3500';
-const BASE_URL = 'https://ice-lab-explorer.vercel.app';
+const BASE_URL = 'https://node-js-tutorial-series.vercel.app';
 // const BASE_URL = 'https://icelab-explorer.netlify.app';
 // const BASE_URL = 'https://node-js-tutorial-series2-wofq5jfa6a-uc.a.run.app';
 // const BASE_URL = 'http://localhost:3000';
