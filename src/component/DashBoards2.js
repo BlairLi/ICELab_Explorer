@@ -73,8 +73,8 @@ function DashBoards2(props) {
     const [hisGramxy, sethisGramxy] = useState(data3); // histogram data
     var index = 0;
     // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
-    // const url = "http://127.0.0.1:7000";
-    const url = "https://icelab-explorer.netlify.app:7000";
+    const url = "http://127.0.0.1:7000";
+    // const url = "https://icelab-explorer.netlify.app:7000";
 
     useEffect(() => {
         Axios.get(`${url}/lastest-status/000001`).then((res) => {
