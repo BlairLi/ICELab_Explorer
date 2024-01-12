@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import "../css/AdminPage.css";
 import { useNavigate } from "react-router-dom";
+import { PY_URL } from "../urls";
 import Axios from "axios";
 
 const UpAdmin = () => {
@@ -67,7 +68,8 @@ const UpAdmin = () => {
       } else {
 
         try {
-          const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/insert_doc";
+    const url = `${PY_URL}/insert_doc`;
+    // const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/insert_doc";
           let config = {
             headers: {
               'Content-Type': 'application/json',

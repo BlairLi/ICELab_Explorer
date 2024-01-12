@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactECharts from 'echarts-for-react';
 import '../css/DashBoard2.css';
 import { ImBin } from 'react-icons/im';
+import { PY_URL } from "../urls";
 import Modal from "./Modal";
 import DashBoards from "./DashBoards";
 import DashBoardCharts from "./DashBoardCharts";
@@ -73,8 +74,8 @@ function DashBoards2(props) {
     const [hisGramxy, sethisGramxy] = useState(data3); // histogram data
     var index = 0;
     // const url = "http://planwebapi-env.eba-khpxdqbu.us-east-1.elasticbeanstalk.com/"
-    const url = "http://127.0.0.1:7000";
-    // const url = "https://icelab-explorer.netlify.app:7000";
+    // const url = "http://127.0.0.1:7000";
+    const url = PY_URL;
 
     useEffect(() => {
         Axios.get(`${url}/lastest-status/000001`).then((res) => {
@@ -137,7 +138,7 @@ function DashBoards2(props) {
           "Varible": var_t//"RH_Avg"
         }
         // console.log("fetchLinechart dat_t: "+JSON.stringify(dat_t.Varible))
-        Axios.post(`${url}dashboard_line_xy/${dev_id}`, dat_t).then(
+        Axios.post(`${url}/dashboard_line_xy/${dev_id}`, dat_t).then(
             (resp) => {
             setLinexy(resp.data);
           }
@@ -150,7 +151,7 @@ function DashBoards2(props) {
         "TIMESTAMP_T": currTime
     }
     // console.log("fetchExcuse dat_t: "+JSON.stringify(dat_t))
-    Axios.post(`${url}dashboard_wr/${excuse}`, dat_t).then(
+    Axios.post(`${url}/dashboard_wr/${excuse}`, dat_t).then(
         (resp) => {
             setGeneratedExcuse(resp.data.res);
         }
@@ -164,7 +165,7 @@ function DashBoards2(props) {
         "Varible": var_t//"RH_Avg"
     }
     // console.log("fetchHg dat_t: "+ JSON.stringify(dat_t.Varible))
-    Axios.post(`${url}dashboard_hg/${dev_id}`, dat_t).then(
+    Axios.post(`${url}/dashboard_hg/${dev_id}`, dat_t).then(
         (resp) => {
             sethisGramxy(resp.data);
         }

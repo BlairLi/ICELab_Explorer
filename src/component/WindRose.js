@@ -4,9 +4,13 @@ import "../css/WindRose.css"
 import { useEffect, useState } from "react";
 import { CiViewBoard } from 'react-icons/ci';
 import { BsGraphUp } from 'react-icons/bs';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { PY_URL } from '../urls';
 
-const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/"
+// const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/"
+// const url = "http://127.0.0.1:7000";
+const url = PY_URL;
+
 function WindRose() {
 
   const [selectedValue, setSelectedValue] = useState('Choose1');
@@ -55,7 +59,7 @@ function WindRose() {
     };
 
     window.addEventListener('devvidChanged', handleDevIdChanged);
-    Axios.get(`http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/lastest-status/${storedDevId}`).then((res) => {
+    Axios.get(`${url}/lastest-status/${storedDevId}`).then((res) => {
       setcurrTime(res.data.result.TIMESTAMP);
       const hi = res.data.result.TIMESTAMP;
       setTime(hi);
@@ -157,7 +161,7 @@ function WindRose() {
       "TIMESTAMP_T": currTime,
       "Varible": var_t//"RH_Avg"
     }
-    Axios.post(`${url}dashboard_line_xy/${dev_id}`, dat_t).then(
+    Axios.post(`${url}/dashboard_line_xy/${dev_id}`, dat_t).then(
       (resp) => {
         setLinexy(resp.data);
       }
@@ -169,7 +173,7 @@ function WindRose() {
       "TIMESTAMP_F": ftime,
       "TIMESTAMP_T": Time
     }
-    Axios.post(`${url}dashboard_wr/${excuse}`, dat_t).then(
+    Axios.post(`${url}/dashboard_wr/${excuse}`, dat_t).then(
       (resp) => {
         setGeneratedExcuse(resp.data.res);
       }
@@ -181,7 +185,7 @@ function WindRose() {
       "TIMESTAMP_T": currTime,
       "Varible": var_t//"RH_Avg"
     }
-    Axios.post(`${url}dashboard_hg/${dev_id}`, dat_t).then(
+    Axios.post(`${url}/dashboard_hg/${dev_id}`, dat_t).then(
       (resp) => {
         sethisGramxy(resp.data);
       }

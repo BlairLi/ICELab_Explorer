@@ -7,6 +7,7 @@ import Axios from "axios";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import * as XLSX from 'xlsx';
 import useAuth from "../hooks/useAuth";
+import { PY_URL } from "../urls";
 /* import * as XLSX from 'xlsx'; */
 /* import { Form } from 'antd'; */
 /* import { Select, MenuItem, FormControl, InputLabel, OutlinedInput, ListItemText, Checkbox } from '@mui/material'; */
@@ -170,7 +171,8 @@ const Export = () => {
   }, [isChecked]);
 
   const fetchExcuse = (dev_id, formatValue, fromValue, toValue, listValue) => {
-    const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/export-csv";
+    // const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/export-csv";
+    const url = `${PY_URL}/export-csv`;
     const flattenedListValue = listValue.flat();
     const dat_t = {
       "TIMESTAMP_F" : fromValue,

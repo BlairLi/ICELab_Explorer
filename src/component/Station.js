@@ -13,12 +13,15 @@ import { GiBattery75 } from 'react-icons/gi';
 import { FaWind } from 'react-icons/fa';
 import { FaDirections } from 'react-icons/fa';
 import { FaRadiation } from 'react-icons/fa';
+import { PY_URL } from "../urls";
 import Axios from "axios";
 //import useWindowSize from './windowsize.js'
+
+
 const Station = () => {
     const [selectedValue, setSelectedValue] = useState('Choose1');
     // const url = "http://Plandatacisc498-env.eba-bxqir2i9.us-east-1.elasticbeanstalk.com/lastest-status";
-    const url = "http://127.0.0.1:7000/lastest-status";
+    const url = `${PY_URL}/lastest-status`;
     // const url = "https://icelab-explorer.netlify.app:7000/lastest-status";
     const [generatedExcuse, setGeneratedExcuse] = useState("");
     const [temp2m, setTemp2m] = useState("");
