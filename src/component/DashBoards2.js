@@ -77,12 +77,23 @@ function DashBoards2(props) {
     // const url = "http://127.0.0.1:7000";
     const url = PY_URL;
 
+    // useEffect(() => {
+    //     Axios.get(`${url}/lastest-status/000001`).then((res) => {
+    //       setcurrTime(res.data.result.TIMESTAMP)
+    //     })
+    //     setshowJsondata(JSON.stringify(props.dict[curIndex]))
     useEffect(() => {
-        Axios.get(`${url}/lastest-status/000001`).then((res) => {
-          setcurrTime(res.data.result.TIMESTAMP)
-        })
-        setshowJsondata(JSON.stringify(props.dict[curIndex]))
-      }, [])
+        // Introduce a delay of 30 seconds (30000 milliseconds) before executing the Axios request
+        const timer = setTimeout(() => {
+          Axios.get(`${url}/lastest-status/000001`).then((res) => {
+            setcurrTime(res.data.result.TIMESTAMP);
+          });
+          setshowJsondata(JSON.stringify(props.dict[curIndex]));
+        }, 50000); // 30000 milliseconds = 30 seconds
+      
+        // Cleanup function to clear the timer if the component unmounts before the timer fires
+        return () => clearTimeout(timer);
+    }, [])
 
 
 
