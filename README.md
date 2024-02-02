@@ -28,5 +28,5 @@ This project was designed for [ICELab](https://www.queensu.ca/geographyandplanni
     npm run start
     ```
 ## ⚡Quick Start
-#### Access the Website (Powered by netlify)
-[Go](https://65854511b418e40008300307--bucolic-druid-71c9aa.netlify.app)
+#### Access the Website (Powered by vercel)
+[Go to the webpage](https://ice-lab-explorer.vercel.app)
