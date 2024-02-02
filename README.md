@@ -29,4 +29,4 @@ This project was designed for [ICELab](https://www.queensu.ca/geographyandplanni
     ```
 ## ⚡Quick Start
 #### Access the Website (Powered by vercel)
-[Go](https://ice-lab-explorer.vercel.app)
+[Go to the webpage](https://ice-lab-explorer.vercel.app)
